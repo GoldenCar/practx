@@ -1,0 +1,255 @@
+<div class="alert" messagealert selection="showalert"  ng-show="showalert > 0" ng-bind="status"></div>
+<div style="background-color: #ffffff; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;" id="pageView">
+    <div class="container" >
+        <div class="row" style=" padding: 10px 0;">
+            <div class="span5">
+                <div class="span1" style="width: 53px;">
+                    <img src="/img/list_icon.png" class="pull-left"/>
+                </div>
+                <div class="span4" style="margin-left: 0px;">
+                    <h2>
+                        Exercise Program
+                    </h2>
+                </div>
+            </div>
+            <div class="span7" ng-show="exerciseList.exercises.length > 0">
+                    <button style="position: relative; top: 5px; " class="btn btn-white pull-right"
+                            ng-disabled="validateForm()" ng-click="saveAsTemplate()" data-fail-text="SAVE AS TEMPLATE" id="saveAsTemplate"
+                            data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE AS TEMPLATE
+                    </button>
+
+
+                    <button style="position: relative; top: 5px; margin-right: 5px;" class="btn btn-generic pull-right"
+                            ng-disabled="validateForm()" ng-click="patientModalStatus = 'show'" data-fail-text="SEND TO PATIENT" id="send"
+                            data-loading-text="Loading..." btn-action="saveBtnStatus">SEND TO PATIENT
+                    </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" id = "tourFilter">
+        <div class="span2">
+            <div class="row">
+                <div class="span2" style="margin-left: 10px">
+                    Filter Exercises
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2" style="margin-left: 10px">
+                    <select class="span2" ng-change="filterTag()" ng-model="stretchFilter"  style="width: 115px"
+                            ng-options="c for c in filters">
+                    </select>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="span2">
+                    <img style="cursor: pointer; border: 1px solid #CCC; float: left; border-radius: 5px; margin-left: 10px;"
+                         ng-click="flip()" src="/img/body_flip.png"> <span style="line-height: 38px; font-size: 11px; margin-left: 5px;">{{backOrFront}}</span>
+                    <ul class="bodyparts" style="margin-top: 15px; margin-left: 0px; padding-left: 0px;">
+                        <li ng-class="{active: searchFilter('none')}" ng-click="addToSearch('none')">All</li>
+                        <li ng-class="{active: searchFilter('neck')}" ng-click="addToSearch('neck')">Head + Neck</li>
+                        <li ng-class="{active: searchFilter('shoulder')}" ng-click="addToSearch('shoulder')">Shoulders</li>
+                        <li ng-class="{active: searchFilter('back')}" ng-show="backOrFront == 'Posterior'" ng-click="addToSearch('back')">Back</li>
+                        <li ng-class="{active: searchFilter('chest')}" ng-show="backOrFront == 'Anterior'" ng-click="addToSearch('chest')">Chest</li>
+                        <li ng-class="{active: searchFilter('upper Arm')}" ng-click="addToSearch('upper Arm')">Upper Arm</li>
+                        <li ng-class="{active: searchFilter('lower Arm')}" ng-click="addToSearch('lower Arm')">Lower Arm</li>
+                        <li ng-class="{active: searchFilter('abdomen')}"  ng-show="backOrFront == 'Anterior'" ng-click="addToSearch('abdomen')">Abdomen</li>
+                        <li ng-class="{active: searchFilter('gluets')}"  ng-show="backOrFront == 'Posterior'" ng-click="addToSearch('gluets')">Gluets</li>
+                        <li ng-class="{active: searchFilter('upper Legs')}" ng-click="addToSearch('upper Legs')">Upper Leg</li>
+                        <li ng-class="{active: searchFilter('lower Legs')}" ng-click="addToSearch('lower Legs')">Lower Leg</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div ng-class="{span7: exerciseList.exercises.length > 0, span10: exerciseList.exercises.length == 0}">
+            <div class="row">
+                <div class="span6">
+                    <p style="margin-top:6px; margin-left: 20px;"><span style="color: #000000;">Select Exercises</span> to add to your template program</p><br/>
+                </div>
+            </div>
+            <div class="row" id="tourExercises">
+                <div ng-class="{span7: exerciseList.exercises.length > 0, span10: exerciseList.exercises.length == 0}" style="margin-left: -20px;">
+                    <ul class="thumbnails" style="margin-top: -11px;">
+                        <li ng-repeat="exercise in exercises | filterByArray:search | orderBy:'active'" style="width: 183px; margin: 0 10px">
+                            <div class="thumbnail mobile"
+                                 style="cursor: pointer;">
+                                <div>
+                                    <img ng-src="{{exercise.thumbnail}}"  ng-click="showVideo(exercise)" style="cursor: pointer; width: 100%">
+                                    <img src="/img/play.png"
+                                         style="position: relative; bottom: 48px; right: -5px; cursor: pointer;">
+                                </div>
+                                <div class="caption"
+                                     style="height: 100px; overflow: hidden; position: relative; bottom: 48px;" ng-click='addExercise(exercise)'>
+
+                                    <div class="pull-right add-exercise" ng-class="getBtnClass(exercise)"></div>
+                                    <h3 ng-bind="exercise.name"></h3>
+
+                                    <p ng-bind="smallString(exercise.description, exercise.name)"></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="span3" ng-show="exerciseList.exercises.length > 0">
+            <div class="row">
+                <div class="span3">
+                    <p>Program name</p>
+                    <input type="text" class="input-block-level" name="name" placeholder="Program name" required
+                           ng-model="exerciseList.name" id="name">
+                    <p>Program notes</p>
+                    <textarea class="input-block-level" rows="3" ng-model="emailText"></textarea>
+                </div>
+            </div>
+            <div class="row" ng-show="exerciseList.exercises.length > 0">
+                <div class="span3">
+                    <br/>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li ng-repeat="exercise in exerciseList.exercises" ng-click="editExercise(exercise)" class="hoverUnderlineText">
+                            <img ng-click="addExercise(exercise)" class="pull-right" src="/img/cross.png"
+                                 style="position: relative; top: 2px;">
+                            <h3 ng-bind="exercise.name" ng-click="displayVideo(exercise)"></h3>
+
+                            <div ng-repeat="prescription in exercise.prescriptionData" ng-show="prescription.value">
+                                <strong ng-bind="prescription.value"></strong> <span
+                                    ng-bind="prescription.sentence"></span><br/>
+                            </div>
+                            <hr/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="createPatientModal" style="overflow: visible;" class="modal hide" tabindex="-1" role="dialog" data-keyboard="false" modal-action="patientModalStatus" data-backdrop="static" aria-labelledby="playButton" aria-hidden="true">
+    <div class="row heading" style="border-radius: 10px 10px 0 0;">
+        <button type="button" class="close" ng-click="patientModalStatus = 'hide'" aria-hidden="true">&times;</button>
+        SEND TO PATIENT
+    </div>
+    <div class="modal-body" style="overflow: visible;">
+        <div class="error" ng-bind="patient.error" ng-show="patient.error"></div>
+        <form class="form-inline" name="form" novalidate>
+
+            <label class="control-label" for="patient-name">Full name<span ng-show="form.patientname.$error.required"> - Required</span><br/>
+                <input type="text" items="8" placeholder="Enter patient's name" typeahead="patient.name for patient in practitioner.Patients | filter:$viewValue" name="patientname" required  ng-model="exerciseList.patient.name" id="patient-name" >
+            </label>
+            <label class="control-label" for="email">Email Address<span ng-show="form.email.$error.required"> - Required</span> <span ng-show="form.email.$error.email"> - Must be valid email</span><br/>
+                <input type="email"   placeholder="Enter patient's email" name="email" required ng-model="exerciseList.patient.email"  id="email" autocomplete="off" watch-and-update="exerciseList.patient.name">
+            </label>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-white" ng-click="patientModalStatus = 'hide'">CLOSE</button>
+        <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="saveAndEmail()"
+                data-fail-text="SEND" btn-action="saveBtnStatus"
+                id="savencreate"  data-loading-text="Loading...">SEND
+        </button>
+        <!-- <button class="btn btn-generic pull-right"
+                ng-disabled="validateForm()" ng-click="emailToMe()" data-fail-text="SEND TO ME" id="emailToMe"
+                data-loading-text="Loading..." btn-action="saveBtnStatus">SEND TO ME
+        </button>  --> 
+    </div>
+</div>
+<div id="practitionerTypeModal" class="modal hide" tabindex="-1" role="dialog" data-keyboard="false" modal-action="practitionerTypeModalStatus" data-backdrop="static" aria-labelledby="playButton" aria-hidden="true">
+    <div class="row heading">
+        Thanks for trying PracTx
+    </div>
+    <div class="modal-body" >
+        <div class="container">
+            <h3>What kind of practitioner are you?</h3><br/>
+            <div class="row" style="margin-bottom: 5px;">
+                <button class="btn btn-white pull-left span3" style="height: 50px; margin-left: 30px; margin-right: 90px;" ng-click="selectPractitionerType('Osteopath')">Osteopath</button>
+
+                <button class="btn btn-white pull-left span3" style="height: 50px;"  ng-click="selectPractitionerType('Physiotherapist')">Physiotherapist</button>
+            </div>
+            <div class="row" style="margin-top: 30px;">
+                <button class="btn btn-white pull-left span3" style="height: 50px; margin-left: 30px; margin-right: 90px;" ng-click="selectPractitionerType('Chiropractor')">Chiropractor</button>
+
+                <button class="btn btn-white pull-left span3" style="height: 50px;"  ng-click="selectPractitionerType('Other')">Other</button>
+            </div>
+            <!--<div class="row">
+                <div style="margin-left: 30px; margin-top: 25px; overflow-y: scroll; width: 445px; border-radius: 10px; padding: 10px; border: 1px solid #ccc; max-height: 200px;">
+                    <h2>Terms of Use</h2>
+                    <p>
+                        This Agreement is between you (“the User”) and PracTx with regard to an online Platform that was developed by PracTx to enhance the way practitioners like you interact with their patients or clients and to assist practitioners in the prescription of exercises to their patients.
+                    </p>
+
+                    <p>
+                        By using and accessing the Platform you acknowledge that you have read this Agreement and that you accept without modification the terms and conditions.
+
+                    <hr/></p>
+                    <h2>Medical Disclaimer</h2>
+                    <p>This Platform is provided for information purposes only.  Although every care was undertaken in the production of the exercise programs, this Platform is not designed to replace professional consultation, reasoning or opinions of medical practitioners.  </p>
+                    <p>The User of this Platform should not use the Platform as a basis for diagnosing or treating any health problem or disease without consulting with a qualified health care provider.</p>
+                    <p>The User agrees that the prescription of the exercises are within the boundaries of your professional scope, governed by the appropriate professional registration body and their laws.</p>
+                    <p>The User agrees and warrants that in prescribing the exercises on the Platform to patients or clients, he or she is practicing within the boundaries of their expertise and that he or she retains the appropriate professional indemnity insurance required by their professional registration bodies.</p>
+                    <hr/>
+                    <h2>Legal Disclaimer</h2>
+                    <p>PracTx makes no assumption that the exercises on the Platform are safe without professional assessment and recommendation and accepts no responsibility in the event of death, injury or harm to any person, including the patients or clients of the User arising from the use of the Platform.</p>
+                    <p>The User agrees that it has viewed and assessed all the exercises on the Platform before properly prescribing them to patients and the User warrants that he or she is aware that there may be a risk of injury to patients or clients in the prescription of the exercises on the Platform and that any patient prescribed exercises are prescribed at the risk of the User and not PracTx.</p>
+                    <p>The User agrees that PracTx is not responsible for any liability arising from any death, injury, loss or damage suffered by the patients or clients of the User as a consequence of carrying out exercises on the Platform that were prescribed by the User.</p>
+                    <p>The User agrees to release, indemnify and hold harmless PracTx for any claim, injury, loss or damage brought against the User and/or PracTx by a patient or client of the User arising from any death, injury, loss or damage suffered by the patient or client of the User as a consequence of carrying out exercises on the Platform that were prescribed by the User.</p>
+                    <hr/>
+                    <h2>Copyright</h2>
+                    <p>The Platform, all its content, including visual content, is the property of PracTx or its third party licensors and is protected from unauthorised copying dissemination by worldwide copyright and other intellectual property rights whether or not copyright notice is present.</p>
+                    <p>The User agrees to comply with all intellectual property right laws in its use of the Platform and to prevent any unauthorised copying of the content, including visual content on the Platform.</p>
+                    <p>Nothing contained on the Platform should be construed as granting by implication, estoppel or otherwise, any license or right to use any copyrightable material displayed on the Platform without the express written permission of PracTx or such third party that may own the copyrightable material displayed on the Platform.</p>
+
+                </div>
+            </div>-->
+            <div style="margin-left: 30px; margin-top: 25px;">
+                <input type="checkbox" class="ng-pristine ng-valid" ng-model="showClinikoPopup">
+                     I would like to automatically upload my patients from Cliniko.
+                     <div class="cliniko-popup-entry" ng-show="showClinikoPopup">
+                        If you have a Cliniko account and you would like to automatically populate your PracTx Patient list:
+                        </br>
+                        <ol style ="padding-left: 15px; padding-top: 5px;">
+                            <li>Login to Cliniko.</li>
+                            <li>In the bottom left, left click the "Hello, &lt;You&gt;"</li>
+                            <li>Click on "My info"</li>
+                            <li>Scroll down until you see the "API Keys"</li>
+                            <li>Click "Generate a new API Key"</li>
+                            <li>Copy and paste the new API Key into the below text box</li>
+                        </ol>
+                        <input type="text" class="ng-pristine ng-valid" ng-model="practitioner.clinikoId"></br>
+                        <span class="cliniko-popup-button" ng-click="showClinikoPopup = false">I will add this later</span>
+                    </div>
+            </div>
+            <div class="row">
+                <div style="margin-left: 30px; margin-top: 25px;">
+                    <p class="error" ng-show="tncError">Please accept the Terms and Conditions and Privacy Policy first</p>
+                    <input ng-model="tnc" type ="checkbox"/> I accept the <a target='_blank' href='/legal/basic'>Terms of Use</a> and <a target='_blank' href='/privacy/basic'>Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tourModal" class="modal hide" tabindex="-1" role="dialog" data-keyboard="false" modal-action="tourModalStatus" data-backdrop="static" aria-labelledby="playButton" aria-hidden="true"
+     style='width: 400px; margin-left: -200px; top: 100px; overflow: hidden'>
+    <div class="row heading">
+        <a class="pull-right" ng-click="tourModalStatus = 'hide'" href="#"><img src="/img/cross-white.png"/></a>
+        Welcome
+    </div>
+    <div class="modal-body" >
+        <div class="container">
+            <div class="row" style="margin-bottom: 5px;">
+                <h3>Welcome to the PracTx platform.</h3>
+                <p>Let us show you around some of the great features. </p>
+                <br>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-generic" ng-click="startTour(); tourModalStatus = 'hide'" id="tourstart"  data-loading-text="Loading...">START PRODUCT TOUR
+        </button>
+        <button class="btn btn-white" ng-click="tourModalStatus = 'hide'">SKIP</button>
+    </div>
+</div>
+<ng-include  src="'/editUserModal.html'"> </ng-include>
+<ng-include src="'/editExerciseModal-tablet.html'"></ng-include>

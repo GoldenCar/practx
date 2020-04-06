@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="patientModule">
+<head>
+    <meta charset="utf-8">
+    <title>PracTx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+
+    </style>
+
+      <link href="/stylesheets/app.css" rel="stylesheet">
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+</head>
+<body>
+<div ng-controller="PatientExerciseListCntl"  style="display: none" ng-show="exerciseList != null">
+<header class="mobile">
+    <img src="/img/logo.png"/>
+    <span class="business">
+        <h3 ng-bind="practitioner.clinic.name"></h3>
+        <h4 ng-bind="practitioner.clinic.phone"></h4>
+        <p ng-bind="practitioner.clinic.address"></p>
+    </span>
+</header>
+<div id="exerciseView" ng-hide="showNotes">
+<div class="mobile_row" style=" background: white;" >
+    <div style="padding: 5px;">
+    <h2 ng-bind="exerciseList.name" class="pull-left" style="display: inline-block; padding-left: 4px;"></h2>
+    <span class="btn btn-info pull-right" ng-click="showNotes = true">Notes <i class="icon-white icon-circle-arrow-right"></i></span>
+    <div class="clearfix"></div>
+    </div>
+</div>
+<div class="mobile_row" id="thumbnails-scroller" style="text-align: center">
+    <h2 style="color: #2c2c2c" ng-bind="currentExercise.name"></h2>
+    <p class="notes">Select Exercise: (swipe)</p>
+    <div class="thumb-scroller">
+        <img ng-src="{{exercise.thumbnail}}" class="thumb"
+             ng-repeat="exercise in exerciseList.exercises"
+             ng-click="showMobileExercise($index)"
+             ng-class="{selected: exercise.id==currentExercise.id}"
+                id="thumbnail-{{$index}}"/>
+    </div>
+    </div>
+<span style="clear:both"></span>
+<div class="mobile_row" style="background: white" ng-hide="currentExercise==null">
+    <div class="arrow-vid"></div>
+    <div class="watch-button"><a ng-href="{{currentExercise.videoMp4}}" >Watch Video <img src="/img/play.png"/></a></div>
+
+    <table>
+        <tr ng-repeat="prescription in currentExercise.prescriptionData" ng-show="prescription.name != 'Comments'">
+            <td ng-bind="prescription.name"></td>
+            <td ng-bind="prescription.value"></td>
+        </tr>
+    </table>
+    <hr>
+    <p><strong>Exercise: </strong><span ng-bind="currentExercise.name"></span></p>
+    <p><strong>Notes:</strong> <span  ng-show="showComments(currentExercise)" ng-bind="getExerciseComments(currentExercise)" ></span>
+        <span  ng-hide="showComments(currentExercise)">(No Notes)</span></p>
+        <hr>
+        <p class="notes"><strong>Instructions:</strong> <span ng-bind="currentExercise.description"></span></p>
+</div>
+
+</div>
+<div id="notesView" ng-show="showNotes">
+    <div class="mobile_row" style=" background: white;" >
+        <div style="padding: 5px;">
+
+            <span class="btn btn-info" ng-click="showNotes = false"><i class="icon-white icon-circle-arrow-left"></i> Back</span>
+        </div>
+    </div>
+
+    <div class="mobile_row" style=" background: white;" >
+        <h3 style="text-align: center">Program Notes</h3>
+        <hr>
+        <p><span class="header">Program Name: </span>
+            <span ng-bind-html-unsafe="exerciseList.name"></span></p>
+        <p><span class="header">Program Notes: </span>
+            <span ng-bind-html-unsafe="exerciseList.emailText"  ng-hide="exerciseList.emailText == null"></span>
+            <span ng-show="exerciseList.emailText == null">(No Notes)</span></p>
+        <p ng-bind="getUpdatedAtText()" class="muted"></p>
+        <br>
+    </div>
+    <div class="mobile_row" style=" background: white;" >
+        <h3 style="text-align: center">Program Prescribed By</h3>
+        <hr>
+        <p><span class="header">Practitioner: </span>
+            <span ng-bind="practitioner.name"></span></p>
+
+        <p><span class="header">Email: </span>
+            <span ng-bind="practitioner.email"></span>
+            <a class="btn btn-info btn-small pull-right btn-right-mobile" href="mailto:{{practitioner.email}}">
+                <i class="icon-white icon-envelope"></i>  Message
+            </a></p>
+        <br>
+    </div>
+    <div class="mobile_row" style=" background: white;" >
+        <h3 style="text-align: center">Clinic Information</h3>
+        <hr>
+        <p><span class="header">Name: </span>
+            <span ng-bind="practitioner.clinic.name"></span>
+            </p>
+
+        <p><span class="header">Phone Number: </span>
+            <span ng-bind="practitioner.clinic.phone"></span>
+            <a class="btn btn-info btn-small pull-right btn-right-mobile" href="tel:{{practitioner.clinic.phone}}">
+                <i class="icon-white icon-bell"></i>  Call
+            </a></p>
+
+        <p><span class="header">Address: </span>
+            <span ng-bind-html-unsafe="practitioner.clinic.address"></span>
+        </p>
+
+        <p ng-show="practitioner.clinic.website"><span class="header">Website: </span>
+            <span ng-bind="practitioner.clinic.website"></span>
+            <a class="btn btn-info btn-small pull-right btn-right-mobile" href="tel:{{practitioner.clinic.website}}">
+                <i class="icon-white icon-home"></i>  Link
+            </a></p>
+        <br>
+    </div>
+</div>
+<footer>
+    <p>© PracTx.com</p>
+</footer>
+
+</div>
+
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/angular.min.js" ng-autobind></script>
+<script src="/javascripts/angular-resource.min.js"></script>
+<script src="/javascripts/angular/services.js"></script>
+<script src="/javascripts/angular/catalogueControllers.js"></script>
+<script src="/javascripts/angular/filters.js"></script>
+<script src="/javascripts/angular/directives.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/date.format.js"></script>
+</body>
+</html>

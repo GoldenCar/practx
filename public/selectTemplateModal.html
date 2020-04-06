@@ -1,0 +1,57 @@
+<div id="templateModal" modal-action="selectTemplateModalStatus" data-keyboard="false" data-backdrop="static"
+     class="modal container hide" tabindex="-1">
+    <div class="row heading">
+        <a ng-click="hideSelectTemplateModal()" class="pull-right"
+           style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a>
+        <span style="padding-left: 10px">CREATE EXERCISE PROGRAM</span>
+    </div>
+    <div id="modal-height-constrainta" class="modal-body" style="padding: 0px;">
+        <div style="background-color: #e6e6e6; width: 290px; height: 350px; overflow-y: scroll; float: left;">
+            <div class="row" style="border-bottom: 1px solid #cfcfcf;">
+                <div style="padding-left: 20px; padding-top: 15px; padding-bottom: 15px; color: #878b90;">
+                Select Template to use
+                </div>
+            </div>
+            <div class="row">
+                <ul class="template-list">
+                    <li ng-repeat="template in templates" ng-class="{active: template == activeTemplate}" ng-click="setActiveTemplate(template)">
+                    <p ng-bind="getTemplateExerciseCount(template)" class="pull-right"></p>
+                    <p ng-bind="template.name"></p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div style="width: 490px; height: 350px; overflow-y: scroll" class="pull-right">
+            <div class="row" style="border-bottom: 1px solid #cfcfcf; height: 50px; margin-right: 20px; margin-left: 20px; ">
+                <p class="pull-right" style="padding-left: 20px; padding-top: 15px; padding-bottom: 15px; font-size: 16px;">{{getTemplateExerciseCount(activeTemplate)}} Exercises</p>
+                <div style=" padding-top: 15px; padding-bottom: 15px; font-weight: bold; font-size: 16px;">
+                   {{activeTemplate.name}}
+                </div>
+            </div>
+            <div class="row" style="margin-right: 20px; margin-left: 20px;" ng-show="activeTemplate.id != -1">
+            <ul style="list-style: none; padding: 0; margin: 0; padding-bottom: 50px; margin-right: 40px; position: relative; top: -20px;">
+                <li ng-repeat="exercise in activeTemplate.exercises" style="padding-top: 20px; clear:both;">
+                    <img ng-src="{{exercise.thumbnail}}" class="pull-left" style="width: 143px; height: 79px;  margin-right: 15px;">
+                    <p ng-bind="exercise.name" style="font-weight: bold; margin: 0;"></p>
+                    <span ng-repeat="prescription in exercise.prescriptionData" ng-show="prescription.value">
+                        <span ng-bind="prescription.value" style="font-size: 13px;"></span> <span style="font-size: 13px;" ng-bind="prescription.sentence"></span>,
+                    </span>
+                </li>
+            </ul>
+            </div>
+            <div ng-show="activeTemplate.id == -1">
+                <p style="position: relative; left: 130px; width: 200px; text-align: center; top: 100px;">Start with an empty program.</p>
+                <p  style="position: relative; left: -10px; text-align: center; top: 100px;">Click the "+" button to add exercises</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div style="width: 780px;">
+                <button class="btn btn-white pull-left" style="padding: 5px 30px;" ng-click="hideSelectTemplateModal()">CANCEL</button>
+                <button class="btn btn-generic pull-right" style="padding: 5px 30px; margin-right: 35px;" ng-click="prescribeExerciseList()">CREATE NEW PROGRAM</button>
+            </div>
+        </div>
+    </div>
+</div>

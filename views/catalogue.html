@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="patientModule">
+<head>
+    <meta charset="utf-8">
+    <title>PracTx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/app.css" rel="stylesheet">
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+    <script type="text/javascript">
+        var analytics = analytics || [];
+        analytics.load = function (e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript", t.async = !0, t.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/" + e + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            var r = function (e) {
+                return function () {
+                    analytics.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, i = ["identify", "track", "trackLink", "trackForm", "trackClick", "trackSubmit", "pageview", "ab", "alias", "ready"];
+            for (var s = 0; s < i.length; s++)analytics[i[s]] = r(i[s])
+        };
+        analytics.load("aq5kapao5v");
+    </script>
+</head>
+<body>
+<div class="navbar" ng-controller="MenuCntl">
+    <div class="navbar-pp">
+        <div class="container">
+            <div class="row">
+                <div class="span9">
+                    <a class="brand" href="/"><img src="/img/logo.png"/></a>
+                </div>
+                <div class="span3">
+                    <div class="pull-right" style="text-align: right;">
+                        <p style="color: #ffffff; margin-top: 30px; margin-bottom: 0px;"
+                           ng-bind="practitioner.clinic.name + ' - ' + practitioner.clinic.phone"></p>
+
+                        <p ng-bind="practitioner.clinic.address" style="color: #3cbbd2;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-controller="PatientExerciseListCntl">
+    <div style="background-color: #ffffff;">
+        <div class="container" style="background-color: #ffffff; padding-top: 20px; padding-bottom: 20px;">
+            <div class="row">
+                <div class="span4">
+                    <div class="span1" style="width: 53px;">
+                        <img src="/img/person_icon.png" class="pull-left"/>
+                    </div>
+                    <div class="span3" style="margin-left: 0px;">
+                        <h2 ng-bind="exerciseList.name"></h2>
+                    </div>
+                </div>
+                <div class="span6">&nbsp;</div>
+                <div class="span2">
+                    <button class="btn btn-white pull-right print-button" style='margin-right: 5px;'
+                            ng-click="printList()">PRINT
+                    </button>
+                    <h3 ng-bind="exerciseList.practitioner.name"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style=" padding-bottom: 20px;">
+        <div class="row"
+             style="border-bottom: 1px solid #dbdbd8; padding-bottom: 5px; padding-top: 5px; border-top: 1px solid #dbdbd8; margin-bottom: 10px;">
+            <div class="span3">
+                <h2 style="color: #abaaa9; font-family: calibri">Program notes</h2>
+            </div>
+            <div class="span9">
+                <div class="row">
+                    <div class="span3">
+                        <h2 style="color: #abaaa9; font-family: calibri"
+                            ng-bind='exerciseList.exercises.length + " Exercises"'></h2>
+                    </div>
+                    <div class="span6" >
+                        <h2 style="color: #abaaa9; font-family: calibri; padding-left: 20px;">Prescription details</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-bottom: 10px;margin-bottom: 10px;">
+            <div class="span3">
+                <div style="padding-right: 20px">
+                    <p  ng-bind-html-unsafe='exerciseList.emailText'></p>
+                </div>
+            </div>
+            <div class="span9">
+                <div class="row" ng-repeat="exercise in exerciseList.exercises" style="border-bottom: 1px solid #dbdbd8; padding-bottom: 10px;margin-bottom: 10px;">
+                    <div class="span3">
+                        <div>
+                            <img ng-src="{{exercise.thumbnail}}" style="cursor: pointer;
+                        background: url(/img/image-load.png) no-repeat; background-clip: content-box; background-size: 100%; box-shadow: 0px 2px 5px #999; border: 1px solid rgba(0,0,0,0.3);"
+                                 ng-click="showVideo(exercise)">
+                            <img src="/img/play.png" style="position: relative; bottom: -42px; right: 236px; cursor: pointer;"
+                                 ng-click="showVideo(exercise)">
+                        </div>
+                    </div>
+                    <div class="span6">
+                        <div style="padding-left: 20px;">
+                            <h1 ng-bind="exercise.name" style="font-size: 16px;"></h1>
+
+                            <p class="header" ng-show="showComments(exercise)">Notes to the patient</p>
+
+                            <p ng-bind="getExerciseComments(exercise)" ng-show="showComments(exercise)"></p>
+
+                            <p class="header">How to do the exercise</p>
+
+                            <p ng-bind="exercise.description"></p>
+
+                            <p class="header" ng-show="showPrescribed(exercise)">Prescribed</p>
+
+                            <div ng-repeat="prescription in exercise.prescriptionData" class="row">
+                                <div class="span3" ng-show="prescription.value" style="background-image: url(/img/dot.png); background-repeat: repeat-x;">
+                            <span class="pull-right" style="font-size: 16px; padding-left: 5px; background-color: #efefef"
+                                  ng-show="prescription.name != 'Comments'" ng-bind="prescription.value"></span>
+
+                                    <p ng-show="prescription.name != 'Comments'" class="inlinep"
+                                       style="background-color: #efefef; padding-right: 5px; "
+                                       ng-bind="prescription.name">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-include src="'/videoModal.html'"></ng-include>
+</div>
+<hr>
+<footer>
+    <div class="container">
+        <p>&copy; PracTx.com</p>
+    </div>
+</footer>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/angular.min.js" ng-autobind></script>
+<script src="/javascripts/angular-resource.min.js"></script>
+<script src="/javascripts/angular/services.js"></script>
+<script src="/javascripts/angular/catalogueControllers.js"></script>
+<script src="/javascripts/angular/filters.js"></script>
+<script src="/javascripts/angular/directives.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/date.format.js"></script>
+</body>
+</html>

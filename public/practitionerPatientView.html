@@ -1,0 +1,151 @@
+<div class="alert" messagealert selection="showalert"  ng-show="showalert > 0" ng-bind="status"></div>
+<div style="background-color: #ffffff;">
+    <div class="container" style="background-color: #ffffff; padding-top: 10px; padding-bottom: 10px;">
+        <div class="row" style="padding: 10px 0;">
+            <div class="span8">
+                <div class="span1" style="width: 53px;">
+                    <img src="/img/person_icon.png" class="pull-left"
+                         style="position: relative; top: 0px;"/>
+                </div>
+                <div class="span7" style="margin-left: 0px;"><p style="margin-top: 10px; float: right; margin-right: 20px;" ng-show="!showEditPatient"><span
+                        ng-bind="exerciseList.patient.email"></span>
+                    (<span class="a" ng-click="showEditPatient = true">edit</span>)</p>
+                    <h2 ng-show="!showEditPatient" ng-bind="exerciseList.patient.name"></h2>
+
+                    <form class="form-inline" name="form" novalidate ng-show="showEditPatient" style="margin: 0; height: 40px;">
+                        <label class="control-label" for="patient-name">Full name<span
+                                ng-show="form.patientname.$error.required"> - Required</span><br/>
+                            <input type="text" placeholder="Enter patient's name" name="patientname" required
+                                   ng-model="editPatient.name" id="patient-name">
+                        </label>
+                        <label class="control-label" for="email">Email Address<span
+                                ng-show="form.email.$error.required"> - Required</span>
+                            <span ng-show="form.email.$error.email"> - Must be valid email</span><br/>
+                            <input type="email" placeholder="Enter patient's email" name="email" required
+                                   ng-model="editPatient.email" id="email">
+                        </label>
+                        <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="savePatient()"
+                                data-fail-text="SAVE"
+                                id="savencreate" data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE
+                        </button>
+                        <button class="btn btn-white" ng-click="showEditPatient = false">CANCEL
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="span4">
+                <button style="position: relative; margin-top: 6px; padding: 5px 30px;" class="btn btn-generic pull-right"
+                                       ng-click="editExerciseList()" data-fail-text="Save and Send" id="send"
+                                       data-loading-text="Loading..." btn-action="saveBtnStatus" >ADD / EDIT EXERCISES
+            </button>
+                <button class="btn btn-generic pull-right" style="position: relative; margin-top: 6px; padding: 5px 30px;margin-right: 5px;" ng-click="selectTemplateModalStatus = 'show'">CREATE NEW PROGRAM</button>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="padding-top: 20px; padding-bottom: 20px; ">
+    <div class="row" style="padding-bottom: 20px;">
+        <div class="span7">
+            <h1 ng-bind="exerciseList.name" style="font-size: 24px;"></h1>
+        </div>
+        <div class="span3">
+            <p class="pull-right smallngrey" style="position: relative; top: 5px;" ng-bind="getUpdatedAtText()"></p>
+        </div>
+        <div class="span2">
+            <button ng-show="exerciseList.status == 'Sent'" class="btn btn-white pull-right" ng-click="resendEmail()">
+                RESEND
+            </button>
+            <button ng-show="exerciseList.status == 'Draft' || exerciseList.status == 'Editted'"
+                    class="btn btn-white pull-right" ng-click="resendEmail()">SEND
+            </button>
+            <button class="btn btn-white pull-right" style='margin-right: 5px;' ng-click="printList()">PRINT</button>
+        </div>
+    </div>
+    <div class="row"
+         style="border-bottom: 1px solid #dbdbd8; padding-bottom: 5px; padding-top: 5px; border-top: 1px solid #dbdbd8; margin-bottom: 10px;">
+        <div class="span3">
+            <h2 style="color: #abaaa9; font-family: calibri; font-size: 18px;">Program notes</h2>
+        </div>
+        <div class="span9">
+            <div class="row">
+                <div class="span3">
+                    <h2 style="color: #abaaa9; font-family: calibri; font-size: 18px;"
+                        ng-bind='exerciseList.exercises.length + " Exercises"'></h2>
+                </div>
+                <div class="span6" >
+                    <h2 style="color: #abaaa9; font-family: calibri; padding-left: 20px; font-size: 18px;">Prescription details</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-bottom: 10px;margin-bottom: 10px;">
+        <div class="span3">
+            <div style="padding-right: 20px; margin-top: 7px">
+                <p ng-show="!editProgramNotes" ng-bind-html-unsafe='exerciseList.emailText'></p>
+                <button class="btn btn-generic" ng-show="!editProgramNotes" ng-click="editProgramNotes = !editProgramNotes">EDIT</button>
+                <div ng-show="editProgramNotes">
+                    <textarea class="input-block-level" rows="3" ng-model="emailText"></textarea>
+                    <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="saveEmailText()"
+                            data-fail-text="SAVE" d="savencreate" data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE
+                    </button>
+                    <button class="btn btn-white" ng-click="editProgramNotes = !editProgramNotes">CANCEL
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="span9">
+            <div class="row" ng-repeat="exercise in exerciseList.exercises" style="border-bottom: 1px solid #dbdbd8; padding-bottom: 10px;margin-bottom: 10px; margin-top: 12px">
+                <div class="span3">
+                    <div>
+                        <img ng-src="{{exercise.thumbnail}}" style="cursor: pointer;
+                        background: url(/img/image-load.png) no-repeat; background-clip: content-box; background-size: 100%; box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.07); "
+                             ng-click="showVideo(exercise)">
+                        <img src="/img/play.png" style="position: relative; bottom: -42px; right: 236px; cursor: pointer;"
+                             ng-click="showVideo(exercise)">
+                    </div>
+                </div>
+                <div class="span6">
+                    <div style="padding-left: 20px;">
+                        <button class="btn btn-ethereal pull-right" ng-click="removeExercise(exercise)"><img
+                                src="/img/cross.png" style="margin-top: -2px;"/></button>
+                        <button class="btn btn-ethereal pull-right" style="margin-right: 5px;"
+                                ng-click="editExercise(exercise)">EDIT
+                        </button>
+                        <h1 ng-bind="exercise.name" style="font-size: 16px;line-height: normal; margin-top: -4px;"></h1>
+
+                        <p class="header" ng-show="showComments(exercise)">Notes to the patient</p>
+
+                        <p ng-bind="getExerciseComments(exercise)" ng-show="showComments(exercise)"></p>
+
+                        <p class="header">How to do the exercise</p>
+
+                        <p ng-bind="exercise.description"></p>
+
+                        <p class="header" ng-show="showPrescribed(exercise)">Prescribed</p>
+
+                        <div ng-repeat="prescription in exercise.prescriptionData" class="row"
+                             style="text-overflow: ellipsis; width: 350px; overflow: hidden;">
+                            <div class="span3" ng-show="prescription.value" style="background-image: url(/img/dot.png);">
+                                <span class="pull-right" style="font-size: 16px; position: relative; left: -0px; background: #efefef; padding: 0 0 0 5px; margin: 0;"
+                                  ng-show="prescription.name != 'Comments'" ng-bind="prescription.value"></span>
+
+                                <p ng-show="prescription.name != 'Comments'"
+                                   style="text-overflow: ellipsis; overflow: hidden; height: 25px; margin: 0; padding: 0 5px 0 0; background: #efefef; float: left;"
+                                   ng-bind="prescription.name">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-include  src="'/selectTemplateModal.html'"> </ng-include>
+
+<ng-include src="'/editExerciseModal.html'"></ng-include>
+<ng-include src="'/videoModal.html'"></ng-include>
+<ng-include  src="'/editUserModal.html'"> </ng-include>
+
+

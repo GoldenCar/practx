@@ -1,0 +1,57 @@
+<div class="alert" messagealert selection="showalert"  ng-show="showalert > 0" ng-bind="status"></div>
+<div style="background-color: #ffffff;">
+<div class="container" style="background-color: #ffffff; padding-top: 10px; padding-bottom: 10px;">
+    <div class="row">
+            <div class="span1" style="width: 53px;">
+                <img src="/img/person_icon.png" class="pull-left" style="position: relative; bottom: 3px;"/>
+            </div>
+            <div class="span11" style="margin-left: 0px;">
+                <h2>My Subscription</h2>
+            </div>
+    </div>
+</div>
+</div>
+<!-- <form name="form" novalidate ng-submit="register()" cool-fade> -->
+<div class="container" style="padding-top: 20px;">
+
+    <div class="row">
+        <div class="span2" style="padding-bottom:20px;">
+            <h2>My Plan Details</h2>
+        </div>
+        <div class="span7 planCard">
+            <span ng-show="practitioner.plan.name != null"><p><span class="planInfoTitle">Plan: </span>{{practitioner.plan.name}}</p></span>
+            <span ng-show="practitioner.plan.description != null">{{practitioner.plan.description}}</span> <br><br></span>
+            <span ng-show="practitioner.plan.cycle != null"><p><span class="planInfoTitle">Cycle: </span>{{practitioner.plan.cycle}}</p></span>
+            <span ng-show="practitioner.plan.price != null"><p><span class="planInfoTitle">Price: </span>{{practitioner.plan.price}}</p></span>
+            <div ng-show="practitioner.isTrial">
+                <hr style="margin-right: 25px;">
+                <span style="color:red; font-weight:bold;">You have not registered a credit card</span><br> <br>
+                <span>You can upgrade your account by simply linking a credit card.</span><br> <br>
+
+                <div class="btn btn-generic" ng-click="upgradeAccount(practitioner.referralCode)"  style="margin-bottom: 13px;">Add credit card details</div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="row" style="border-top: 1px solid #dbdbd8; padding-top: 10px;">
+        <div class="span2" style="padding-bottom:20px;">
+            <h2>Change plan</h2>
+        </div>
+        <div class="span5">
+            <div class="span7" style="margin-top: 5px;">
+                <a class="btn btn-generic" ng-href="/payment" target="_blank">Change plan</a>
+            </div>
+        </div>
+    </div>
+    <div classs="row" style="border-top: 1px solid #dbdbd8; padding-top: 10px;">
+        <div class="span2">
+            <h2>Login Information</h2>
+        </div>
+        <div class="span5">
+            <div class="span7" style="margin-top: 5px;">
+                <a class="btn btn-generic" ng-href="{{editAuthicAccount}}">Update login information</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </form> -->

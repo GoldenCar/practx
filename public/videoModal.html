@@ -1,0 +1,6 @@
+<div id="videoModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="playButton" data-keyboard="false" data-backdrop="static" modal-action="videoModalStatus" modal-body="videoModalBody" aria-hidden="true">
+    <div class="row heading">
+        <a ng-click="hideVideo()" class="pull-right" style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a>  <span style="text-transform: uppercase"  ng-bind="videoExercise.name"></span></div>
+    <div class="modal-body" id="videoModalBody" play-video="videoExercise">
+    </div>
+</div>

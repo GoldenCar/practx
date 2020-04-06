@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment | PracTx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/stylesheets/splash/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="/stylesheets/splash/main.css" rel="stylesheet">
+    <link href="/stylesheets/splash/payment.css" rel="stylesheet">
+    <link href="https://normalize-css.googlecode.com/svn/trunk/normalize.css" rel="stylesheet" />
+    <!-- Facebook Conversion Code for 30 Day Free Trial Registration -->
+    <script type="text/javascript">
+        var fb_param = {};
+        fb_param.pixel_id = '6014135583976';
+        fb_param.value = '0.01';
+        fb_param.currency = 'USD';
+        (function(){
+            var fpw = document.createElement('script');
+            fpw.async = true;
+            fpw.src = '//connect.facebook.net/en_US/fp.js';
+            var ref = document.getElementsByTagName('script')[0];
+            ref.parentNode.insertBefore(fpw, ref);
+        })();
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6014135583976&amp;value=0.01&amp;currency=USD" /></noscript>
+</head>
+<body>
+
+<header class="image-logo logo-and-nav">
+    <div class="container">
+        <div class="row">
+            <div class="span12" style='text-align: left'>
+                <a href="/"><div class="image-logo" style='width: 160px'></div></a>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <ul class="navo">
+                <li id="authic_signup_form">1 - Sign Up</li>
+                <li id="authic_credit_card_form">2 - Payment Details</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <h1 id='frame-title'>Signup</h1>
+            <iframe id="iframe" src="/signup_iframe?plan=NMZG" style="width: 100%; height: 1100px;" seamless frameborder="0"></iframe>
+        </div>
+        <div class="span6">
+            <div id="payment-details">
+                <h3>Special Offer For OBA Members</h3><ul class='unstyled'><li>Unlimited Patients</li><li>Unlimited Exercise Programs</li><li>Access to all HD-videos</li><li>Automated Patient Email System</li><li>Access to our Support Team</li><li>Access to Future Updates</li></ul>
+            </div>
+            <div class="comments">
+
+                <div class="item">
+                    <p>"With PracTx, my patients are more consistent with their exercises and I’m saving time and money. If you haven’t used PracTX, you should."</p>
+                    <span class="user">Dr. Alexandra Poulos, Osteopath</span>
+                </div>
+                <div class="item">
+                    <p>"With PracTx I select specific exercises from the library and in just a few clicks it's in the patients inbox.
+                        Patient compliance has increased by at least 10x"</p>
+                    <span class="user">Arthur Kapsimalis, Physiotherapist & Exercise Physiologist</span>
+                </div>
+            </div>
+            <p style = "text-align: center;">Note: All quoted prices and transaction values are in AUD.</p>
+            <div class="paymentimages text-center">
+                <img src="/img/payment/RapidSSL_SEAL-90x50.gif" alt="RapidSSL_SEAL-90x50" />
+                <img style="padding-left: 3px;" src="/img/oba.png" alt="oba" />
+                <img src="/img/payment/symantec_norton_sites_seal.jpg" alt="symantec_norton_sites_seal" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span12 centre-aligned-text" id="bottom-nav">
+                <a href="index.html">Home</a> &#8226; <a href="/features">Features</a>  &#8226; <a href="/plans">Plans and Pricing</a><!--&#8226; <a href="/about">About<span id="regular-space"> </span>us</a>-->
+                &#8226; <a href="/legal">Terms & Conditions</a> &#8226; <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div id="social-buttons">
+                    <a href="https://www.facebook.com/pages/Practx/423199081103844"><img src="/img/splash/facebook-btn.png"/></a>
+                    <a href="mailto:support@practx.com"><img src="/img/splash/email-btn.png"/></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 centre-aligned-text">
+                <span class="contact-section"><br>
+                    <b>© 2013 PracTx</b> Level 5, 50 Carrington Street, Sydney NSW 2000, Australia.<br>
+                    <b>ABN:</b> 37 159 231 357 | <b>P:</b> 1300 736 693 | <b>E:</b> support@practx.com<br>&nbsp;
+                </span>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<script>
+    var titles={
+        "authic_signup_form": "Sign Up",
+        "authic_signin_form": "Sign In",
+        "authic_credit_card_form": "Payment Details"
+    };
+    window.addEventListener('message', stageChange, false);
+
+    function stageChange(event) {
+        $(".navo li").addClass("disabled");
+        $(".navo li").removeClass("active");
+        var m = event.data;
+
+        $("#frame-title").text(titles[m] || "");
+
+
+        $("#authic_signup_form").removeClass("disabled");
+        if (m === "authic_signup_form"){
+            $("#authic_signup_form").text("1 - Sign Up");
+            $("#authic_signup_form").addClass("active");
+            return;
+        }
+        if (m === "authic_signin_form"){
+            $("#authic_signup_form").text("1 - Sign In");
+            $("#authic_signup_form").addClass("active");
+            return;
+        }
+
+        $("#authic_credit_card_form").removeClass("disabled");
+        if (m === "authic_credit_card_form"){
+            $("#authic_credit_card_form").addClass("active");
+            return;
+        }
+    }
+</script>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+</body>
+</html>

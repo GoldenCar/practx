@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="practitionerPortal">
+<head>
+    <meta charset="utf-8">
+    <title>PracTx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link href='/stylesheets/printList.css' type='text/css' rel='stylesheet'/>
+
+    <script type="text/javascript">
+        var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+        analytics.load("aq5kapao5v");
+    </script>
+
+</head>
+<!-- <body onload='window.print()'> -->
+<body onload='setTimeout(window.print, 1000)')>
+    <img class="print-header-logo" src="/img/email_head.png"/>
+    <div class="print-container" ng-controller="PatientViewCntl">
+        <div class="print-patient-info">
+            <h1 ng-bind="exerciseList.name"></h1>
+            <h3 ng-bind="exerciseList.exercises.length + ' Exercises'"></h3>
+            <br style='clear:both'>
+            <h2>Program Notes:</h2>
+            <p ng-bind-html-unsafe="exerciseList.emailText"></p>
+            <br>
+            
+        </div>
+        
+        <div class="print-row" ng-repeat="exercise in exerciseList.exercises">
+            <h1 ng-bind="exercise.name"></h1>
+            <div class="print-left">
+                <img class="print-image" ng-src="{{exercise.thumbnail}}"/>
+                <table class="print-table">
+                    <thead><tr><th colspan="2">Prescribed</th></tr></thead>
+                    <tbody ng-repeat="prescription in exercise.prescriptionData">
+                        <tr ng-show="prescription.value">
+                            <td ng-show="prescription.name != 'Comments'" ng-bind="getPrescriptionText(prescription, true)"></td>
+                            <td ng-show="prescription.name != 'Comments'" ng-bind="prescription.value"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="print-right">
+                <h2>How to do the exercise: </h2>
+                <p ng-bind="exercise.description"></p>
+                <br>
+                <h2 ng-show="showComments(exercise)">Notes: </h2>
+                 <p ng-bind="getExerciseComments(exercise)" ng-show="showComments(exercise)"></p>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+
+    </div>
+
+<footer>
+    <p>&copy; PracTx.com</p>
+</footer><script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/angular.min.js" ng-autobind></script>
+<script src="/javascripts/angular-resource.min.js"></script>
+<script src="/javascripts/angular/services.js"></script>
+<script src="/javascripts/angular/printControllers.js"></script>
+<script src="/javascripts/angular/filters.js"></script>
+<script src="/javascripts/angular/directives.js"></script>
+</body>
+</html>

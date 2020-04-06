@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="practitioner" >
+<head>
+    <meta charset="utf-8">
+    <title>PracTx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="author" content="">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/progress-bar.css" rel="stylesheet">
+    <link href="/stylesheets/app.css" rel="stylesheet">
+    <link href="/stylesheets/bootstrap-tour.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+
+    <script type="text/javascript">
+        var analytics = analytics || [];
+        analytics.load = function (e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript", t.async = !0, t.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/" + e + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            var r = function (e) {
+                return function () {
+                    analytics.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, i = ["identify", "track", "trackLink", "trackForm", "trackClick", "trackSubmit", "pageview", "ab", "alias", "ready"];
+            for (var s = 0; s < i.length; s++)analytics[i[s]] = r(i[s])
+        };
+        analytics.load("aq5kapao5v");
+
+        /*
+            $.post("url",
+              {
+                name:"Donald Duck",
+                city:"Duckburg"
+              },
+              function(data,status){
+                alert("Data: " + data + "\nStatus: " + status);
+              });
+        */
+    </script>
+</head>
+<body flow-prevent-drop="" flow-drag-enter="dropClass='drag-over'" flow-drag-leave="dropClass=''" cz-shortcut-listen="true">
+    <iframe src="/appcache" style="display:none;"></iframe>
+<div class="navbar" ng-controller="MenuCntl">
+    <div ng-cloak id="trialBar" ng-show="practitioner.isTrial"> <p>Thank you for trying PracTx! you have <b>{{getDaysLeft(practitioner.trialEndDate)}}</b> remaining in your <a href="/practitioner/subscription">subscription</a>. {{pleaseUpgrade(practitioner.trialEndDate)}}</p></div>
+    <div class="alert" messagealert selection="showalert" ng-show="showalert > 0" ng-bind="status"></div>
+    <div id="referFriendModal" class="modal hide" tabindex="-1" role="dialog" modal-action="referModalStatus"
+         data-backdrop="static" aria-hidden="true">
+        <div class="modal-header heading">
+            <button type="button" class="close" style="color: white; opacity: 0.6; margin-top: 0;" aria-hidden="true" ng-click="referModalStatus = 'hide'">×</button>
+            Refer a Friend!
+        </div>
+        <div class="modal-body">
+            <p>We want your fantastic experience with PracTx to be shared with other practitioners.</p>
+
+            <p>Simply add their name and email address and we will do the rest!</p>
+            <br>
+
+            <form class="form-inline" name="referralForm" novalidate>
+                <label class="control-label" for="referral-name">Full name<span
+                        ng-show="referralForm.referralname.$error.required"> - Required</span><br/>
+                    <input type="text" placeholder="Enter friend's name" name="referralname" required
+                           ng-model="referral.name" id="referral-name">
+                </label>
+                <label class="control-label" for="referral-email">Email Address<span
+                        ng-show="referralForm.referralemail.$error.required"> - Required</span> <span
+                        ng-show="form.referralemail.$error.email"> - Must be valid email</span><br/>
+                    <input type="email" placeholder="Enter friend's email" name="referralemail" required
+                           ng-model="referral.email" id="referral-email">
+                </label>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-white" ng-click="referModalStatus = 'hide'">LATER</button>
+            <button class="btn btn-generic" ng-disabled="referralForm.$invalid" ng-click="referFriend()"
+                    data-fail-text="REFER FRIEND"
+                    id="referfriend" data-loading-text="Loading..." btn-action="saveBtnStatus">REFER FRIEND
+            </button>
+        </div>
+    </div>
+    <ng-include  src="'/selectTemplateModal.html'"> </ng-include>
+
+
+    <div id="createPatientModal" modal-action="createPatientModal" class="modal hide in" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="playButton" aria-hidden="false" style="display: none; overflow: visible">
+        <div class="modal-header heading">
+            <button type="button" class="close" style="color: white; opacity: 0.6; margin-top: 0;" aria-hidden="true" ng-click="createPatientModal = 'hide'">×</button>
+            Create Patient
+        </div>
+        <div class="modal-body" style="overflow: visible;">
+            <div class="error ng-binding" ng-bind="patient.error" ng-show="patient.error" style="display: none;"></div>
+            <form class="form-inline ng-pristine ng-invalid ng-invalid-required" name="form" novalidate="">
+                <label class="control-label" for="patient-name">Full name<span ng-show="form.patientname.$error.required" style=""> - Required</span><br>
+                    <input type="text" placeholder="Enter patient's name" name="patientname" required="" ng-model="exerciseList.patient.name" id="patient-name" typeahead="patient.name for patient in practitioner.Patients | filter:$viewValue | limitTo:8" class="ng-pristine ng-invalid ng-invalid-required" watch-and-update="exerciseList.patient.email">
+                </label>
+                <label class="control-label" for="email">Email Address<span ng-show="form.email.$error.required" style=""> - Required</span> <span ng-show="form.email.$error.email" style="display: none;"> - Must be valid email</span><br>
+                    <input type="email" autocomplete="off" required="" placeholder="Enter patient's email" name="email" required="" ng-model="exerciseList.patient.email" typeahead="patient.email for patient in practitioner.Patients | filter:$viewValue" id="email" class="ng-pristine ng-invalid ng-invalid-required " watch-and-update="exerciseList.patient.name">
+                </label>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-white" ng-click="createPatientModal = 'hide'">CLOSE</button>
+            <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="showTemplateSelect()" data-fail-text="SAVE &amp; CREATE PROGRAM" id="savencreate" data-loading-text="Loading..." disabled="disabled" ng-hide="patientEmailFound(exerciseList.patient.email)">SAVE &amp; CREATE PROGRAM
+            </button>
+            <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="showTemplateSelect()" data-fail-text="SAVE &amp; CREATE PROGRAM" id="savencreate" data-loading-text="Loading..." disabled="disabled" ng-show="patientEmailFound(exerciseList.patient.email) && !patientHasExerciseList(exerciseList.patient.email)"> CREATE PROGRAM
+            </button>
+            <button class="btn btn-generic" ng-disabled="form.$invalid" ng-show="patientEmailFound(exerciseList.patient.email) && patientHasExerciseList(exerciseList.patient.email)" ng-click="editPatientFromAddPatient()" data-fail-text="SAVE &amp; CREATE PROGRAM" id="savencreate" data-loading-text="Loading..." disabled="disabled"> EDIT PROGRAM
+            </button>
+            <span ng-disabled="checkValid()"></span>
+        </div>
+    </div>
+
+    <div class="navbar-pp">
+        <div class="container">
+            <div class="row" active-nav="activeNav">
+                <div class="span8">
+                    <a class="brand" href="/"><img src="/img/logo.png"/></a>
+                    <a class="nav-btn" ng-href="/" id='nav-exercises'>EXERCISES
+                    </a><a class="nav-btn" ng-href="/patient" id='nav-patients'>PATIENTS
+                </a><a class="nav-btn" ng-href="/template" id='nav-template'>TEMPLATES
+                </a>
+                </div>
+                <div class="span4">
+                    <a href="#" ng-click="createPatientModal = 'show'; exerciseList.patient.name = ''; exerciseList.patient.email = ''" role="button" style="text-decoration: none" data-toggle="modal" ng-hide="practitioner.expired">
+                        <img class="opacity-highlight" id='addPatientButton' src="/img/add-patient.png" style="margin: 24px 0 0 100px ; color: transparent; border: 1px solid rgba(255,255,255,0.5); border-radius: 5px;"/>
+                    </a>
+                    <a href="#" ng-click="" ng-hide="practitioner.expired">
+                        <img class="opacity-highlight" ng-class="{hide: showTour()}" src="/img/info.png" ng-click="restartTour()" style="margin: 24px 0 0 15px; border: 1px solid rgba(255,255,255,0.5); border-radius: 5px;"/>
+                    </a>
+
+                    <ul class="nav nav-btn pull-right"
+                        style="margin: 0px; padding: 0px 0 0 10px; float: right;">
+                        <li class="dropdown pull-right" style="height: 100%: padding-right: 0;">
+                            <p href="#" class="a dropdown-toggle btn btn-white pull-right"
+                               style="border: none; box-shadow: none; text-decoration: none; color: #ffffff; background: transparent; position: relative; padding: 20px 10px 2px; height: 48px"
+                               data-toggle="dropdown">
+                                <img src="/img/dropdown_arrow.png" class="pull-right"
+                                     style="position: relative; top: 5px;"/>
+                                <span style="padding-right: 10px; font-size: 24px; text-transform: uppercase">Account</span>
+                            </p>
+                            <ul class="dropdown-menu"
+                                style="top: 82px; font-size: 14px; line-height: 16px;">
+                                <li>
+                                    <a ng-href="#" ng-click="referModalStatus = 'show'">Refer a
+                                        Friend</a>
+                                </li>
+                                <hr>
+                                <li>
+                                    <a ng-href="/practitioner/self">Edit Information</a>
+                                </li>
+                                <li>
+                                    <!-- <a ng-href="{{editAuthicAccount}}">Manage PracTx Account</a> -->
+                                    <a ng-href="/practitioner/subscription">Manage PracTx Account</a>
+                                </li>
+                                <li>
+                                    <a ng-href="/logout">Logout</a>
+                                </li>
+                                <li>
+                                    <hr>
+                                </li>
+                                <li style="padding: 3px 15px;">
+                                    <p><strong>Logged in as:</strong></p>
+
+                                    <p ng-bind="practitioner.name"></p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='container' style="position: absolute; top: 0; left:0; right:0; height: 0; z-index: -1;">
+    <div id="stop1" style="position: absolute; height: 1px; width: 1px; top: 330px; left: 180px;"></div>
+    <div id="stop2" style="position: absolute; height: 1px; width: 1px; top: 345px; left: 440px;"></div>
+    <div id="stop3" style="position: absolute; height: 1px; width: 1px; top: 60px; left: 600px;"></div>
+    <div id="stop4" style="position: absolute; height: 1px; width: 1px; top: 55px; left: 970px;"></div>
+</div>
+
+<div ng-view></div>
+<hr>
+<footer>
+    <div class="container">
+    <p>&copy; PracTx.com</p>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script src="/javascripts/jquery.cookie.js"></script>
+<script src="/javascripts/angular.min.js" ng-autobind></script>
+<script src="/javascripts/angular-resource.min.js"></script>
+<script src="/bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
+<script src="/bower_components/flow.js/dist/flow.min.js"></script>
+<script src="/bower_components/ng-flow/dist/ng-flow.min.js"></script>
+<script src="/javascripts/angular/services.js"></script>
+<script src="/javascripts/angular/practitionerControllers.js"></script>
+<script src="/javascripts/angular/filters.js"></script>
+<script src="/javascripts/angular/directives.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/raphael-min.js"></script>
+<script src="/javascripts/date.format.js"></script>
+<script src="/javascripts/bootstrap-tour.js"></script>
+</body>
+</html>

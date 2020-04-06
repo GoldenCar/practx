@@ -1,0 +1,84 @@
+<div class="alert" messagealert selection="showalert"  ng-show="showalert > 0" ng-bind="status"></div>
+<div style="background-color: #ffffff;">
+    <div class="container"
+         style="background-color: #ffffff; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;">
+        <div class="row">
+            <div class="row">
+                <div class="span9">
+                    <div class="span1" style="width: 53px;">
+                        <img src="/img/list_icon.png" class="pull-left"/>
+                    </div>
+                    <div class="span1" style="margin-left: 0px; position: relative; top: 5px;">
+                        <h2 id="exercises">
+                            Exercises
+                        </h2>
+                    </div>
+                </div>
+                <div class="span3">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span2">
+            <div class="row">
+                <div class="span2">
+                    Filter Exercises
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <select class="span2" ng-change="filterTag()" ng-model="stretchFilter"
+                            ng-options="c for c in filters">
+                    </select>
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="span2">
+                    <img style="cursor: pointer; border: 1px solid #CCC;"
+                         ng-click="flip()" src="/img/body_flip.png"> {{backOrFront}}
+                    <ul class="bodyparts" style="margin-top: 15px; margin-left: 0px; padding-left: 0px;">
+                        <li ng-class="{active: searchFilter('none')}" ng-click="addToSearch('none')">All</li>
+                        <li ng-class="{active: searchFilter('neck')}" ng-click="addToSearch('neck')">Head + Neck</li>
+                        <li ng-class="{active: searchFilter('shoulder')}" ng-click="addToSearch('shoulder')">Shoulders</li>
+                        <li ng-class="{active: searchFilter('chest')}" ng-click="addToSearch('chest')">Chest</li>
+                        <li ng-class="{active: searchFilter('upper Arm')}" ng-click="addToSearch('upper Arm')">Upper Arm</li>
+                        <li ng-class="{active: searchFilter('lower Arm')}" ng-click="addToSearch('lower Arm')">Lower Arm</li>
+                        <li ng-class="{active: searchFilter('abdomen')}" ng-click="addToSearch('abdomen')">Abdomen</li>
+                        <li ng-class="{active: searchFilter('upper Legs')}" ng-click="addToSearch('upper Legs')">Upper Leg</li>
+                        <li ng-class="{active: searchFilter('lower Legs')}" ng-click="addToSearch('lower Legs')">Lower Leg</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="span10">
+            <div class="row" style="margin-left: 0;">
+                <div class="span10">
+                    <ul class="thumbnails"  style="margin-top: 5px;">
+                        <li class="span3" style="margin-left: 0px; margin-right: 10px; margin-bottom: 0;"
+                            ng-repeat="exercise in exercises | filterByArray:search">
+                            <div class="thumbnail mobile"
+                                 ng-click="showVideo(exercise)" style="cursor: pointer; margin-left: 20px">
+                                <div>
+                                    <img ng-src="{{exercise.thumbnail}}" style="cursor: pointer; width: 100%">
+                                    <img src="/img/play.png"
+                                         style="position: relative; bottom: 48px; right: -5px; cursor: pointer;">
+                                </div>
+
+                                <div class="caption"
+                                     style="height: 100px; overflow: hidden; position: relative; bottom: 48px;">
+                                    <h3 ng-bind="exercise.name"></h3>
+                                    <p ng-bind="smallString(exercise.description, exercise.name)"></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

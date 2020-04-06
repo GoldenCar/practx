@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <title>Welcome to PracTx</title>
+    <meta name="description" content="Create simple, effective exercise programs and achieve better clinical results."/>
+    <meta name="viewport" content="">
+    <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+    <meta name="google-site-verification" content="mIIKuhJ8lzET_wpmo1eYzAuAHbAnYo0tP9hOuNiMj7A" />    <!-- Bootstrap -->
+    <link href="/stylesheets/splash/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/splash/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/stylesheets/splash/main.css?1" rel="stylesheet">
+    <script type="text/javascript">
+        var analytics = analytics || [];
+        analytics.load = function (e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript", t.async = !0, t.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/" + e + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            var r = function (e) {
+                return function () {
+                    analytics.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, i = ["identify", "track", "trackLink", "trackForm", "trackClick", "trackSubmit", "pageview", "ab", "alias", "ready"];
+            for (var s = 0; s < i.length; s++)analytics[i[s]] = r(i[s])
+        };
+        analytics.load("aq5kapao5v");
+    </script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript"src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+<body style="min-width: 1200px;">
+
+<header class="image-logo logo-and-nav">
+    <div class="container">
+        <div class="row">
+            <a href="/"><div class="span2 image-logo"></div></a>
+            <div class="span6 top-nav">
+                <a class="navmenu" href='/features'>Features</a>
+                <a class="navmenu" href='/pricing'>Pricing Plans</a>
+                <a class="navmenu" id="play-sample-button" onclick="analytics.track('Video');">Tour</a>
+               <!-- <a class="navmenu" href='/about'>About us</a> -->
+            </div>
+            <div class="span4 top-nav rhs">
+                <!--<div class="button-blue">
+                    <a class="tryItBtn" href='/pricing'><!--Try it FREESign Up</a>
+                </div>-->
+                <a class="login" href='/login'>Login</a>
+                <div class="button-blue" style="background-color: hotpink; margin-left: 125px;">
+                    <a class="tryItBtn" role="link" href="#trial-container">FREE TRIAL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="top-splash">
+    <div class="container">
+        <div class="row">
+            <div class="span6" id="text-container">
+                <div id="white-header">
+                    Create simple, effective <br/>
+                    exercise programs and
+                    <br/> achieve better clinical results.
+                </div>
+                <div id="grey-subheading-smaller">
+                    Prescribe stunning HD - exercise videos in seconds.<br/>
+                    Quick, simple and effective rehabilitation.
+                </div>
+                <div id="try-limited">
+                    <div class="button-blue">
+                        <a href='#trial-container' class="tryItBtn"><!--<b>Try it FREE</b> - for a limited time--><b>Sign Up</b> - create your first program</a>
+                    </div>
+                </div>
+                <div id="video-row">
+                    <div class="button-blue" id="play-sample-button1" onclick="analytics.track('Video');">
+                        <b>Watch the video tour</b>
+                    </div>
+                </div>
+            </div>
+            <div class="span6" id="trial-container" style="margin-right:55px;">
+                <h3>Try PracTx Free For 30 days!</h3>
+                <div id="trial-holder"></div>
+                <script type="text/javascript">
+                    var trialHolder = document.getElementById('trial-holder');
+                    var cookie = $.cookie('practxpromocode');
+                    if (typeof cookie !== "undefined") { //if cookie not undefined
+                        trialHolder.innerHTML = '<iframe id="iframe" src="/signup_iframe?referral_code='+cookie+'&amp;trial=yes" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe>';;
+                    } else {
+                        trialHolder.innerHTML = '<iframe id="iframe" src="/signup_iframe?referral_code=stdTrial&amp;trial=yes" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe>';
+                    } 
+                </script>
+                <!-- <iframe id="iframe" src="/signup_iframe?referral_code=stdTrial&amp;trial=yes" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe>  -->
+                <!-- <iframe id="iframe" src="/signup_iframe?plan=DSFASEF2342N4" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row" id="intro-row">
+        <div class="span12 centre-aligned-text">
+            <div class="blue-header ">Designed for Chiropractors, Physiotherapists and Osteopaths</div>
+            <div class="grey-subheading">and their patients</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="span4 centre-aligned-text">
+            <div id="image-quick-to-create">
+               <img src='/img/splash/quick-to-create.jpg' alt="exercises on iPad"/>
+            </div>
+            <div class="image-subheading">Create programs in seconds.</div>
+            <div class="image-description">Sort, search and prescribe exercises quickly<br/>
+                                            without typing. Saving you valuable time.</div>
+        </div>
+
+        <div class="span4 centre-aligned-text">
+            <div id="image-easy-for-patients">
+                <img src='/img/splash/easy-for-patients.jpg' alt="exercises on mobile"/>
+            </div>
+            <div class="image-subheading">Easy for patients</div>
+            <div class="image-description">Patients can follow the videos without <br/>
+                                                    confusion on any device at any time.<br/>
+                                                    Increase compliance and participation.
+            </div>
+        </div>
+
+        <div class="span4 centre-aligned-text">
+            <div id="image-140-exercise-videos">
+                <img src='/img/splash/140-exercise-videos.jpg' alt="neck stretch"/>
+            </div>
+            <div class="image-subheading">Expanding list of HD - Videos</div>
+            <div class="image-description">A huge library of quality videos that
+                we're adding to all the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container view-all-features-row" id="view-features-row">
+    <div class="row">
+        <div class="span4">
+            <hr/>
+        </div>
+        <div class="span4 centre-aligned-text ">
+            <div class="button-blue">
+                <a href="/features"><b>View all features and benefits</b></a>
+            </div>
+        </div>
+        <div class="span4">
+            <hr/>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="ipad-mini-quotes">
+    <div class="row">
+        <div class="span12">
+            <div id="quote1">
+                <div class="quote-text">
+                    <div class="in-quote">
+                        <span>"</span>Creating programs is so fast and easy, I now do it with my patients during
+                        the consultation. It creates a better understanding and they are very impressed.<span>"</span>
+                    </div>
+                    <div class="quoter">
+                        <b>Osteopath</b> -Dr Themos Gourlas <br/>B.App.Sc(Osteo); M.Ost
+                    </div>
+                </div>
+                <div class="quote-ball"></div>
+            </div>
+            <div id="quote2">
+                <div class="quote-text">
+                    <div class="in-quote">
+                        <span>"</span>It’s a really professional medium and help to add significant value to my service with minimal work on my part. I would recommend this without hesitation to any health care professional.<span>"</span>
+                    </div>
+                    <div class="quoter">
+                        <b>Osteopath</b> <br/>
+                        Dr Edward Clark <br/> B.App.Sc(Osteo); M.Ost
+                    </div>
+                </div>
+                <div class="quote-ball"></div>
+            </div>
+            <div id="quote3">
+                <div class="quote-text">
+                    <div class="in-quote">
+                        <span>"</span>As soon as I started to use it my I saw
+                        my patients become more engaged,
+                        improve faster and perform their
+                        exercises with greater accuracy.<span>"</span>
+                    </div>
+                    <div class="quoter">
+                        <b>WorkCover Physiotherapist</b> <br/>
+                        Arthur Kapsimalis <br/>M.Physio B.Ex.Sc Dip Hlth Sc ESSA AEP
+                    </div>
+                </div>
+                <div class="quote-ball"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span12 centre-aligned-text" id="bottom-nav">
+                <a href="index.html">Home</a> &#8226; <a href="/features">Features</a>  &#8226; <a href="/pricing">Plans and Pricing</a><!--&#8226; <a href="/about">About<span id="regular-space"> </span>us</a>-->
+                &#8226; <a href="/legal">Terms & Conditions</a> &#8226; <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div id="social-buttons">
+                    <a href="http://instagram.com/practx" target="_blank"><img style="height:38px;"src="/img/splash/instagram-btn.png"/></a>
+                    <a href="https://www.facebook.com/pages/Practx/423199081103844" target="_blank"><img src="/img/splash/facebook-btn.png"/></a>
+                    <a href="mailto:support@practx.com" target="_blank"><img src="/img/splash/email-btn.png"/></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 centre-aligned-text">
+                <span class="contact-section"><br>
+                    <b>© 2013 PracTx</b> Level 5, 50 Carrington Street, Sydney NSW 2000, Australia.<br>
+                    <b>ABN:</b> 37 159 231 357 | <b>E:</b> support@practx.com<br>&nbsp;
+                </span>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<div id="videoModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="playButton" data-keyboard="false" data-backdrop="static" modal-body="videoModalBody" aria-hidden="false">
+    <div class="row heading">
+        <a id="close-video-modal" class="pull-right" style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a></div>
+    <div class="modal-body" id="videoModalBody" play-video="videoExercise"><video id="theVideo" width="720" height="400" controls=""><source src="https://d2bjomctld7cul.cloudfront.net/videos/practx-demo.m4v">  Your browser does not support the video tag.</video></div>
+</div>
+
+<div id="exerciseVideoModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="playButton" data-keyboard="false" data-backdrop="static" modal-body="videoModalBody" aria-hidden="false">
+    <div class="row heading">
+        <a id="exercise-close-video-modal" class="pull-right" style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a>  <span style="text-transform: uppercase" ng-bind="videoExercise.name" class="ng-binding">Levator Scapulae</span></div>
+ <div class="modal-body" id="exerciseVideoModalBody" play-video="videoExercise"><video id="exerciseVideo" width="720" height="400"  controls=""><source type="video/webm" src="https://d2bjomctld7cul.cloudfront.net/videos/levator-scapulae.webm"><source type="video/mp4" src="https://d2bjomctld7cul.cloudfront.net/videos/levator-scapulae.mp4">  Your browser does not support the video tag.</video></div>
+</div>
+
+
+
+
+<script src="/javascripts/splash/bootstrap.min.js"></script>
+<script src="/javascripts/splash/main.js?1"></script>
+</body>
+</html>

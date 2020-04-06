@@ -1,0 +1,99 @@
+<div  id="editUserModal" class="modal hide" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="playButton" aria-hidden="true">
+    <div class="row heading">
+        <button type="button" class="close" ng-click="userEditModalStatus = 'hide'" aria-hidden="true">&times;</button>
+        UPDATE YOUR DETAILS
+    </div>
+    <div class="modal-body" >
+        <p>Entering your extra details will improve the experience for your patients</p>
+        <div class="error" ng-bind="patient.error" ng-show="patient.error"></div>
+        <form name="form" novalidate ng-submit="register()" cool-fade>
+            <div class="container" style="padding-top: 20px;">
+
+                <div class="row">
+                    <div class="span2">
+                        <h2>My Details</h2>
+                    </div>
+                    <div class="span5" style="margin-top: 5px;">
+                        <div class="control-group" ng-class="{error: form.firstname.$error.required}">
+                            <label class="control-label" for="name">Name</label>
+                            <div class="controls">
+                                <input type="text" class="input-block-level" name="name" required
+                                       ng-model="practitioner.name" id="name">
+
+                                <p class="help-block" ng-show="form.name.$error.required">Required</p>
+                            </div>
+                        </div>
+                        <div class="control-group"
+                             ng-class="{error: form.email.$error.required || form.email.$error.email}">
+                            <label class="control-label" for="email">Email</label>
+
+                            <div class="controls">
+                                <input type="email" class="input-block-level" name="email" required
+                                       ng-model="practitioner.email" id="email">
+
+                                <p class="help-block" ng-show="form.email.$error.required">Required</p>
+
+                                <p class="help-block" ng-show="form.email.$error.email">Must be valid email</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div classs="row" style="border-top: 1px solid #dbdbd8; padding-top: 10px;">
+                    <div class="span2">
+                        <h2>Clinic Details</h2>
+                    </div>
+                    <div class="span5">
+                        <div class="control-group" ng-class="{error: form.phone.$error.required}">
+                            <label class="control-label" for="phone">Phone</label>
+
+                            <div class="controls">
+                                <input type="text" class="input-block-level" name="phone" required
+                                       ng-model="practitioner.phone" id="phone">
+
+                                <p class="help-block" ng-show="form.phone.$error.required">Required</p>
+                            </div>
+                        </div>
+                        <div class="control-group" ng-class="{error: form.company.$error.required}">
+                            <label class="control-label" for="company">Company</label>
+
+                            <div class="controls">
+                                <input type="text" class="input-block-level" name="company" required
+                                       ng-model="practitioner.company" id="company">
+
+                                <p class="help-block" ng-show="form.company.$error.required">Required</p>
+                            </div>
+                        </div>
+                        <div class="control-group" ng-class="{error: form.website.$error.pattern}">
+                            <label class="control-label" for="website">Website</label>
+
+                            <div class="controls">
+                                <input type="text" class="input-block-level" name="website" ng-pattern="url"
+                                       ng-model="practitioner.website" id="website">
+
+                                <p class="help-block" ng-show="form.website.$error.pattern">Website needs to be a valid
+                                    URL (Including http://)</p>
+                            </div>
+                        </div>
+                        <div class="control-group" ng-class="{error: form.address.$error.required}">
+                            <label class="control-label" for="address">Address</label>
+
+                            <div class="controls">
+                                <input type="text" class="input-block-level" name="address" required
+                                       ng-model="practitioner.address" id="address">
+
+                                <p class="help-block" ng-show="form.address.$error.required">Required</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-white" ng-click="hideUserEditModalStatus()">CLOSE</button>
+        <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="updateUserThenSaveAndEmail()"
+                data-fail-text="SEND" btn-action="saveBtnStatus"
+                id="savencreate"  data-loading-text="Loading...">SEND
+        </button>
+    </div>
+</div>

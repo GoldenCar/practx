@@ -1,0 +1,1746 @@
+/* 
+    Document   : app
+    Created on : Jul 3, 2012, 4:16:02 PM
+    Author     : Thomas
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@font-face {
+    font-family: roundot;
+    /*url('/fonts/ROUND.eot'), src: url('/fonts/ROUND.TTF');*/
+url('/fonts/CALIBRI.eot'), src: url('/fonts/CALIBRI.TTF');
+}
+
+div[ng-view], .navbar-pp{
+    min-width: 1270px;
+
+}
+
+/*
+@font-face {
+    font-family: calibri;
+    src: url('/fonts/CALIBRI.eot'), url('/fonts/CALIBRI.TTF');
+}
+
+@font-face {
+    font-family: calibri-bold;
+    src: url('/fonts/CALIBRI.eot'), src: url('/fonts/CALIBRI.TTF');
+}
+*/
+.thumbnail:hover{
+    border: 1px solid #1F5677;
+}
+
+.dropdown-menu hr{
+    margin: 5px 0;
+}
+
+.dropdown-menu a{
+    text-decoration: none;
+}
+
+.dropdown-menu:hover{
+    cursor: default;
+}
+
+
+#videoModal{} /* For some reason this rule is ignored
+               No idea why, but this makes both the rules below work*/
+
+#videoModal{
+    width: 750px;
+    left: 50%;
+    margin-left: -375px;
+}
+
+#splashBody{
+    height: 400px;
+    overflow: hidden;
+}
+
+th{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.placeholder
+{
+    color: #aaa;
+}
+
+
+/*
+@font-face {
+    font-family: calibri-italics;
+    src: url('/fonts/CALIBRII.ttf');
+}
+
+
+@font-face {
+    font-family: calibri-bold-italics;
+    src: url('/fonts/CALIBRIZ.ttf');
+}
+*/
+.dropshadow{
+    -moz-box-shadow: 0px 0px 1px #000000;
+    -webkit-box-shadow: 0px 0px 1px #000000;
+    box-shadow: 0px 0px 1px #000000;
+}
+
+.thumbnail.active{
+    -moz-box-shadow: 0px 0px 5px goldenrod;
+    -webkit-box-shadow: 0px 0px 5px goldenrod;
+    box-shadow: 0px 0px 5px goldenrod;
+}
+
+tbody .active{
+    color: red;
+}
+th .active{
+    color: lightgreen;
+}
+th.column-head.selected{
+    background-color: #39a2c0;
+}
+th.column-head:hover{
+    cursor: pointer;
+    background-color: #37adc9;
+}
+
+h2{
+    color: #3cbbd2;
+}
+a{
+    color: #3cbbd2;
+    text-decoration: underline;
+    font-size: 14px;
+}
+p{
+    color: #484e56;
+}
+
+.ptitle{
+    color: #555144;
+    font-size: 14px;
+}
+
+.bg-dark{
+    background-color: #001e57;
+    border: 1px solid #000000;
+}
+
+.bg-dark h2{
+    color: #ffffff;
+    line-height: 30px;
+}
+
+.bg-dark p{
+    color: #ffffff;
+    line-height: 15px;
+}
+
+.jqui-dnd-target {
+    background-color: lightgreen;
+    min-height: 100px;
+}
+
+.jqui-dnd-item {
+
+}
+
+.jqui-dnd-target-active {
+
+}
+
+.jqui-dnd-target-over {
+
+}
+
+.jqui-dnd-item-over {
+    background-color: lightgreen;
+}
+
+.jqui-dnd-item-dragging {
+
+}
+
+#selectedExercises{
+    padding-left: 2px;
+    border-left: 2px solid #ffffff;
+}
+
+.bg{
+    background-color: #e9f0fe;
+    border: 1px solid #c0d7fe;
+}
+
+
+
+.bgactive{
+    background-color: #ecffcc;
+    border: 1px solid #c0d7fe;
+    -moz-box-shadow: 0px 0px 5px #ecffcc;
+    -webkit-box-shadow: 0px 0px 5px #ecffcc;
+    box-shadow: 0px 0px 5px #ecffcc;
+}
+
+.displayless .span4 p{
+    max-height: 100px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+
+
+.btn-giant {
+    padding: 12px 18px;
+    font-size: 20px;
+    line-height: normal;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.btn-giant [class^="icon-"] {
+    margin-top: 1px;
+}
+
+.btn-menu.active:hover{
+    color: #ffffff;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-menu:active{
+    color: rgba(255, 255, 255, 0.75);
+
+}
+
+.btn-menu:hover,
+.btn-menu:active,
+.btn-menu.active,
+.btn-menu.disabled,
+.btn-menu[disabled] {
+    background-color: #113258;
+    *background-color: #113258;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+
+}
+
+.btn-menu,
+.btn-menu.active{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    color: #ffffff;
+    background-color: #113258;
+    *background-color: #113258;
+    background-repeat: repeat-x;
+    border-color: #113258 #113258 #113258;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #113258;
+}
+
+
+.btn-ethereal,
+.btn-ethereal:hover{
+    color: #3297b2;
+}
+
+.btn-ethereal:active{
+    color: #000000;
+}
+
+.btn-ethereal:hover,
+.btn-ethereal:active,
+.btn-ethereal.active,
+.btn-ethereal.disabled,
+.btn-ethereal[disabled] {
+    background-color: transparent;
+    *background-color: transparent;
+}
+
+.btn-ethereal {
+    background-color: transparent;
+    *background-color: transparent;
+    background-repeat: repeat-x;
+    border-color: transparent transparent transparent;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #ABAAA9;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='transparent', endColorstr='transparent', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+hr{
+    border-top-color: #d8d8d6;
+}
+
+.btn-generic,
+.btn-generic:hover{
+    color: #ffffff;
+}
+
+.btn-generic:active{
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-group .btn{
+    border-right: none;
+}
+
+.btn.btn-white{
+    color: #273e5a;
+}
+
+.btn.btn-white:hover{
+    color: #2f8da9;
+}
+
+.btn.btn-white.active{
+    color: black;
+    font-weight: bold;
+}
+
+.btn-group .btn:last-child{
+    border-right: 1px solid #cccccc;
+}
+
+.thumbnail {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.07);
+    margin: 0 10px 0 10px;
+    display: block;
+    width: 235px;
+}
+
+.thumbnail:hover{
+    border: 1px solid #2B85DB;
+}
+
+.thumbnail:hover h3{
+
+}
+
+.thumbnail.mobile h3{
+    word-wrap:break-word;
+    font-size: 14px;
+}
+
+.thumbnail.mobile p{
+    font-size: 13px;
+}
+
+.thumbnail{
+    background: url(/img/image-load.png) no-repeat;
+    background-clip: content-box;
+}
+
+.thumbnail.mobile{
+    background: none;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    margin: 0 10px 20px 10px;
+    display: block;
+    width: 100%;
+    height: 222px;
+}
+
+.thumbnail.mobile img:first-child{
+    height: 103px;
+    background: url(/img/image-load.png);
+}
+
+.opacity-highlight:hover{
+    background: rgba(255,255,255,0.1);
+}
+
+.hovered{
+    border: 1px solid #3cbbd2;
+}
+
+.btn-generic:hover,
+.btn-generic:active,
+.btn-generic.active,
+.btn-generic.disabled,
+.btn-generic[disabled] {
+    background-color: #3cbbd2;
+    *background-color: #3cbbd2;
+}
+
+.btn-generic {
+    background-color: #3cbbd2;
+    *background-color: #3cbbd2;
+    background-image: -ms-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3cbbd2), to(#3cbbd2));
+    background-image: -webkit-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: -o-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: -moz-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-repeat: repeat-x;
+    border-color: #3297b2 #3297b2 #3297b2;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #3297b2;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#3cbbd2', endColorstr='#3cbbd2', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+
+.btn-grey,
+.btn-grey:hover{
+    color: #666666;
+}
+
+.btn-grey:active{
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-grey:hover,
+.btn-grey:active,
+.btn-grey.active,
+.btn-grey.disabled,
+.btn-grey[disabled] {
+    background-color: #e0e0df;
+    *background-color: #e0e0df;
+}
+
+.btn-grey {
+    background-color: #e0e0df;
+    *background-color: #e0e0df;
+    background-image: -ms-linear-gradient(top, #e0e0df, #e0e0df);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e0e0df), to(#e0e0df));
+    background-image: -webkit-linear-gradient(top, #e0e0df, #e0e0df);
+    background-image: -o-linear-gradient(top, #e0e0df, #e0e0df);
+    background-image: -moz-linear-gradient(top, #e0e0df, #e0e0df);
+    background-image: linear-gradient(top, #e0e0df, #e0e0df);
+    background-repeat: repeat-x;
+    border-color: #e0e0df #e0e0df #e0e0df;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #e0e0df;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#e0e0df', endColorstr='#e0e0df', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+
+
+
+.btn-aqua,
+.btn-aqua:hover{
+    color: #666666;
+}
+
+.btn-aqua:active{
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-aqua:hover,
+.btn-aqua:active,
+.btn-aqua.active,
+.btn-aqua.disabled,
+.btn-aqua[disabled] {
+    background-color: #c0e6ec;
+    *background-color: #c0e6ec;
+}
+
+.btn-aqua {
+    background-color: #c0e6ec;
+    *background-color: #c0e6ec;
+    background-image: -ms-linear-gradient(top, #c0e6ec, #c0e6ec);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c0e6ec), to(#c0e6ec));
+    background-image: -webkit-linear-gradient(top, #c0e6ec, #c0e6ec);
+    background-image: -o-linear-gradient(top, #c0e6ec, #c0e6ec);
+    background-image: -moz-linear-gradient(top, #c0e6ec, #c0e6ec);
+    background-image: linear-gradient(top, #c0e6ec, #c0e6ec);
+    background-repeat: repeat-x;
+    border-color: #c0e6ec #c0e6ec #c0e6ec;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #c0e6ec;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#c0e6ec', endColorstr='#c0e6ec', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+
+
+.btn-popup:hover,
+.btn-popup:active,
+.btn-popup.active,
+.btn-popup.disabled,
+.btn-popup[disabled] {
+    background-color: #d9d9d9;
+    *background-color: #d9d9d9;
+}
+.btn-popup {
+    background-color: #dddddc;
+    *background-color: #dddddc;
+    background-image: -ms-linear-gradient(top, #dddddc, #dddddc);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#dddddc), to(#dddddc));
+    background-image: -webkit-linear-gradient(top, #dddddc, #dddddc);
+    background-image: -o-linear-gradient(top, #dddddc, #dddddc);
+    background-image: -moz-linear-gradient(top, #dddddc, #dddddc);
+    background-image: linear-gradient(top, #dddddc, #dddddc);
+    background-repeat: repeat-x;
+    border-color: #dddddc #dddddc #dddddc;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #dddddc;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#dddddc', endColorstr='#dddddc', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    background-color: #d9d9d9;
+    background-color: #d9d9d9;
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding: 1px;
+    /* Buttons in IE7 don't get borders, so darken on hover */
+}
+
+.oneline{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 27px;
+}
+
+.btn-dropdown:hover,
+.btn-dropdown:active,
+.btn-dropdown.active,
+.btn-dropdown.disabled,
+.btn-dropdown[disabled] {
+
+}
+
+.btn-white,
+.btn-white:hover{
+    color: #3cbbd2;
+}
+
+.btn-white:active{
+    color: rgba(60, 187, 210, 0.75);
+}
+.caption{
+    background: #ffffff;
+}
+
+h3{
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #1f5677;
+    font-size: 15px;
+    letter-spacing: 0px;
+}
+
+.modal h3{
+    font-size: 18px;
+    font-weight: normal;
+    padding-bottom: 14px;
+}
+
+.modal .span4 p{
+    font-size: 13px;
+    line-height: 18px;
+    color: #888;
+}
+
+thead{
+    background-color: #3194af;
+    color: #ffffff;
+}
+
+.btn{
+    text-decoration: none;
+}
+
+tbody tr:hover{
+    background-color: #fff4cc;
+}
+
+tbody tr:nth-child(odd) {background: #FFF}
+
+
+tbody tr:nth-child(even) {background: #f3f2f0;}
+
+
+tbody tr:nth-child(odd):hover { background-color: #fff4cc;}
+
+tbody tr:nth-child(even):hover { background-color: #fff4cc;}
+
+.clickable:hover{
+    color: #3CBBD2;
+    text-decoration: none;
+
+}
+
+.bodyparts{
+    color: #3194AF;
+    list-style-type: none;
+}
+
+.bodyparts .active{
+    background: #dddddc;
+    color: #000000;
+}
+
+.bodyparts li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-radius: 2px;
+}
+
+.clickable{
+    color: #1f5677;
+    text-decoration: none;
+}
+
+.smallngrey{
+    font-size: 12px;
+    color: #ABAAA9;
+}
+
+.filterBtn{
+    padding-top: 6px;  padding-bottom: 6px;
+}
+
+p.header{
+    color: #3cbbd2;  font-family: 'Open Sans', sans-serif;
+     margin-bottom: 0px; font-weight: bold;
+}
+
+.thumbnail p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #2e363f;
+    font-size: 13px;
+    line-height: 18px;
+    color: #888;
+}
+
+.thumbnail h3{
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+
+.modal .heading{
+    padding:  10px;
+    background: #3cbbd2;
+    color: white;
+    font-weight: 400;
+}
+
+.li p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #2e363f;
+    font-size: 12px;
+}
+
+#message_box {
+    z-index: 1000;
+}
+.btn-white:active,
+.btn-white.disabled,
+.btn-white[disabled] {
+    background-color: #d9d9d9;
+    color: #333;
+}
+
+.template-list{
+    padding-top: 10px;
+    list-style: none;
+    margin: 0 0px 9px 10px;
+}
+
+.template-list li{
+    padding-bottom: 1px;
+    padding-top: 6px;
+    padding-left: 10px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-right: 20px;
+
+}
+
+.template-list li.active{
+    background-color: #fff;
+    font-weight: bold;
+}
+
+.btn-white:hover {
+    background-color: #ffffff;
+}
+
+.btn-white {
+    background-color: #ffffff;
+    *background-color: #ffffff;
+    background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ffffff));
+    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background-image: linear-gradient(top, #ffffff, #ffffff);
+    background-repeat: repeat-x;
+    border-color: #cccccc #cccccc #cccccc;
+    border: 1px solid #cccccc;
+}
+
+
+th p{
+    font-size: 14px;
+}
+
+
+.navbar .brand {
+    display: block;
+    float: left;
+    padding: 20px 20px 20px;
+    margin-left: -20px;
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.a{
+    color: #3cbbd2;
+    cursor: pointer;
+}
+.error{
+    color: red;
+}
+.a:hover{
+    color: #3CBBD2;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.navbar-pp {
+    min-height: 40px;
+    background-color: #293f58;
+    background-image: url(/img/header_bg.png);
+    background-repeat: repeat-y;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+@-webkit-keyframes in {
+    from { -webkit-transform: translateX(-100%); }
+    to { -webkit-transform: translateX(0%); }
+}
+@-webkit-keyframes out {
+    from { -webkit-transform: translateX(0%); }
+    to { -webkit-transform: translateX(100%); }
+}
+
+
+.overimg{
+    position: relative; top:-202px; width:282px; color: white; font: bold 24px/45px Helvetica, Sans-Serif; letter-spacing: -1px; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7); padding: 10px;
+}
+
+.exerciseoverimg{
+    position: relative; top:-202px; width:282px; color: white; font: bold 24px/45px Helvetica, Sans-Serif; letter-spacing: -1px; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7); padding: 10px;
+}
+
+
+.selectedunderoverimg{
+    position: relative; top:-175px; width:302px;
+}
+
+.invisible{
+    visibility:hidden;
+}
+.visible{
+    visibility:visible;
+}
+
+.underoverimg{
+    position: relative; top:-75px; width:302px;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .overimg{
+        position: relative; top:-200px; width:210px; color: white; font: bold 24px/45px Helvetica, Sans-Serif; letter-spacing: -1px; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7); padding: 10px;
+    }
+
+    .exerciseoverimg{
+        position: relative; top:-155px; width:210px; color: white; font: bold 24px/45px Helvetica, Sans-Serif; letter-spacing: -1px; background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7); padding: 10px;
+    }
+
+    .underoverimg{
+        position: relative; top:-175px; width:230px;
+    }
+    .underoverimg{
+        position: relative; top:-75px; width:230px;
+    }
+}
+
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -12px;
+}
+
+/*
+Animate.css - http://daneden.me/animate
+Licensed under the â˜º license (http://licence.visualidiot.com/)
+
+Copyright (c) 2012 Dan Eden*/
+
+.animated {
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
+}
+
+@-moz-keyframes shake {
+    0%, 100% {-moz-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-moz-transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {-moz-transform: translateX(10px);}
+}
+
+@-o-keyframes shake {
+    0%, 100% {-o-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-o-transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {-o-transform: translateX(10px);}
+}
+
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+
+#authic_signin_button{
+    background-color: #3cbbd2;
+    *background-color: #3cbbd2;
+    background-image: -ms-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#3cbbd2), to(#3cbbd2));
+    background-image: -webkit-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: -o-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: -moz-linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-image: linear-gradient(top, #3cbbd2, #3cbbd2);
+    background-repeat: repeat-x;
+    border-color: #3297b2 #3297b2 #3297b2;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border: 1px solid #3297b2;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#3cbbd2', endColorstr='#3cbbd2', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+    -o-animation-name: shake;
+    animation-name: shake;
+}
+
+#authic_signin_forgot_password{
+    color: #ffffff;
+
+}
+
+
+/*Mobile Style For Patient Exercise View*/
+.mobile_row{
+    width: 100%;
+    border-top: 1px solid #f9f9f9;
+    border-bottom: 1px solid #d7d7d7;
+
+}
+
+.thumb-scroller{
+    overflow: auto !important;
+    overflow-y: hidden !important;
+    min-width: 100% !important;
+    white-space: nowrap !important;
+}
+
+.mobile_row .thumb{
+    width: 35%;
+    max-width: 170px;
+    margin: 10px 10px 0;
+    padding: 0;
+    background: white;
+    vertical-align: top;
+    display: inline-block;
+
+    opacity: 0.5;
+}
+
+.mobile_row .thumb:hover{
+    cursor: pointer;
+}
+
+.mobile_row .thumb.selected{
+    border: 10px solid #3cbbd2;
+    margin: 0;
+    border-bottom: none;
+
+    opacity: 1;
+
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.mobile_row .thumb:first-child{
+    margin-left: 25px;
+}
+
+.mobile_row .thumb:last-child{
+    margin-right: 25px;
+}
+
+.mobile_row .thumb.selected:first-child{
+    margin-left: 15px;
+}
+
+.mobile_row .thumb.selected:last-child{
+    margin-right: 15px;
+}
+
+.mobile_row p{
+    margin: 5px;
+    padding: 0;
+}
+
+.mobile_row table{
+    font-size: 16px;
+    width: 100%;
+}
+
+.inlinep{
+    display: inline-block;
+}
+
+.mobile_row table tr{
+    background: none;
+    margin-left: 8px;
+}
+
+.mobile_row table tr:hover{
+    background: none;
+}
+.mobile_row p{
+    padding-top: 4px;
+    line-height: 16px;
+    font-size: 12px;;
+    margin-left: 2px;
+}
+.mobile_row .header{
+    color: #3cbbd2;
+    font-weight: normal;
+}
+
+.mobile_row h2{
+    margin-top: 8px;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.table th, .table td{
+    padding: 10px;
+}
+
+h3.a{
+    font-weight: bold;
+    color: #1f5677;
+}
+
+h3.a:hover{
+    color: #286d97;
+}
+
+.table th:first-child{
+    border-left: 1px solid #4a9cab;
+}
+
+.table th:last-child{
+    border-right: 1px solid #4a9cab;
+}
+
+.table td:first-child{
+    border-left: 1px solid #dddddd;
+}
+
+.table td:last-child{
+    border-right: 1px solid #dddddd;
+}
+
+.table tr:last-child{
+    border-top: 1px solid #dddddd;
+}
+
+.table thead tr:last-child{
+    border-top: 1px solid #4a9cab;
+}
+
+.table td p{
+    margin-bottom: 0;
+}
+
+.watch-button{
+    width: 100%;
+    text-align: center;
+    height: 70px;
+    background: #f1f1f1;
+    border-bottom: 1px solid #bcbcbc;
+    line-height: 80px;
+
+    overflow: hidden;
+
+    background-image: linear-gradient(bottom, rgb(227,227,227) 46%, rgb(247,247,247) 87%);
+    background-image: -o-linear-gradient(bottom, rgb(227,227,227) 46%, rgb(247,247,247) 87%);
+    background-image: -moz-linear-gradient(bottom, rgb(227,227,227) 46%, rgb(247,247,247) 87%);
+    background-image: -webkit-linear-gradient(bottom, rgb(227,227,227) 46%, rgb(247,247,247) 87%);
+    background-image: -ms-linear-gradient(bottom, rgb(227,227,227) 46%, rgb(247,247,247) 87%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.46, rgb(227,227,227)),
+        color-stop(0.87, rgb(247,247,247))
+    );
+}
+.watch-button a{
+    font-size: 36px;
+    text-decoration: none;
+    color: #6c6c6c;
+    text-transform: uppercase;
+    display: block;
+    height: 100%;
+}
+.watch-button a img{
+    margin-top: -4px;
+}
+header.mobile{
+    background-color: #293f58;
+    background-image: url(/img/header_bg.png);
+    background-repeat: repeat-y;
+    height: 46px;
+}
+header.mobile img{
+    width: 30%;
+    max-width: 125px;
+    margin: 8px 1px 8px 4px;
+    display: inline-block;
+}
+
+header.mobile .business{
+    right: 0;
+    margin-right: 5px;
+    top: 0;
+    text-align: right;
+    display: inline-block;
+    position: absolute;
+}
+
+header.mobile .business h3{
+    font-size: 15px;
+    line-height: 22px;;
+    color: white;
+    font-weight: bold;
+}
+
+header.mobile .business h4{
+    font-size: 10px;
+    line-height: 10px;
+    color: #e4faff;
+    margin: 0;
+}
+
+header.mobile .business p{
+    font-size: 10px;
+    line-height: 10px;;
+    color: #3cbbd2;
+    margin: 0;
+}
+
+.mobile_row .notes{
+    color: #7e7e7e;
+}
+
+.mobile_row hr{
+    margin: 2px 0;
+}
+
+#thumbnails-scroller{
+    border-bottom: 10px solid #3cbbd2;
+}
+
+.btn-right-mobile{
+    position: relative;
+    right: 5px;
+    top: -8px;
+}
+
+.arrow-vid{
+    position: relative;
+    top:-6px;
+    height: 10px;
+    width: 10px;
+    padding: 0;
+    margin: 0;
+    float: left;
+    left: 48%;
+    background: #3cbbd2;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari and Chrome */
+    -o-transform: rotate(45deg); /* Opera */
+    -moz-transform: rotate(45deg); /* Firefox */
+}
+
+
+.nav-btn{
+    color: white;
+    display: inline-block;
+    height: 82px;
+    padding:0 30px;
+    margin: 0;
+    font-size: 25px;
+    line-height: 82px;
+    text-decoration: none;
+}
+
+.nav-btn.active{
+    background: rgba(255,255,255,0.07);
+}
+
+.nav-btn:hover{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+}
+
+/*CSS3 Transition for Add Patient Drop Down Thing*/
+
+#addPatient{
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    height: 0;
+    overflow-y: hidden;
+}
+
+#addPatient.slide{
+    height: 80px;
+}
+
+#addPatient input, #addPatient .btn{
+    margin: 10px 10px 10px 0;
+}
+
+.span9 .thumbnails{
+    margin: 0 -110px 0 10px;
+}
+
+
+.block{
+    background: red;
+    margin: 150px 400px;
+    padding: 100px;
+}
+
+.shadow{
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.popover-title{
+    color: white;
+    background: #3cbbd2;
+    text-transform: uppercase;
+}
+
+.popover-content{
+    width: 250px;
+}
+
+.popover-content h3{
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.popover .end.cross{
+    background: url("/img/cross-white.png");
+    background-repeat: no-repeat;
+    color: rgba(0,0,0,0);
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+
+.end.cross, .end.cross:visited, .end.cross:active, .end.cross:hover{
+    text-decoration: none;
+}
+
+.nav-area{
+    line-height: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.popover.top .arrow{
+    bottom: -5px;
+    left: 50%;
+    margin-left: -10px;
+    border-top: 10px solid white;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+}
+
+.popover.top .arrow.arr-shadow{
+    bottom: -8px;
+    left: 50%;
+    margin-left: -12px;
+    border-top: 12px solid rgba(0,0,0,0.1);
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+}
+
+.popover.bottom .arrow{
+    top: -5px;
+    left: 50%;
+    margin-left: -10px;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #3cbbd2;
+    border-left: 10px solid transparent;
+}
+
+.hoverUnderlineText:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.popover.bottom .arrow.arr-shadow{
+    top: -8px;
+    left: 50%;
+    margin-left: -12px;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid rgba(0,0,0,0.1);
+    border-left: 12px solid transparent;
+}
+
+.popover.right .arrow{
+    top: 50%;
+    left: -5px;
+    margin-top: -10px;
+    border-top: 10px solid transparent;
+    border-right: 10px solid white;
+    border-bottom: 10px solid transparent;
+}
+
+.popover.right .arrow.arr-shadow{
+    top: 50%;
+    left: -8px;
+    margin-top: -12px;
+    border-top: 12px solid transparent;
+    border-right: 12px solid rgba(0,0,0,0.1);
+    border-bottom: 12px solid transparent;
+}
+
+.popover.left .arrow{
+    top: 50%;
+    right: -5px;
+    margin-top: -10px;
+    border-top: 10px solid transparent;
+    border-left: 10px solid white;
+    border-bottom: 10px solid transparent;
+}
+
+.popover.left .arrow.arr-shadow{
+    top: 50%;
+    right: -8px;
+    margin-top: -12px;
+    border-top: 12px solid transparent;
+    border-left: 12px solid rgba(0,0,0,0.1);
+    border-bottom: 12px solid transparent;
+}
+
+
+.span8 .thumbnails{
+    margin-left: 10px;
+}
+
+.program-list{
+    margin: 6px 0 0 -40px;
+}
+
+.program-list .input-block-level{
+    width: 250px;
+}
+
+.program-list .span2{
+    width: 250px;
+}
+
+.btn{
+    padding: 3px 10px 3px;
+}
+
+.btn.btn-white.disabled:hover{
+    background-color: #d9d9d9;
+}
+
+.add-exercise{
+    width: 31px;
+    height: 31px;
+    margin-left: 10px;
+    background: url(/img/add_btn.png) no-repeat;
+}
+
+.add-exercise.active{
+    background: url(/img/green_tick.png);
+}
+
+.thumbnail .caption:hover .add-exercise{
+    background: url(/img/blue_add_btn.png);
+}
+
+.thumbnail .caption:hover .add-exercise.active{
+    background: url(/img/minus_btn.png);
+}
+
+.thumbnail:hover{
+    cursor: pointer;
+}
+
+/*::-webkit-scrollbar {*/
+/*-webkit-appearance: none;*/
+/*width: 7px;*/
+/*}*/
+/*::-webkit-scrollbar-thumb {*/
+/*border-radius: 4px;*/
+/*background-color: rgba(0,0,0,.5);*/
+/*-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);*/
+/*}*/
+
+.cliniko-popup {
+    position: relative;
+    width: 725px;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #3cbbd2;
+    background: white;
+}
+
+.cliniko-popup-entry {
+    position: relative;
+    padding: 5px;
+}
+
+.cliniko-popup-button {
+    color: #3cbbd2;
+    padding-top: 2px;
+}
+
+#trialBar {
+    width: 100%;
+    height: 35px;
+    color: white;
+    background-color: #494a4c;
+}
+
+#trialBar p { 
+    color:white;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    padding-left: 85px;
+    font-size: 15px;
+}
+
+.planInfoTitle {
+    font-size: 16px;
+    line-height: 36px;
+    color: #3cbbd2;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.planCard {
+    margin-top: 5px;
+    margin-bottom: 26px;
+    padding-left: 20px;
+    background-color: white;
+    border-color: rgb(219, 219, 219);
+    border: 1px solid;
+    border-radius: 15px;
+}
+
+.row-splitter-top
+{
+    border-top: 1px solid #dbdbd8;
+}
+
+.row-splitter-bottom
+{
+    border-bottom: 1px solid #dbdbd8;
+}
+
+.features {
+    float: right;
+    width: 300px;
+    padding-left: 20px;
+}
+.features .heading {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.drop {
+    padding: 15px;
+    border: 2px #f1f1f1 dashed;
+    border-radius: 5px;
+    line-height: 34px;
+    background: #ffffff;
+}
+
+.drop.drag-over {
+    background: #5CB85C;
+    color: #fff
+}
+
+.transfer-box {
+    margin-bottom: 5px;
+}
+
+.transfer-box .progress {
+    margin-bottom: 0;
+}
+
+.thumbnail {
+    line-height: 20px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    word-break: normal;
+    background: none;
+    margin: 0px;
+}
+
+.thumbnail img {
+    max-width: 200px;
+    max-height: 150px;
+}
+
+.video-title{
+    padding: 7px 0;
+}
+
+.upload-video {
+    height: 200px;
+}
+
+.upload-video .video{
+    float: left;
+}
+
+.upload-video .video-description{
+    float: left;
+    padding: 0 10px 0 30px;
+}
+
+.upload-video .video-description textarea{
+    height: 100px;
+}
+
+.video-progress{
+    height: 50px;
+}
+
+.dropdown-arrow{
+    float: right;
+    padding: 3px 0px 0px 10px;
+}
+
+.dropdown-menu{
+    top: 100%;
+}
+
+.tags-dropdown-icon {
+    margin-top: 3px;
+}
+
+.is-disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.gallery-box {
+    width: 200px;
+    padding: 5px;
+    margin: 7px;
+    float: left;
+    min-height: 200px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+}
+
+.gallery-box .progress {
+    margin-bottom: 0;
+}
+
+.gallery-box .thumbnail {
+    height: 198px;
+    width: 198px;
+}
+
+.gallery-box .title {
+    height: 22px;
+    overflow: hidden;
+    display: block;
+}
+
+.upgrade-title {
+    font-size:14px;
+    font-weight: bold;
+}
+
+.exercise-adbominal-brace-seated{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position-x: 0; background-position-y: 0; width: 235px; height: 130px; }
+.exercise-adductor-longus{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -135px; width: 235px; height: 130px; }
+.exercise-adductors-seated{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -273px; width: 235px; height: 130px; }
+.exercise-anterior-cervical-fascia{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position-x: 0; background-position-y: -404px; width: 235px; height: 130px; }
+.exercise-back-upper{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -539px; width: 235px; height: 130px; }
+.exercise-bent-over-row{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -675px; width: 235px; height: 130px; }
+.exercise-biceps-brachii{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -808px; width: 235px; height: 130px; }
+.exercise-biceps-curls-dumbell{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -943px; width: 235px; height: 130px; }
+.exercise-biceps-curls{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position:0 -1077px; width: 235px; height: 130px; }
+.exercise-bicycle{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -1212px; width: 235px; height: 130px; }
+.exercise-bridge{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -1347px; width: 235px; height: 130px; }
+.exercise-calf-raises{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position:0 -1481px; width: 235px; height: 130px; }
+.exercise-calf-stretch-step{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -1617px; width: 235px; height: 130px; }
+.exercise-calf-stretch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: 0 -1750px; width: 235px; height: 130px; }
+.exercise-chest-push-up{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px 0; width: 235px; height: 130px; }
+.exercise-chest{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -240px -135px; width: 235px; height: 130px; }
+.exercise-cross-crawl{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px -273px; width: 235px; height: 130px; }
+.exercise-crunch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px -406px; width: 235px; height: 130px; }
+.exercise-deltoids-front-raise-180{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px -541px; width: 235px; height: 130px; }
+.exercise-deltoids-front-raise-90{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px -675px; width: 235px; height: 130px; }
+.exercise-deltoids-front-raise-dumbell-180{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -264px -894px; width: 235px; height: 130px; }
+.exercise-deltoids-front-raise-dumbell-90{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -264px -1043px; width: 235px; height: 130px; }
+.exercise-deltoids-inferior-capsule{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px -1079px; width: 235px; height: 130px; }
+.exercise-deltoids-lateral-raise-dumbell-90{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -238px -1213px; width: 235px; height: 130px; }
+.exercise-deltoids-lateral-raise-dumbell-full-ext{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -238px -1347px; width: 235px; height: 130px; }
+.exercise-deltoids-lateral-raise-full-ext{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -238px -1481px; width: 235px; height: 130px; }
+.exercise-deltoids-lateral-raise{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -240px -1615px; width: 235px; height: 130px; }
+.exercise-deltoids-post-capsule{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -239px -1748px; width: 235px; height: 130px; }
+.exercise-finger-flexors{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -478px 0; width: 235px; height: 130px; }
+.exercise-forearm-extensions-band{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -137px; width: 235px; height: 130px; }
+.exercise-forearm-extensions-dumbell{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -271px; width: 235px; height: 130px; }
+.exercise-forearm-extensors{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -405px; width: 235px; height: 130px; }
+.exercise-forearm-flexors-band{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -539px; width: 235px; height: 130px; }
+.exercise-forearm-flexors-dumbell{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -676px; width: 235px; height: 130px; }
+.exercise-forearm-flexors{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -808px; width: 235px; height: 130px; }
+.exercise-glute-medius-tfl-itb-band{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -943px; width: 235px; height: 130px; }
+.exercise-glute-medius-tfl-itb{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -1080px; width: 235px; height: 130px; }
+.exercise-glute-medius-tfl{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -1213px; width: 235px; height: 130px; }
+.exercise-glute-stretch-seated{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -478px -1347px; width: 235px; height: 130px; }
+.exercise-gluteal-stretch-kneeling{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -478px -1481px; width: 235px; height: 130px; }
+.exercise-hamstring-stretch-standing{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -478px -1616px; width: 235px; height: 130px; }
+.exercise-hamstring-stretch-supine-towel{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -477px -1751px; width: 235px; height: 130px; }
+.exercise-hamstrings-stretch-supine-beginner{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -715px 0; width: 235px; height: 130px; }
+.exercise-head-nod{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises1.jpg) no-repeat top left; cursor: pointer;  background-position: -715px -135px; width: 235px; height: 130px; }
+
+
+.exercise-hip-extension{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer;  background-position: 0 0; width: 235px; height: 130px; }
+.exercise-hip-flexors{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -135px; width: 235px; height: 130px; }
+.exercise-itb-tfl-foam-roller{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -272px; width: 235px; height: 130px; }
+.exercise-knee-bent-eg-raise-single{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -404px; width: 235px; height: 130px; }
+.exercise-knee-flexion{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -539px; width: 235px; height: 130px; }
+.exercise-lat-stretch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -675px; width: 235px; height: 130px; }
+.exercise-leg-extension{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -811px; width: 235px; height: 130px; }
+.exercise-leg-raise-bilateral{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -946px; width: 235px; height: 130px; }
+.exercise-leg-raise-bilateral_2{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1192px; width: 235px; height: 130px; }
+.exercise-levator-scapulae{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1214px; width: 235px; height: 130px; }
+.exercise-lumbar-spine-extension{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1348px; width: 235px; height: 130px; }
+.exercise-lumbar-spine-flexion{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position:0 -1483px; width: 235px; height: 130px; }
+.exercise-lumbar-spine-knee-tuck{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1617px; width: 235px; height: 130px; }
+.exercise-lumbar-spine-side-bending{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position:0 -1751px; width: 235px; height: 130px; }
+.exercise-lumbar-spine-side-flexion{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -238px 0; width: 235px; height: 130px; }
+.exercise-lunge{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -138px; width: 235px; height: 130px; }
+.exercise-neck-retraction{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position:-239px -270px; width: 235px; height: 130px; }
+.exercise-neck-rotation{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -406px; width: 235px; height: 130px; }
+.exercise-neck-side-bending{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -543px; width: 235px; height: 130px; }
+.exercise-oblique-crunch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -675px; width: 235px; height: 130px; }
+.exercise-pectoralis-major-minor{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -812px; width: 235px; height: 130px; }
+.exercise-piriformis{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -944px; width: 235px; height: 130px; }
+.exercise-plank{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -240px -1081px; width: 235px; height: 130px; }
+.exercise-plantar-fascia-stretch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -1214px; width: 235px; height: 130px; }
+.exercise-quadriceps-stretch-modified-sideling{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -240px -1350px; width: 235px; height: 130px; }
+.exercise-quadriceps-stretch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -1482px; width: 235px; height: 130px; }
+.exercise-rotation-lumbar-spine{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -240px -1616px; width: 235px; height: 130px; }
+.exercise-rotator-cuff--external-rotation-band, .exercise-rotator-cuff-external-rotation-band, .exercise-rotator-cuff-external-rotation-band{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -239px -1750px; width: 235px; height: 130px; }
+.exercise-rotator-cuff-external-rotation-dumbell{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -479px 0; width: 235px; height: 130px; }
+.exercise-rotator-cuff-internal-rotation{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -136px; width: 235px; height: 130px; }
+.exercise-rotator-cuff-stretch{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -271px; width: 235px; height: 130px; }
+.exercise-rotator-cuff{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -405px; width: 235px; height: 130px; }
+.exercise-scalenes-anterior{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -542px; width: 235px; height: 130px; }
+.exercise-scalenes-posterior{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -674px; width: 235px; height: 130px; }
+.exercise-scm{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -808px; width: 235px; height: 130px; }
+.exercise-single-leg-raise{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -478px -945px; width: 235px; height: 130px; }
+.exercise-sit-up{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -1077px; width: 235px; height: 130px; }
+.exercise-soleus-stretch-modified-calf{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -1214px; width: 235px; height: 130px; }
+.exercise-squat{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -1347px; width: 235px; height: 130px; }
+.exercise-superman{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -1482px;width: 235px; height: 130px; }
+.exercise-thoracic-spine-cat-stretch-extension{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -477px -1617px; width: 235px; height: 130px; }
+.exercise-thoracic-spine-cat-stretch-flexion{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises2.jpg) no-repeat top left; cursor: pointer; background-position: -478px -1751px; width: 235px; height: 130px; }
+
+
+.exercise-thoracic-spine-rolled-towel{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 0; width: 235px; height: 130px; }
+.exercise-thorasic-rotation{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -136px; width: 235px; height: 130px; }
+.exercise-tibialis-anterior{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -271px; width: 235px; height: 130px; }
+.exercise-tibialis-posterior{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -406px; width: 235px; height: 130px; }
+.exercise-trapezius-one-side{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position:0 -540px; width: 235px; height: 130px; }
+.exercise-triceps-extension-unilateral{ background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer;background-position: 0 -675px; width: 235px; height: 130px; }
+.exercise-triceps-extention-bilateral{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -810px; width: 235px; height: 130px; }
+.exercise-upper-trapezius-band{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -944px; width: 235px; height: 130px; }
+.exercise-upper-trapezius-dumbell{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1080px; width: 235px; height: 130px; }
+.exercise-upper-trapezius{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1215px; width: 235px; height: 130px; }
+.exercise-upper-trapezius2{ background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer;background-position: 0 -1490px; width: 235px; height: 130px; }
+.exercise-wipers-low-back{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises3.jpg) no-repeat top left; cursor: pointer; background-position: 0 -1485px; width: 235px; height: 130px; }
+
+
+/* Generated by http://css.spritegen.com CSS Sprite Generator */
+ 
+.exercise-achilles-calf, .exercise-active-extension, .exercise-active-flexion, .exercise-active-rom-circumduction, .exercise-ankle-glide, 
+.exercise-ball-stabilization, .exercise-brettzel-stretch, .exercise-bridge-bilateral-legs, .exercise-bridge-single-leg, .exercise-cervical-extension, 
+.exercise-cervical-protraction-prone, .exercise-cervical-side-bending, .exercise-childs-pose, .exercise-clam-side-lying, .exercise-cross-supermans, 
+.exercise-deadlift, .exercise-diaphragm-breathing, .exercise-eccentric-extensor-2, .exercise-eccentric-extensors, .exercise-eccentric-flexion-2, 
+.exercise-eccentric-flexors, .exercise-external-rotation-and-adduction, .exercise-finger-extension-2, .exercise-finger-extension, .exercise-finger-push-stretch, 
+.exercise-flexion-resisted, .exercise-flexion-supine, .exercise-foam-roller--latissimus-dorsi, .exercise-foam-roller-adductors, .exercise-foam-roller-calf, 
+.exercise-foam-roller-glutes, .exercise-foam-roller-hamstrings, .exercise-foam-roller-lower-back, .exercise-foam-roller-rotator-cuff, .exercise-foam-roller-tricep, 
+.exercise-foam-rolling-forearm, .exercise-foam-rolling-piriformis, .exercise-glute-abdominal-stabilization, .exercise-grip-strength, .exercise-high-stepping-with-resistance, 
+.exercise-hip-flexion-and-rotation, .exercise-hip-lift-with-tennis-ball, .exercise-horizontal-adduction, .exercise-internal-external-rom-prone, .exercise-internal-rotation-and-adduction, 
+.exercise-isometric-close-to-open, .exercise-isometric-lateral, .exercise-isometric-open-to-close, .exercise-knee-stabilizing-star, .exercise-knee-stabilizing, 
+.exercise-knee-strengthening, .exercise-lateral-lunge-crossover, .exercise-leg-extension-with-roller, .exercise-lumbar-rolls-with-feet-on-floor, .exercise-neck-extension-resisted, 
+.exercise-pelvic-curl, .exercise-pendulum-swing, .exercise-plantar-arch, .exercise-pronation-supination, .exercise-prone-cobra, 
+.exercise-protraction-with-resistance, .exercise-reach-retract-roll-and-lift, .exercise-reverse-lunge-with-swing, .exercise-rotating-lunges, .exercise-scapular-retraction-lying-down, 
+.exercise-shoulder-ts, .exercise-shoulder-wall-glides, .exercise-shoulder-wall-slides, .exercise-side-bending-resisted, .exercise-side-step, 
+.exercise-single-leg-chair-squat, .exercise-single-leg-deadlift, .exercise-single-leg-stand, .exercise-stiff-legged-deadlift, .exercise-thoracic-spine-rotation, 
+.exercise-thumb-extension-abduction, .exercise-tmj-protraction, .exercise-toe-curls, .exercise-toe-extension, .exercise-vmo-activation-advanced, 
+.exercise-vmo-extension, .exercise-wall-push-up, .exercise-wrist-thumb-abduction
+{background: url(https://d2bjomctld7cul.cloudfront.net/thumbnails/exercises4.png) no-repeat top left; overflow: hidden; text-align: left; }
+ 
+.exercise-achilles-calf { background-position: -5px -0px; width: 235px; height: 130px; }
+.exercise-active-extension { background-position: -245px -0px; width: 235px; height: 130px; }
+.exercise-active-flexion { background-position: -485px -0px; width: 235px; height: 130px; }
+.exercise-active-rom-circumduction { background-position: -725px -0px; width: 235px; height: 130px; }
+.exercise-ankle-glide { background-position: -965px -0px; width: 235px; height: 130px; }
+.exercise-ball-stabilization { background-position: -1205px -0px; width: 235px; height: 130px; }
+.exercise-brettzel-stretch { background-position: -1445px -0px; width: 235px; height: 130px; }
+.exercise-bridge-bilateral-legs { background-position: -1685px -0px; width: 235px; height: 130px; }
+.exercise-bridge-single-leg { background-position: -1925px -0px; width: 235px; height: 130px; }
+.exercise-cervical-extension { background-position: -5px -135px; width: 235px; height: 130px; }
+.exercise-cervical-protraction-prone { background-position: -245px -135px; width: 235px; height: 130px; }
+.exercise-cervical-side-bending { background-position: -485px -135px; width: 235px; height: 130px; }
+.exercise-childs-pose { background-position: -725px -135px; width: 235px; height: 130px; }
+.exercise-clam-side-lying { background-position: -965px -135px; width: 235px; height: 130px; }
+.exercise-cross-supermans { background-position: -1205px -135px; width: 235px; height: 130px; }
+.exercise-deadlift { background-position: -1445px -135px; width: 235px; height: 130px; }
+.exercise-diaphragm-breathing { background-position: -1685px -135px; width: 235px; height: 130px; }
+.exercise-eccentric-extensor-2 { background-position: -1925px -135px; width: 235px; height: 130px; }
+.exercise-eccentric-extensors { background-position: -5px -270px; width: 235px; height: 130px; }
+.exercise-eccentric-flexion-2 { background-position: -245px -270px; width: 235px; height: 130px; }
+.exercise-eccentric-flexors { background-position: -485px -270px; width: 235px; height: 130px; }
+.exercise-external-rotation-and-adduction { background-position: -725px -270px; width: 235px; height: 130px; }
+.exercise-finger-extension-2 { background-position: -965px -270px; width: 235px; height: 130px; }
+.exercise-finger-extension { background-position: -1205px -270px; width: 235px; height: 130px; }
+.exercise-finger-push-stretch { background-position: -1445px -270px; width: 235px; height: 130px; }
+.exercise-flexion-resisted { background-position: -1685px -270px; width: 235px; height: 130px; }
+.exercise-flexion-supine { background-position: -1925px -270px; width: 235px; height: 130px; }
+.exercise-foam-roller--latissimus-dorsi { background-position: -5px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-adductors { background-position: -245px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-calf { background-position: -485px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-glutes { background-position: -725px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-hamstrings { background-position: -965px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-lower-back { background-position: -1205px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-rotator-cuff { background-position: -1445px -405px; width: 235px; height: 130px; }
+.exercise-foam-roller-tricep { background-position: -1685px -405px; width: 235px; height: 130px; }
+.exercise-foam-rolling-forearm { background-position: -1925px -405px; width: 235px; height: 130px; }
+.exercise-foam-rolling-piriformis { background-position: -5px -540px; width: 235px; height: 130px; }
+.exercise-glute-abdominal-stabilization { background-position: -245px -540px; width: 235px; height: 130px; }
+.exercise-grip-strength { background-position: -485px -540px; width: 235px; height: 130px; }
+.exercise-high-stepping-with-resistance { background-position: -725px -540px; width: 235px; height: 130px; }
+.exercise-hip-flexion-and-rotation { background-position: -965px -540px; width: 235px; height: 130px; }
+.exercise-hip-lift-with-tennis-ball { background-position: -1205px -540px; width: 235px; height: 130px; }
+.exercise-horizontal-adduction { background-position: -1445px -540px; width: 235px; height: 130px; }
+.exercise-internal-external-rom-prone { background-position: -1685px -540px; width: 235px; height: 130px; }
+.exercise-internal-rotation-and-adduction { background-position: -1925px -540px; width: 235px; height: 130px; }
+.exercise-isometric-close-to-open { background-position: -5px -675px; width: 235px; height: 130px; }
+.exercise-isometric-lateral { background-position: -245px -675px; width: 235px; height: 130px; }
+.exercise-isometric-open-to-close { background-position: -485px -675px; width: 235px; height: 130px; }
+.exercise-knee-stabilizing-star { background-position: -725px -675px; width: 235px; height: 130px; }
+.exercise-knee-stabilizing { background-position: -965px -675px; width: 235px; height: 130px; }
+.exercise-knee-strengthening { background-position: -1205px -675px; width: 235px; height: 130px; }
+.exercise-lateral-lunge-crossover { background-position: -1445px -675px; width: 235px; height: 130px; }
+.exercise-leg-extension-with-roller { background-position: -1685px -675px; width: 235px; height: 130px; }
+.exercise-lumbar-rolls-with-feet-on-floor { background-position: -1925px -675px; width: 235px; height: 130px; }
+.exercise-neck-extension-resisted { background-position: -5px -810px; width: 235px; height: 130px; }
+.exercise-pelvic-curl { background-position: -245px -810px; width: 235px; height: 130px; }
+.exercise-pendulum-swing { background-position: -485px -810px; width: 235px; height: 130px; }
+.exercise-plantar-arch { background-position: -725px -810px; width: 235px; height: 130px; }
+.exercise-pronation-supination { background-position: -965px -810px; width: 235px; height: 130px; }
+.exercise-prone-cobra { background-position: -1205px -810px; width: 235px; height: 130px; }
+.exercise-protraction-with-resistance { background-position: -1445px -810px; width: 235px; height: 130px; }
+.exercise-reach-retract-roll-and-lift { background-position: -1685px -810px; width: 235px; height: 130px; }
+.exercise-reverse-lunge-with-swing { background-position: -1925px -810px; width: 235px; height: 130px; }
+.exercise-rotating-lunges { background-position: -5px -945px; width: 235px; height: 130px; }
+.exercise-scapular-retraction-lying-down { background-position: -245px -945px; width: 235px; height: 130px; }
+.exercise-shoulder-ts { background-position: -485px -945px; width: 235px; height: 130px; }
+.exercise-shoulder-wall-glides { background-position: -725px -945px; width: 235px; height: 130px; }
+.exercise-shoulder-wall-slides { background-position: -965px -945px; width: 235px; height: 130px; }
+.exercise-side-bending-resisted { background-position: -1205px -945px; width: 235px; height: 130px; }
+.exercise-side-step { background-position: -1445px -945px; width: 235px; height: 130px; }
+.exercise-single-leg-chair-squat { background-position: -1685px -945px; width: 235px; height: 130px; }
+.exercise-single-leg-deadlift { background-position: -1925px -945px; width: 235px; height: 130px; }
+.exercise-single-leg-stand { background-position: -5px -1080px; width: 235px; height: 130px; }
+.exercise-stiff-legged-deadlift { background-position: -245px -1080px; width: 235px; height: 130px; }
+.exercise-thoracic-spine-rotation { background-position: -485px -1080px; width: 235px; height: 130px; }
+.exercise-thumb-extension-abduction { background-position: -725px -1080px; width: 235px; height: 130px; }
+.exercise-tmj-protraction { background-position: -965px -1080px; width: 235px; height: 130px; }
+.exercise-toe-curls { background-position: -1205px -1080px; width: 235px; height: 130px; }
+.exercise-toe-extension { background-position: -1445px -1080px; width: 235px; height: 130px; }
+.exercise-vmo-activation-advanced { background-position: -1685px -1080px; width: 235px; height: 130px; }
+.exercise-vmo-extension { background-position: -1925px -1080px; width: 235px; height: 130px; }
+.exercise-wall-push-up { background-position: -5px -1215px; width: 235px; height: 130px; }
+.exercise-wrist-thumb-abduction { background-position: -245px -1215px; width: 235px; height: 130px; }

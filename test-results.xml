@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Firefox 17.0 (Mac)" package="" timestamp="2013-04-11T05:22:51" id="0" hostname="iit-laptop-28.industrieit.local" tests="15" errors="0" failures="11" time="0.133">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:17.0) Gecko/20100101 Firefox/17.0"/>
+    </properties>
+    <testcase name="should set the practitioners name" time="0.021" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">Error: Unexpected request: GET /user/exerciseList
+Expected GET /api/exerciselist in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 888)
+$httpBackend@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:888
+l@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:95
+m@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:93
+u/&lt;/g[b]@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular-resource.min.js:8
+PatientExerciseListCntl@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular/catalogueControllers.js:39
+d@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:27
+rb/g/&lt;.instantiate@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:28
+@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:51
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:44
+d@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:27
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1731
+
+angular.mock.inject@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1717
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:16
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:5
+
+</failure>
+      <failure type="">TypeError: scope.practitioner is undefined in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 51)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:51
+
+</failure>
+    </testcase>
+    <testcase name="should set current exercise to the first exercise" time="0.01" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.currentExercise is undefined in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 55)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:55
+
+</failure>
+    </testcase>
+    <testcase name="should select current Exercise" time="0.006" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.showMobileExercise is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 60)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:60
+
+</failure>
+    </testcase>
+    <testcase name="should get exercise comment" time="0.007" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.getExerciseComments is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 70)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:70
+
+</failure>
+    </testcase>
+    <testcase name="should equal undefined if no comment in exercise" time="0.005" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.getExerciseComments is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 75)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:75
+
+</failure>
+    </testcase>
+    <testcase name="should not display prescribed data" time="0.005" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.showPrescribed is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 79)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:79
+
+</failure>
+    </testcase>
+    <testcase name="should display prescribed data" time="0.006" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.showPrescribed is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 88)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:88
+
+</failure>
+    </testcase>
+    <testcase name="should not display comments" time="0.007" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.showComments is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 93)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:93
+
+</failure>
+    </testcase>
+    <testcase name="should display comments" time="0.006" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.showComments is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 102)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:102
+
+</failure>
+    </testcase>
+    <testcase name="returns formatted text" time="0.006" classname="Firefox 17.0 (Mac).Test Patient Controller">
+      <failure type="">TypeError: errorForStack is null in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 1733)
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1733
+
+</failure>
+      <failure type="">TypeError: scope.getUpdatedAtText is not a function in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 107)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:107
+
+</failure>
+    </testcase>
+    <testcase name="Saves and has an error" time="0.013" classname="Firefox 17.0 (Mac).Testing MenuCntl"/>
+    <testcase name="Expect practitioner to be pulled" time="0.013" classname="Firefox 17.0 (Mac).Testing PractitionerEditCntl"/>
+    <testcase name="expect navdata to equal account" time="0.01" classname="Firefox 17.0 (Mac).Testing PractitionerEditCntl"/>
+    <testcase name="expect bodyparts to be initialized" time="0.01" classname="Firefox 17.0 (Mac).Testing PractitionerEditCntl"/>
+    <testcase name="Expect all initialized code" time="0.008" classname="Firefox 17.0 (Mac).Testing PatientCntl">
+      <failure type="">Error: Unexpected request: GET /api/templatelist
+Expected GET /user/self in /Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js (line 888)
+$httpBackend@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:888
+l@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:95
+m@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:93
+u/&lt;/g[b]@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular-resource.min.js:8
+PatientCntl@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular/practitionerControllers.js:238
+d@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:27
+rb/g/&lt;.instantiate@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:28
+@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:51
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:234
+d@/Users/thomasbunting/Documents/projects/cronullaFitness/public/javascripts/angular.min.js:27
+workFn@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1731
+
+angular.mock.inject@/Users/thomasbunting/Documents/projects/cronullaFitness/test/lib/angular/angular-mocks.js:1717
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:215
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:204
+
+</failure>
+      <failure type="">TypeError: scope.practitioner is undefined in /Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js (line 240)
+@/Users/thomasbunting/Documents/projects/cronullaFitness/test/unit/controllersSpec.js:240
+
+</failure>
+    </testcase>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

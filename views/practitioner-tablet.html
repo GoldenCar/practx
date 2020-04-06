@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="practitioner">
+<head>
+    <meta charset="utf-8">
+    <title>PracTx</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="">
+
+    <link href="/stylesheets/bootstrap-tablet.css" rel="stylesheet">
+    <link href="/stylesheets/app.css" rel="stylesheet">
+    <link href="/stylesheets/app-mobile.css" rel="stylesheet">
+</head>
+<body ng-controller="FrameCntl" style="background-color: #282828; overflow-x: hidden;">
+
+    <div id="trialBar" ng-show="practitioner.isTrial"> <p>Thank you for trying PracTx! you have <b>{{getDaysLeft(practitioner.trialEndDate)}}</b> remaining in your <a href="/practitioner/subscription">subscription</a>. {{pleaseUpgrade(practitioner.trialEndDate)}}</p></div>
+    
+<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto;">
+<header ng-class="{menuopen: menuopen}">
+    <div id="header">
+        <div class="navbar-pp" style="padding-top: 15px; padding-bottom: 15px;">
+            <div class="container">
+                <div class="row">
+                    <div class="span5">
+                        <img src="/img/btn_menu.png" ng-click="toggleMenu()"/>
+                    </div>
+                    <div class="span2">
+                        <a class="brand"><img src="/img/logo.png"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav id="menu" style="position: absolute; top: 0px; left: -260px; background-color: #282828;"  active-nav="activeNav">
+        <a class="nav-btn" style="width: 200px; border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/practitioner/exercise" id='nav-exercises'>EXERCISES</a><br/>
+        <a class="nav-btn" style="width: 200px; border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/patient" id='nav-patients'>PATIENTS</a><br/>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/template">TEMPLATES</a><br/>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/practitioner/self">EDIT ACCOUNT</a><br/>
+        <a class="nav-btn" style="width: 200px;" ng-click="toggleMenu()" ng-href="/logout">LOGOUT</a><br/>
+    </nav>
+</header>
+<div id="main" style="background-color: #EFEFEF; min-height: 1024px;" ng-class="{menuopen: menuopen}">
+    <div ng-view></div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script src="/javascripts/angular.min.js" ng-autobind></script>
+<script src="/javascripts/angular-resource.min.js"></script>
+<script src="/javascripts/angular/services.js"></script>
+<script src="/javascripts/angular/practitionerControllers-mobile.js"></script>
+<script src="/javascripts/angular/filters.js"></script>
+<script src="/javascripts/angular/directives.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/date.format.js"></script>
+</body>
+</html>

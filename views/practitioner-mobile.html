@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="practitioner">
+<head>
+    <meta charset="utf-8">
+    <title>PracTx</title>
+    <meta name="viewport" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/stylesheets/bootstrap-tablet.css" rel="stylesheet">
+    <link href="/stylesheets/app.css" rel="stylesheet">
+    <link href="/stylesheets/app-mobile.css" rel="stylesheet">
+    <script type="text/javascript">
+        var analytics = analytics || [];
+        analytics.load = function (e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript", t.async = !0, t.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/" + e + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            var r = function (e) {
+                return function () {
+                    analytics.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, i = ["identify", "track", "trackLink", "trackForm", "trackClick", "trackSubmit", "pageview", "ab", "alias", "ready"];
+            for (var s = 0; s < i.length; s++)analytics[i[s]] = r(i[s])
+        };
+        analytics.load("aq5kapao5v");
+    </script>
+</head>
+<body ng-controller="FrameCntl" style="background-color: #282828;">
+
+<div id="trialBar" ng-show="practitioner.isTrial"> <p>Thank you for trying PracTx! you have <b>{{getDaysLeft(practitioner.trialEndDate)}}</b> remaining in your <a href="/practitioner/subscription">subscription</a>. {{pleaseUpgrade(practitioner.trialEndDate)}}</p></div>
+
+<div id="createPatientModal" modal-action="createPatientModal" class="modal hide in" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="playButton" aria-hidden="false" style="display: none;">
+    <div class="modal-header heading">
+        <button type="button" class="close" style="color: white; opacity: 0.6; margin-top: 0;" aria-hidden="true" ng-click="createPatientModal = 'hide'">×</button>
+        Create Patient
+    </div>
+    <div class="modal-body">
+        <div class="error ng-binding" ng-bind="patient.error" ng-show="patient.error" style="display: none;"></div>
+        <form class="form-inline ng-pristine ng-invalid ng-invalid-required" name="form" novalidate="">
+            <label class="control-label" for="patient-name">Full name<span ng-show="form.patientname.$error.required" style=""> - Required</span><br>
+                <input type="text" placeholder="Enter patient's name" name="patientname" required="" ng-model="patient.name" id="patient-name" class="ng-pristine ng-invalid ng-invalid-required">
+            </label>
+            <label class="control-label" for="email">Email Address<span ng-show="form.email.$error.required" style=""> - Required</span> <span ng-show="form.email.$error.email" style="display: none;"> - Must be valid email</span><br>
+                <input type="email" placeholder="Enter patient's email" name="email" required="" ng-model="patient.email" id="email" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email">
+            </label>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-white" ng-click="createPatientModal = 'hide'">CLOSE</button>
+        <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="saveAndRedirect('menubar')" data-fail-text="SAVE &amp; CREATE PROGRAM" id="savencreate" data-loading-text="Loading..." disabled="disabled">SAVE &amp; CREATE PROGRAM
+        </button>
+    </div>
+</div>
+
+<div id="referFriendModal" class="modal hide" tabindex="-1" role="dialog" modal-action="referModalStatus"
+     data-backdrop="static" aria-hidden="true">
+    <div class="modal-header heading">
+        <button type="button" class="close" style="color: white; opacity: 0.6; margin-top: 0;" aria-hidden="true" ng-click="referModalStatus = 'hide'">×</button>
+        Refer a Friend!
+    </div>
+    <div class="modal-body">
+        <p>We want your fantastic experience with PracTx to be shared with other practitioners.</p>
+
+        <p>Simply add their name and email address and we will do the rest!</p>
+        <br>
+
+        <form class="form-inline" name="referralForm" novalidate>
+            <label class="control-label" for="referral-name">Full name<span
+                    ng-show="referralForm.referralname.$error.required"> - Required</span><br/>
+                <input type="text" placeholder="Enter friend's name" name="referralname" required
+                       ng-model="referral.name" id="referral-name">
+            </label>
+            <label class="control-label" for="referral-email">Email Address<span
+                    ng-show="referralForm.referralemail.$error.required"> - Required</span> <span
+                    ng-show="form.referralemail.$error.email"> - Must be valid email</span><br/>
+                <input type="email" placeholder="Enter friend's email" name="referralemail" required
+                       ng-model="referral.email" id="referral-email">
+            </label>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-white" ng-click="referModalStatus = 'hide'">LATER</button>
+        <button class="btn btn-generic" ng-disabled="referralForm.$invalid" ng-click="referFriend()"
+                data-fail-text="REFER FRIEND"
+                id="referfriend" data-loading-text="Loading..." btn-action="saveBtnStatus">REFER FRIEND
+        </button>
+    </div>
+</div>
+<div style="overflow-x: hidden; overflow-y: auto;">
+<div class="alert" messagealert selection="menuAlert" ng-show="menuAlert > 0" ng-bind="status"></div>
+<header ng-class="{menuopen: menuopen}">
+    <nav id="menu" style="position: absolute; top: 0px; left: -260px; background-color: #282828;" active-nav="activeNav">
+        <a class="nav-btn" style="width: 200px; border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/" id='nav-exercises'>EXERCISES</a><br/>
+        <a class="nav-btn" style="width: 200px; border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/patient" id='nav-patients'>PATIENTS</a><br/>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/template">TEMPLATES</a><br/>
+        <div style="background: rgba(0,0,0,0.3); height: 10px"></div>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="createPatientModal = 'show'; toggleMenu();">ADD PATIENT</a><br/>
+        <span ng-class="{hide: showTour()}"><a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="toggleMenu(); restartTour();">TAKE TOUR</a><br/></span>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="/practitioner/self">EDIT INFO</a><br/>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="toggleMenu()" ng-href="{{editAuthicAccount}}">MANAGE ACCOUNT</a><br/>
+        <a class="nav-btn" style="width: 200px;  border-bottom: 1px solid #000000;" ng-click="referModalStatus = 'show'; toggleMenu();">REFER FRIEND</a><br/>
+        <div style="background: rgba(0,0,0,0.3); height: 10px"></div>
+        <a class="nav-btn" style="width: 200px;" ng-click="toggleMenu()" ng-href="/logout">LOGOUT</a><br/>
+    </nav>
+</header>
+<div id="main" style="background-color: #EFEFEF; min-height: 1024px;" ng-class="{menuopen: menuopen}">
+    <div id="header" style="position: absolute; left: 0; right: 0;">
+        <div class="navbar-pp" style="padding-top: 15px; padding-bottom: 15px; height: 53px;">
+            <img ng-src="/img/btn_menu{{menuButtonPressed()}}.png" style="margin: 25px 30px; position: absolute; left: 0; top: 0; z-index: 1001" ng-click="toggleMenu()"/>
+            <div class="container">
+                <div class="row" style="text-align: center;">
+                        <a class="brand"><img src="/img/logo.png"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background: transparent); position: absolute; left: 0; top: 0; right: 0; bottom: 0; z-index: 1000" ng-show="menuopen" ng-click="toggleMenu()"></div>
+    <div style="height: 83px; margin: 0; padding: 0; background: white"></div>
+
+    <div ng-view></div>
+</div>
+</div>
+
+<div class='container' style="position: absolute; top: 0; left:0; right:0; height: 0; z-index: -1;">
+    <div id="stop1" style="position: absolute; height: 1px; width: 1px; top: 265px; left: 130px;"></div>
+    <div id="stop2" style="position: absolute; height: 1px; width: 1px; top: 325px; left: 305px;"></div>
+</div>
+
+
+<div id="stop3" style="position: absolute; height: 1px; width: 1px; top: 210px; left: 255px;"></div>
+<div id="stop4" style="position: absolute; height: 1px; width: 1px; top: 300px; left: 255px;"></div>
+
+<script src="https://code.jquery.com/jquery-2.0.0.min.js"></script>
+<script src="/javascripts/jquery.cookie.js"></script>
+<script src="/javascripts/angular.min.js" ng-autobind></script>
+<script src="/javascripts/angular-resource.min.js"></script>
+<script src="/javascripts/angular/services.js"></script>
+<script src="/javascripts/angular/practitionerControllers-mobile.js"></script>
+<script src="/javascripts/angular/filters.js"></script>
+<script src="/javascripts/angular/directives.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/date.format.js"></script>
+<script src="/javascripts/bootstrap-tour.js"></script>
+</body>
+</html>

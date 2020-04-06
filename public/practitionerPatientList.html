@@ -1,0 +1,202 @@
+<div class="alert" messagealert selection="showalert"  ng-show="showalert > 0" ng-bind="status"></div>
+<div style="background-color: #ffffff; ">
+<div class="container" style="background-color: #ffffff; padding-top: 10px; padding-bottom: 10px;">
+    <div class="row" style="padding: 10px 0;">
+            <div class="span2">
+                <div class="span1" style="width: 53px;">
+                <img src="/img/people_icon.png" />
+                </div>
+                <div class="span1">
+                <h2>
+                    Patients
+                </h2>
+                </div>
+            </div>
+        <div class="span6">&nbsp;</div>
+        <div class="span4">
+            <button style="padding: 5px 15px; margin-left: 10px;" ng-show="!addPatientHidden && practitioner.clinikoId != null && practitioner.clinikoId != '' " class="btn btn-generic pull-right" ng-disabled="enableUpdateButton" ng-click="clinikoUpdatePatient()" style="padding: 5px 40px;">{{updatetest}}</button>
+            <button ng-show="!addPatientHidden" class="btn btn-generic pull-right" ng-click="addPatientHidden = true" ng-disabled="enableUpdateButton" style="padding: 5px 40px;">ADD PATIENT</button>
+        </div>
+    </div>
+
+</div>
+</div>
+        <div style="background: #f9f9f9; -moz-box-shadow: inset 1px 0 1px 2px #ccc;-webkit-box-shadow: inset 1px 0 1px 1px #ccc; box-shadow: inset 1px 0 1px 1px #ccc;">
+            <div class="container">
+                <div class="row"  ng-class="{slide: addPatientHidden}" id="addPatient">
+
+                   <div class="span1" style="padding: 8px;"><h3 style="font-weight: bold;">Add Patient</h3></div>
+                    <div class="span9">
+                        <form class="form-inline" name="form" novalidate style="margin: 10px;">
+                            <p ></p>
+                            <label class="control-label" for="patient-name" style="font-weight: bold">Full name
+                                <span class="muted" ng-show="form.patientname.$error.required" style="font-weight: normal"> - Required</span><br/>
+                                <input type="text" placeholder="Enter patient's name" name="patientname" required
+                                       ng-model="patient.name" id="patient-name">
+                            </label>
+                            <label class="control-label" for="email" style="font-weight: bold">Email Address
+                                <span class="muted" ng-show="form.email.$error.required" style="font-weight: normal"> - Required</span> <span ng-show="form.email.$error.email"> - Must be valid email</span><br/>
+                                <input type="email" placeholder="Enter patient's email" name="email" required
+                                       ng-model="patient.email" id="email">
+                            </label>
+                            <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="saveAndRedirect()"
+                                    data-fail-text="SAVE & CREATE PROGRAM"
+                                    id="savencreate"  data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE &amp; CREATE PROGRAM
+                            </button>
+                            <button class="btn btn-white" ng-disabled="checkValid()" ng-click="save()">SAVE</button>
+                        </form>
+                    </div>
+                    <div class="span1" style="margin-right: -125px">
+                        <p ng-click="addPatientHidden = false" class="a pull-right" style="padding-top: 10px">Cancel <img src="/img/cross.png"/><p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="container" style="padding-top: 10px">
+    <div ng-show="patients == null" style="text-align: center; padding-top: 10px;">
+        <h3>Retreving Patients From PracTx<img style="padding-left:10px" src="/img/loading.gif" ng-show="loading" /></h3>
+    </div>
+    <div ng-show="enableUpdateButton" style="text-align: center; padding-top: 10px;">
+        <h3>Syncing patients to match Cliniko. Please be patient<img style="padding-left:10px" src="/img/loading.gif" /></h3>
+    </div>
+    <div class="row" ng-show="patients.length > 0" >
+        <div class="span5">
+            <br/>
+
+            <form class="form-horizontal form-search">
+                <div class="control-group">
+                    <label class="control-label" style="width: 170px;  text-align: left; padding-right: 10px;">Show <span
+                            ng-bind="getRangeText()"></span> of <span ng-bind="filteredItems.length"></span> Patients</label>
+
+                                <input style="padding-right: 20px;" type="text" ng-model="query" ng-change="search()" class="input-large search-query" placeholder="Search by name or email">
+                                <i class="icon-search" style="margin:4px 0 2px -22px; opacity: 0.5;"></i>
+
+                </div>
+            </form>
+        </div>
+        <div class="span7">
+        <div class="pagination pull-right" ng-show="patients.length > 0">
+            <ul style="box-shadow: none; -webkit-box-shadow: none;">
+                <li ng-repeat="n in range(pagedItems.length)"
+                    ng-show="pagedItems.length < 11"
+                    ng-class="{active: n == currentPage}"
+                    ng-click="setPage()">
+                    <p href class="a clickable" ng-bind="n + 1">1</p>
+                </li>
+                <p href class="btn btn-white" style="margin-left: 10px; padding-left: 20px; padding-right: 20px;    " ng-click="prevPage()" ng-class="{disabled: currentPage == 0}">PREV</p>
+
+                <p href class="btn btn-white" style="margin-left: 10px; padding-left: 20px; padding-right: 20px;"  ng-class="{disabled: currentPage == pagedItems.length - 1}"
+                   ng-click="nextPage()">NEXT</p>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="row" ng-show="patients.length < 1">
+        <div class="span12">
+            <span  style="text-align: center">
+                <h1>You currently have no patients</h1>
+                <a ng-href="#" ng-click="addPatient()">
+                    <p style="padding: 30px 0 10px;">
+                        <img src="/img/megaplus.png"/>
+
+                    <h2>Click to add a Patient!</h2>
+                    </p>
+                </a>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12" ng-show="patients.length > 0">
+        <div class="span12" ng-show="patients.length > 0">
+            <div class="spacer" style="margin-bottom: 10px"></div>
+
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th ng-click="sortPatients('name'); sortSelected = 'name'" class="column-head">Name
+                        <i class="icon-chevron-up icon-white" ng-show="sortType == 'name-0'" style="opacity: 0.5; margin-top: 2px;"></i>
+                        <i class="icon-chevron-down icon-white" ng-show="sortType == 'name-1'" style="opacity: 0.5; margin-top: 2px;"></i>
+                    </th>
+                    <th ng-click="sortPatients('exercise');  sortSelected = 'program'" class="column-head">Exercise Program
+                        <i class="icon-chevron-up icon-white" ng-show="sortType == 'exercise-0'" style="opacity: 0.5; margin-top: 2px;"></i>
+                        <i class="icon-chevron-down icon-white" ng-show="sortType == 'exercise-1'" style="opacity: 0.5; margin-top: 2px;"></i>
+                    </th>
+                    <th ng-click="sortPatients('status');  sortSelected = 'status'" class="column-head" style="width: 400px">Status
+                        <i class="icon-chevron-up icon-white" ng-show="sortType == 'status-0'" style="opacity: 0.5; margin-top: 2px;"></i>
+                        <i class="icon-chevron-down icon-white" ng-show="sortType == 'status-1'" style="opacity: 0.5; margin-top: 2px;"></i>
+                    </th>
+                    <th ng-show="practitioner.clinikoId != null && practitioner.clinikoId != ''">Cliniko</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="patient in pagedItems[currentPage] | orderBy:order:reverse">
+                    <td>
+                        <h3 class="a" ng-bind="getBig(patient)" ng-click="createOrEdit(patient)"></h3>
+
+                        <p class="smallngrey" ng-bind="getSmall(patient)" style="padding-top: 5px;"></p>
+                    </td>
+                    <td>
+                     <span ng-show="patient.exerciseList.status != 'None'">
+                        <p class="ptitle" ng-bind="patient.exerciseList.name"></p>
+                        <p class="smallngrey" ng-bind="getDateFormat(patient)" style="padding-top: 5px;"></p>
+                     </span>
+                        <span  ng-show="patient.exerciseList.status == 'None'" >
+                            <button  class="btn btn-white" style="margin-top: 6px; padding-top: 5px;" 
+                                     ng-click="showSelectTemplateModal(patient)" ng-disabled="enableUpdateButton">CREATE A PROGRAM
+                            </button>
+                        </span>
+
+
+                    </td>
+                    <td style="padding-top:14px">
+                        <span ng-show="patient.exerciseList.status == 'Sent'" >
+                            <button class="pull-left btn btn-generic" ng-click="createOrEdit(patient)" style="margin-right: 5px; margin-bottom: 5px;">&#10004; Sent </button>
+                            <button class="btn btn-white" ng-click="resendEmail(patient)">Resend email</button>
+                        </span>
+                        <span ng-show="patient.exerciseList.status == 'Draft'" ng-click="createOrEdit(patient)"><button class="btn btn-grey">Draft
+                        </button></span>
+                        <span ng-show="patient.exerciseList.status == 'Editted'" ng-click="createOrEdit(patient)"><button class="btn btn-aqua" >
+                            Edited - unsent
+                        </button></span>
+                        <!--Uncomment for edit button-->
+                        <span ng-show="patient.exerciseList.status != 'None'" ng-click="justEdit(patient)"><button class="btn btn-aqua">Edit</button></span>
+                    </td>
+                    <td style="width: 40px; text-align: center; padding-top: 15px;" ng-show="practitioner.clinikoId != null && practitioner.clinikoId != ''">
+                        <img src="/img/blue_tick.png" ng-show="patient.clinikoId != null"/>
+                    </td>
+                    <td style="width: 40px; text-align: center; padding-top: 15px;">
+                        <img ng-click="delete(patient)" src="/img/delete.png" style="cursor: pointer;" />
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <td style="padding-left: 0px; padding-top: 28px; border: none">Show <span
+                        ng-bind="getRangeText()"></span> of <span ng-bind="filteredItems.length"></span> Patients</td>
+                <td style="padding-right: 0; border: none" colspan="6">
+                    <div class="pagination pull-right">
+                        <ul style="box-shadow: none; -webkit-box-shadow: none;">
+                            <li ng-repeat="n in range(pagedItems.length)"
+                                ng-class="{active: n == currentPage}"
+                                ng-show="pagedItems.length < 11"
+                                ng-click="setPage()">
+                                <p href class="a clickable" ng-bind="n + 1">1</p>
+                            </li>
+                            <p href class="btn btn-white" style="margin-left: 10px; padding-left: 20px; padding-right: 20px;    " ng-click="prevPage()" ng-class="{disabled: currentPage == 0}">PREV</p>
+
+                            <p href class="btn btn-white" style="margin-left: 10px; padding-left: 20px; padding-right: 20px;"  ng-class="{disabled: currentPage == pagedItems.length - 1}"
+                               ng-click="nextPage()">NEXT</p>
+                        </ul>
+                    </div>
+                </td>
+                </tfoot>
+            </table>
+        </div>
+        <div class="span8" style="margin-left: 0px;" ng-show="patients.length < 1">
+            <h3 ng-bind="patientStatus">Loading...</h3>
+        </div>
+    </div>
+</div>
+</div>
+<ng-include  src="'/selectTemplateModal.html'"> </ng-include>

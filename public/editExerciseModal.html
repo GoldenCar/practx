@@ -1,0 +1,77 @@
+<div id="myModal" modal-action="exerciseModalStatus" data-keyboard="false" data-backdrop="static" class="modal container hide" tabindex="-1">
+    <div class="row heading">
+        <a ng-click="hideModal()" class="pull-right" style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a>
+        ADD EXERCISE TO PROGRAM
+    </div>
+    <div class="modal-body">
+
+        <form class="form-horizontal">
+        <div id='modal-height-constraint'>
+        <div class="row" style="padding-top: 5px;">
+            <div class="span5" style="margin-right: 10px;">
+                <h3 ng-bind="modalExercise.name"></h3>
+                <p  ng-bind="modalExercise.description"></p>
+            </div>
+            <div class="span2">
+                <div>
+                    <img ng-src="{{modalExercise.thumbnail}}" style="box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.07);">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Prescribe exercise requirements</h3>
+
+                <div class="row" ng-repeat="prescription in modalExercise.prescriptionData"
+                     style="border-top: 1px solid #e5e5e5; padding-top: 10px; padding-bottom: 10px;">
+                    <div class="span2">
+                        <p ng-bind="prescription.name"></p>
+                    </div>
+                    <div class="span3" ng-show="prescription.values[0] != null">
+                        <div class="btn-group" data-toggle="buttons-radio">
+                            <button type="button" class="btn btn-white" style="margin-left: 0px; min-width: 55px;"
+                                    ng-repeat="value in prescription.values"
+                                    ng-click="setPrescriptionValue(prescription, value)"
+                                    ng-class="{active: value == prescription.value}">{{value}}
+                            </button>
+                        </div>
+                    </div>
+                    <div class="span1" ng-show="prescription.values[0] != null">
+                        <p>or other</p>
+                    </div>
+                    <div ng-class="{span1: prescription.values[0] != null, span5: prescription.values[0] == null}">
+                        <input type="text" class="input-block-level" class="input-block-level" ng-show="prescription.name != 'Comments'" rows="4"
+                               ng-model="prescription.value">
+                        <textarea type="text" class="input-block-level" class="input-block-level" ng-hide="prescription.name != 'Comments'" rows="4"
+                                  ng-model="prescription.value"></textarea>
+                    </div>
+                </div>
+                </div>
+        </div>
+                <div class="row" style="border-top: 1px solid #e5e5e5; padding-top: 10px;">
+                    <div class="span2"></div>
+                    <div class="span10">
+                        <button class="btn btn-generic" ng-click="selectExercise(modalExercise)">ADD EXERCISE
+                        </button>
+                        <button class="btn btn-white" ng-click="hideModal()">CANCEL</button>
+                        <button class="btn btn-white" ng-hide="!modalExercise.active"
+                                ng-click="addExercise(modalExercise)">REMOVE
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var w = window,
+            d = document,
+            e = d.documentElement,
+            g = d.getElementsByTagName('body')[0],
+            y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    var modalBody = document.getElementById('modal-height-constraint');
+    modalBody.style.maxHeight = (y-180)+'px';
+    modalBody.style.overflowX = 'hidden';
+    modalBody.style.overflowY = 'auto';
+    document.getElementById('myModal').style.width = '800px';
+</script>

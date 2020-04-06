@@ -1,0 +1,183 @@
+<div class="alert" messagealert selection="showalert"  ng-show="showalert > 0" ng-bind="status"></div>
+<div style="background-color: #ffffff; padding-top: 10px; padding-bottom: 10px; margin-bottom: 10px;">
+    <div class="container">
+        <div class="row" style="padding: 10px 0;">
+            <div class="span10">
+                <div class="span1" style="width: 53px;">
+                    <img src="/img/list_icon.png" class="pull-left"/>
+                </div>
+                <div class="span6" style="margin-left: 0px;">
+                    <h2 ng-show="!showEditPatient">
+                        Create an exercise <span style="color: #cccccc;">for</span> <span
+                            ng-bind="exerciseList.patient.name"></span>
+                    </h2>
+
+                    <form class="form-inline" name="form" novalidate ng-show="showEditPatient" style="margin: 0; height: 40px;">
+                        <label class="control-label" for="patient-name">Full name<span
+                                ng-show="form.patientname.$error.required"> - Required</span><br/>
+                            <input type="text" placeholder="Enter patient's name" name="patientname" required
+                                   ng-model="editPatient.name" id="patient-name">
+                        </label>
+                        <label class="control-label" for="email">Email Address<span
+                                ng-show="form.email.$error.required"> - Required</span>
+                            <span ng-show="form.email.$error.email"> - Must be valid email</span><br/>
+                            <input type="email" placeholder="Enter patient's email" name="email" required
+                                   ng-model="editPatient.email" id="email">
+                        </label>
+                        <button class="btn btn-generic" ng-disabled="form.$invalid" ng-click="savePatient()"
+                                data-fail-text="SAVE"
+                                id="savencreate" data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE
+                        </button>
+                        <button class="btn btn-white" ng-click="showEditPatient = false">CANCEL
+                        </button>
+                    </form>
+                </div>
+                <p class="pull-right" style="margin-top: 10px;" ng-show="!showEditPatient">Send to <span
+                        ng-bind="exerciseList.patient.email"></span>
+                    (<span class="a" ng-click="showEditPatient = true">edit</span>)</p>
+            </div>
+            <div class="span2" style="margin-right: -50px;">
+                <button style="position: relative; top: 5px; margin-right: 3px;" class="btn btn-generic pull-right"
+                        ng-disabled="validateForm()" ng-click="saveAndEmail()" data-fail-text="Save and Send" id="send"
+                        data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE &amp; SEND
+                </button>
+                <button style="position: relative; top: 5px; margin-right: 5px;" class="btn btn-white pull-right"
+                        ng-disabled="validateForm()" ng-click="save()" data-fail-text="Save" id="save"
+                        data-loading-text="Loading..." btn-action="saveBtnStatus">SAVE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="span2">
+            <div class="row" style="margin-top: 6px;">
+                <div class="span2" style="padding-bottom: 20px; font-weight: bold;">
+                    Filter Exercises
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <div class="controls">
+                        <div class="btn-group" data-toggle="buttons-radio">
+                            <button type="button" class="btn btn-white span1 active" style="margin-left: 0px; width: 50px; padding-top: 6px;  padding-bottom: 6px;"
+                                    ng-click="filterAllTag()">All
+                            </button>
+                            <button type="button" class="btn btn-white span1" style="margin-left: 0px; width: 70px; padding-top: 6px;  padding-bottom: 6px;"
+                                    ng-click="filterStretchTag()">
+                                Stretch
+                            </button>
+                            <button type="button" class="btn btn-white span1" style="margin-left: 0px; width: 90px; padding-top: 6px;  padding-bottom: 6px;"
+                                    ng-click="filterStrengthenTag()">
+                                Strength
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span2">
+                    <div id="paper" style=" width: 200px; margin-right: auto; margin-left: auto; display: block; margin-top: 15px;"
+                         ng-show="searchFilter('Anterior')" body-filter></div>
+                    <div id="rsr" style="width: 200px; margin-right: auto; margin-left: auto; display: block; margin-top: 15px;"
+                         ng-show="searchFilter('Posterior')"></div>
+                    <img style="position: relative; cursor: pointer; border: 1px solid #CCC; bottom: 415px; width: 68px; height: 30px; border-radius: 5px;"
+                         ng-click="flip()" src="/img/body_flip.png">
+                    <span ng-click="flip()" style="position: relative; cursor: pointer; bottom: 415px; left: 75px;"><span ng-show="searchFilter('Anterior')">Anterior</span><span ng-show="searchFilter('Posterior')">Posterior</span></span>
+                </div>
+            </div>
+        </div>
+        <div class="span8" style="margin: 6px 0;">
+            <div class="row">
+                <div class="span8" style="margin: 0 20px; height: 40px;">
+                    <p style=" margin: 0;"><span style="color: #000000; font-weight: bold;">Select Exercises</span> to add to <span
+                            ng-bind="exerciseList.patient.name + '\'s'"></span> program</p><br/>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="span8" style="margin:0;">
+                    <ul class="thumbnails">
+                        <li ng-repeat="exercise in exercises | filterByArray:search | orderBy:'active'">
+                            <div class="thumbnail">
+                                <div ng-click="showVideo(exercise)"
+                                     style="background: url({{exercise.thumbnail}}) no-repeat top left; width: 235px; height: 130px;"
+                                     ng-class="getExerciseClass(exercise)">
+                                    <img src="/img/play.png"
+                                         style="position: relative; bottom: -90px; right: -5px; cursor: pointer;"
+                                         ng-click="showVideo(exercise)">
+                                </div>
+                                <div class="caption"
+                                     style="height: 100px; overflow: hidden; display: block;  cursor: pointer"
+                                     ng-click="addExercise(exercise)" >
+                                    <div class="pull-right add-exercise" ng-class="getBtnClass(exercise)"></div>
+
+
+                                    <h3 ng-bind="exercise.name"></h3>
+                                    <p ng-bind="smallString(exercise.description,exercise.name)"></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="span2 program-list">
+            <div class="row">
+                <div class="span2">
+                    <input type="text" class="input-block-level" name="name" placeholder="Exercise List Name" required
+                           ng-model="exerciseList.name" id="name" style="font-weight: bold;">
+
+                    <textarea class="input-block-level" rows="3" style="margin-top:3px" ng-model="emailText"
+                              placeholder="Add any program notes here"></textarea>
+                </div>
+            </div>
+            <div class="row" ng-show="exerciseList.exercises.length > 0">
+                <div class="span2">
+                    <br/>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li ng-repeat="exercise in exerciseList.exercises"  ng-click="editExercise(exercise)" class="hoverUnderlineText">
+                            <img ng-click="addExercise(exercise)" class="pull-right" src="/img/cross.png"
+                                 style="position: relative; top: 2px;">
+
+                            <h3 ng-bind="exercise.name" ng-click="displayVideo(exercise)" style="font-weight: bold;"></h3>
+
+                            <div ng-repeat="prescription in exercise.prescriptionData" ng-show="prescription.value">
+                                <strong ng-bind="prescription.value"></strong> <span
+                                    ng-bind="prescription.sentence"></span><br/>
+                            </div>
+                            <hr style="margin: 5px;"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" ng-show="exerciseList.exercises.length < 1">
+                <div class="span2">
+                    <br/>
+                    <div style="background-color: #e1e1e0; padding-bottom: 20px; padding-left: 10px; padding-right: 10px;">
+                        <p style="color: #de4191; text-align: center; ; font-size: 16px; padding-top: 20px;">
+                            Hi {{practitioner.name}},</p>
+
+                        <p style="font-size: 16px; text-align: center; ;font-size: 16px;">To add
+                            exercises</p>
+
+                        <p style="text-align: center; ; font-size: 14px;">Tap the "+" button</p>
+                        <img src="/img/blue_add_btn.png"
+                             style="width: 31px;  display: block; margin-left: auto; margin-right: auto;">
+                        <br/>
+
+                        <p style="text-align: center; font-size: 14px; ;">You can then<br/>
+                            customise
+                            that exercise <br/>and add notes for <span ng-bind="exerciseList.patient.name"></span>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'/editExerciseModal.html'"></ng-include>
+<ng-include src="'/videoModal.html'"></ng-include>
+<ng-include  src="'/editUserModal.html'"> </ng-include>
+

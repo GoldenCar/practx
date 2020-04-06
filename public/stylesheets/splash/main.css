@@ -1,0 +1,1544 @@
+/* index.html and header/footer */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    /*min-width: 1200px;*/
+}
+
+.centre-aligned-text {
+    text-align: center;
+}
+
+.blue-header {
+    color: #3297b2;
+    font-size: 32px;
+    letter-spacing: -1px;
+    line-height: normal;
+}
+
+.grey-subheading {
+    font-size: 24px;
+    color: #797a7a;
+    letter-spacing: -1px;
+}
+
+.image-subheading {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 11px;
+}
+
+.image-description {
+    font-size: 16px;
+    margin-top: 12px;
+    line-height: 155%;
+}
+
+#image-140-exercise-videos{
+    cursor: pointer;
+}
+
+.image-logo {
+    background: url('/img/splash/prac-tx-logo.png');
+    height: 80px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.view-all-features-row hr {
+    color: #eef0f1;
+    background-color: #eef0f1;
+    height: 3px;
+}
+
+.top-nav {
+    margin-top: 21px;
+}
+
+.top-nav a {
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    padding: 9px 3px;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+.navmenu:hover {
+    background-color: #152e40;
+}
+
+.navmenu-selected {
+    background-color: #152e40;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.top-nav .navmenu {
+    width: 98px;
+}
+
+.logo-and-nav {
+    /*background-color: #293f58;*/
+    background-image: url('/img/splash/header_background.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+    height: 80px;
+}
+
+.button-blue {
+    border: none;
+    border-radius: 3px;
+    background-color: #3cbbd2;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.button-blue:hover {
+    background-color: #35a4b8;
+}
+
+.logo-and-nav .button-blue {
+    width: 107px;
+    float: left;
+    height: 36px;
+}
+
+.logo-and-nav .rhs {
+    margin-top: 22px;
+    margin-left: 29px;
+}
+
+.rhs .login {
+    margin-left: 40px;
+}
+
+.rhs .button-blue a {
+    margin-top: -1px;
+}
+
+#top-splash {
+    background-position-y: 10px;
+    background-image: url('/img/splash/home-splash.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #1E597B;
+    background-position-x: 80%;
+    height: 502px;
+}
+
+#top-splash #text-container {
+    margin-left: 80px;
+}
+
+#white-header {
+    font-size: 36px;
+    letter-spacing: -1px;
+    color: white;
+    line-height: 148%;
+    margin-top: 90px;
+}
+
+#grey-subheading-smaller {
+    margin-top: 30px;
+    font-size: 22px;
+    color: #797a7a;
+    /*letter-spacing: -1px;*/
+    line-height: 145%;
+    color: white;
+    opacity: 0.5;
+}
+
+#try-limited {
+    margin-top: 30px;
+}
+#video-row{
+margin-top: 30px;
+    }
+
+#video-row .button-blue {
+    width: 350px;
+    height: 40px;
+}
+
+#try-limited .button-blue {
+    width: 350px;
+    height: 40px;
+}
+
+#video-row .button-blue:hover {
+    cursor: pointer;
+}
+
+#try-limited .button-blue:hover {
+    cursor: pointer;
+}
+
+#video-row b {
+    margin-top: 9px;
+    margin-left: 90px;
+    color: #FFF;
+    float: left;
+    font-size: 18px;
+    text-align: end;
+}
+
+#try-limited a {
+    margin-top: 9px;
+    color: white;
+    line-height: 36px;
+    font-size: 18px;
+}
+
+#intro-row {
+    height: 164px;
+}
+
+#intro-row .blue-header {
+    margin-top: 50px;
+}
+
+#intro-row .grey-subheading {
+    margin-top: 26px;
+}
+
+.view-all-features-row {
+    margin-top: 52px;
+}
+
+.view-all-features-row .button-blue {
+    width: 350px;
+    height: 40px;
+    margin: auto;
+}
+
+.view-all-features-row .button-blue:hover {
+    cursor: pointer;
+}
+
+.view-all-features-row b {
+    margin-top: 9px;
+    color: white;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 400;
+}
+
+#ipad-mini-quotes {
+    margin-top: 20px;
+    height: 620px;
+    background-image: url('/img/splash/mini-ipad-black.png');
+    background-repeat: no-repeat;
+    background-size: 555px;
+    background-position: bottom center;
+}
+
+#ipad-mini-quotes span {
+    baseline-shift: -5px;
+    font-size: 21px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.in-quote {
+    font-size: 14px;
+
+}
+
+#ipad-mini-quotes #quote1 {
+    position: relative;
+    top: 20px;
+    left: 190px;
+    width: 580px;
+    text-align: right;
+    height: 40px;
+}
+
+#ipad-mini-quotes #quote2 {
+    position: relative;
+    top: 277px;
+    width: 257px;
+    height: 225px;
+    text-align: right;
+}
+
+#ipad-mini-quotes #quote3 {
+    position: relative;
+    top: -48px;
+    left: 900px;
+    width: 257px;
+    height: 225px;
+}
+
+#quote1 .quoter {
+    margin-top: 4px;
+}
+
+#quote2 .quoter {
+    margin-top: 23px;
+}
+
+#quote3 .quoter {
+    margin-top: 23px;
+}
+
+.quote-ball {
+    background-image: url('/img/splash/quote-button.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 37px;
+    width: 37px;
+}
+
+#quote1 .quote-ball {
+    float: right;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+#quote2 .quote-ball {
+    float: right;
+    margin-top: -255px;
+}
+
+#quote3 .quote-ball {
+    margin-top: 15px;
+}
+
+#quote1 .quote-text {
+    width: 510px;
+    float: left;
+}
+
+footer {
+    background-color: #f6f4f2;
+    /*height: 215px;*/
+    word-spacing: 18px;
+    background-size: cover;
+    font-size: 14px;
+    margin: auto;
+}
+
+footer a, footer .contact-section {
+    color: #333333;
+    word-spacing: normal;
+}
+
+footer .contact-section{
+    margin-top: 20px;
+    line-height: 2em;
+}
+
+footer .row {
+
+}
+
+footer #bottom-nav {
+    margin-top: 55px;
+}
+
+footer #social-buttons {
+    height: 37px;
+    width: 161px;
+    margin: 26px auto auto auto;
+}
+
+#facebook-btn{
+    background-image: url('/img/splash/facebook-btn.png');
+    background-repeat: no-repeat;
+    height: 52px;
+    background-size: cover;
+}
+
+#regular-space {
+    word-spacing: 0px;
+}
+
+/* features.html */
+
+#patients-tab {
+    display: none;
+}
+
+#features-and-benefits-heading {
+    background-image: url('/img/splash/features-heading-background.jpg');
+    background-repeat: no-repeat;
+    height: 177px;
+    background-size: cover;
+}
+
+.main-heading {
+    font-size: 36px;
+    letter-spacing: -1px;
+    color: white;
+}
+
+#features-and-benefits-heading .main-heading {
+    margin-top: 78px;
+}
+
+
+#features-tab-nav #tab-buttons {
+    height: 40px;
+    width: 420px;
+    position: relative;
+    top: -20px;
+    margin: auto;
+}
+
+#features-tab-nav #practitioners-tab-button {
+    border-radius: 3px 0 0 3px;
+    float: left;
+    cursor: pointer;
+}
+
+#features-tab-nav #patients-tab-button {
+    border-radius: 0 3px 3px 0;
+    float: right;
+    cursor: pointer;
+}
+
+#features-tab-nav .active-tab {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    width: 210px;
+    height: 40px;
+    background-color: white;
+    line-height: 40px;
+}
+
+/* todo fix me - tab hover: */
+
+#features-tab-nav .inactive-tab:hover {
+    background-color: #3cbbd2 !important;
+    background: none;
+    color: white;
+}
+
+#features-tab-nav .inactive-tab {
+    color: #3cbbd2;
+    font-weight: bold;
+    font-size: 18px;
+    width: 210px;
+    height: 40px;
+    line-height: 40px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ededed)); /* for webkit browsers */
+    background: -moz-linear-gradient(top, #ffffff, #ededed); /* for firefox 3.6+ */
+}
+
+
+
+/*#patients-tab-button:hover {*/
+    /*background-color: #3cbbd2;*/
+    /*color: white;*/
+/*}*/
+
+
+#features-tab-nav {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#intro-header {
+    margin-top: 40px;
+}
+
+#intro-header .blue-header {
+    color: #3cbbd2;
+}
+
+#intro-header #grey-text {
+    color: #797a7a;
+    font-size: 16px;
+    margin-top: 22px;
+    line-height: 164%;
+}
+
+#video-sell {
+    margin-top: 50px;
+}
+
+#video-sell #black-header {
+    font-size: 41px;
+    font-weight: bold;
+}
+
+#video-sell #small-blue {
+    color: #3cbbd2;
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+#video-sell #black-body {
+    color: black;
+    font-size: 16px;
+    line-height: 166%;
+    margin-top: 20px;
+}
+
+#video-sell #play-sample-button {
+    width: 196px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: #f6f4f2;
+    margin: auto;
+    margin-top: 15px;
+}
+
+
+#video-sell #play-sample-button:hover {
+    background-color: #3cbbd2;
+    color: white;
+    cursor: pointer;
+}
+
+#video-sell #play-icon {
+    background-image: url('/img/splash/play-button.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 23px;
+    width: 23px;
+    float: left;
+    margin-top: 9px;
+    margin-left: 17px;
+}
+
+#video-sell #play-text {
+    color: grey;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    margin-top: 10px;
+    margin-left: 12px;
+}
+
+#video-sell #video-spread {
+    background-image: url('/img/splash/video-spread.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 254px;
+    margin: auto;
+}
+
+.full-width-hr {
+    margin-top: 20px;
+}
+
+.full-width-hr hr {
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #fff;
+}
+
+#template-sell {
+    margin-top: 20px;
+}
+
+#template-sell #template-sell-image {
+    background-image: url('/img/splash/template-sell.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 297px;
+    margin: auto;
+}
+
+.blue-line-in {
+    font-size: 21px;
+    color: #3cbbd2;
+    margin-top: 50px;
+}
+
+.section-header {
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.section-body {
+    font-size: 16px;
+    line-height: 168%;
+}
+
+#video-sell-base {
+    margin-top: -23px;
+}
+
+#program-sell {
+    margin-top: 19px;
+}
+
+#program-sell .step {
+    margin-top: 30px;
+    float: left;
+}
+#program-sell .number {
+    font-weight: bold;
+    font-size: 21px;
+    color: #3cbbd2;
+    float: left;
+    margin-left: 36px;
+    margin-top: 7px;
+}
+
+#program-sell .step-instructions {
+    text-align: left;
+    font-size: 15px;
+    line-height: 140%;
+    float: left;
+    margin-left: 28px;
+}
+
+#program-sell .blue-line-in {
+    margin-top: 20px;
+}
+
+#program-sell .section-header {
+    margin-top: 74px;
+}
+
+#program-sell .section-body {
+
+}
+
+#program-sell #program-sell-image {
+    background-image: url('/img/splash/program-sell.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 427px;
+    width: 679px;
+    margin: auto;
+}
+
+#angles-sell {
+    margin-top: 15px;
+}
+
+#angles-sell .section-body {
+    margin-top: 20px;
+}
+
+#angles-sell .blue-line-in {
+    margin-top: 30px;
+
+}
+
+#angles-sell #angles-sell-image {
+    background-image: url('/img/splash/angles-sell.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 308px;
+    width: 503px;
+    margin: auto;
+}
+
+.view-all-features-row span {
+    margin-top: 9px;
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.feature-section {
+    width: 334px;
+    margin-left: 52px;
+}
+
+#features-header {
+    margin-top: 40px;
+    color: #3cbbd2;
+    margin-bottom: 50px;
+}
+
+.feature-info {
+    width: 285px;
+    float: right;
+}
+
+.intro-to-feature {
+    font-weight: bold;
+    font-size: 21px;
+    color: #000000;
+}
+
+.features-details {
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+    font-weight: 300;
+    margin-top: 8px;
+    line-height: 144%;
+
+}
+
+.feature-ball {
+    background-image: url('/img/splash/quote-button.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 37px;
+    width: 37px;
+    float: left;
+}
+
+.feature-ball-download {
+    background-image: url('/img/splash/download-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 37px;
+    width: 37px;
+    float: left;
+}
+
+.feature-ball-edit {
+    background-image: url('/img/splash/pencil-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 37px;
+    width: 37px;
+    float: left;
+}
+
+
+.feature-ball-heart {
+    background-image: url('/img/splash/love-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 37px;
+    width: 37px;
+    float: left;
+}
+
+
+.feature-ball-clock {
+    background-image: url('/img/splash/clock-icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 37px;
+    width: 37px;
+    float: left;
+}
+
+.features-section-container {
+    margin-top: 45px;
+}
+
+#patients-tab .view-all-features-row {
+    margin-bottom: 50px;
+}
+
+ /*features.html patients tab */
+
+#print-out-quote {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+#print-out-quote #blue-quote {
+    margin-top: 15px;
+    color: #3cbbd2;
+    font-size: 26px;
+    letter-spacing: -1px;
+    line-height: 141%;
+}
+
+.quoter {
+    margin-top: 10px;
+    color: #797a7a;
+}
+
+#black-header-confidence {
+    font-size: 21px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#black-quote-confidence {
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+#view-sample-button-container {
+    margin-top: 15px;
+}
+
+
+#view-sample-button {
+    border-radius: 3px;
+    background-color: #3cbbd2;
+    font-weight: normal;
+    color: white;
+    width: 190px;
+    height: 40px;
+    font-size: 18px;
+    margin: auto;
+    text-align: center;
+
+}
+
+#view-sample-button span {
+    line-height: 221%;
+}
+
+#exercise-program {
+    background-image: url('/img/splash/exercise-program-grab.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 485px;
+    background-size: 1189px;
+    margin-top: 25px;
+}
+
+#info-boxes {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* aboutus.html  */
+
+#better-outcomes-heading {
+    background-image: url('/img/splash/better-outcomes.jpg');
+    background-repeat: no-repeat;
+    height: 369px;
+    background-size: cover;
+}
+
+#better-outcomes-heading .main-heading {
+    margin-top: 123px;
+    line-height: 144%;
+}
+
+#improve-lives-banner {
+    background-color: #3cbbd2;
+    font-size: 20px;
+    background-size: cover;
+    margin: auto;
+    height: 83px;
+}
+
+#improve-lives-banner .span12 {
+    color: white;
+    margin-top: 31px;
+}
+
+#founding-partners-row {
+    margin-top: 52px;
+}
+
+#founding-partners-row .centre-aligned-text {
+    font-size: 50px;
+    color: #2c84a1;
+    font-weight: 300;
+    letter-spacing: -2px;
+    font-size: 46px;
+}
+
+#founding-partners-info {
+    margin-top: 40px;
+}
+
+
+.partner-name {
+    font-size: 30px;
+    color: black;
+}
+
+.partner-tag {
+    color: #3cbbd2;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.partner-text {
+    font-size: 15px;
+    opacity: 0.8;
+    color: #000000;
+    margin-top: 20px;
+}
+
+.partner-url {
+    color: #3cbbd2;
+    font-size: 12px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.partner-linkedin {
+    background-image: url('/img/splash/linkedin-box.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 33px;
+    width: 32px;
+}
+
+.partner-twitter {
+    background-image: url('/img/splash/twitter-box.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 33px;
+    width: 32px;
+}
+
+#industrie-it .partner-linkedin {
+    float: left;
+    margin-left: 47px;
+}
+
+#philosophy-quote {
+    margin-top: 80px;
+    margin-bottom: 57px;
+}
+
+#philosophy-quote #big-quote {
+    font-size: 35px;
+    font-style: italic;
+}
+
+#philosophy-quote #quoter {
+    color: #b5b8b9;
+    font-size: 12px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+
+/* legal.html  */
+.legal-header{
+    color: #3297b2;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.legal-text{
+    color: #828282;
+    line-height: 2em;
+    padding-bottom: 30px;
+}
+
+.legal-left .legal-text, .legal-left .legal-header{
+    padding-right: 50px;
+}
+.legal-right .legal-text, .legal-right .legal-header{
+    padding-left: 50px;
+}
+
+#legal-heading {
+    background-image: url('/img/splash/features-heading-background.jpg');
+    background-repeat: no-repeat;
+    height: 177px;
+    background-size: cover;
+}
+
+#legal-heading .main-heading {
+    margin-top: 78px;
+}
+
+/** modal **/
+
+#exerciseVideoModal {
+    width: 750px;
+    left: 50%;
+    margin-left: -375px;
+}
+
+#videoModal {
+    width: 750px;
+    left: 50%;
+    margin-left: -375px;
+}
+
+.modal {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    z-index: 1050;
+    width: 780px;
+    margin: 0 0 0 -390px;
+    overflow: auto;
+    background-color: #FFF;
+    border: 1px solid #999;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    outline: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    outline: none;
+}
+
+.modal .heading {
+    padding: 10px;
+    background: #3CBBD2;
+    color: #FFF;
+    font-weight: bold;
+    margin-left: 0px;
+}
+
+.modal-body {
+    padding: 15px;
+    overflow: hidden;
+}
+
+#trial-container {
+    float: right;
+    width: 250px;
+    padding: 20px;
+    /* opacity: 0.7; */
+    margin-top: 92px;
+    margin-right: 109px;
+    /*background-color: rgba(60,187,210,0.6);*/
+    background-color: rgba(255,255,255,0.6);
+}
+
+#trial-container h3 {
+    color: #315F8C;
+    margin-top: 0px;
+}
+
+/* Cliniko splash page */
+
+#cliniko-header {
+    background-image: url('/img/clinikobackground.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*height:489px;*/
+}
+
+#clinico-heading {
+    margin: 64px 0px 19px 0px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    line-height: 30px;
+    font-size: 31px;
+    color: inherit;
+    text-rendering: optimizelegibility;
+}
+
+#hero-text {
+    padding-bottom:30px;
+    /*font-weight: bold;*/
+}
+
+#hero-image {
+    /*background-image: url('/img/cliniko-and-practx-09.png');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*height: 340px;
+    width: 670px;
+    margin-left: -48px;*/
+}
+
+#cliniko-trial-container {
+    /*float: right;*/
+    width: 320px;
+    /*padding: 20px;*/
+    /* opacity: 0.7; */
+    /*margin-top: 57px;*/
+    /*margin-right: 46px;*/
+    
+}
+
+.small-light-blue {
+    color: rgb(70, 202, 226);
+    font-size: 19px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.medium-dark-blue {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    line-height: 20px;
+    font-size: 31px;
+    color: inherit;
+    color: #263a59;
+    text-rendering: optimizelegibility;
+    padding-bottom: 21px;
+}
+
+#form-container {
+    background-color: rgb(70, 202, 226);
+    padding: 15px 10px 1px 10px; 
+    border-radius: 5px;
+    width: 284px;
+}
+
+#ipad-icon {
+    /*background-image: url('/img/splash/mini-ipad-black.png');*/
+    /*height: 310px;
+    width: 349px;*/
+    float: left;
+    margin-left: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position:absolute;
+    bottom:0;
+}
+
+#what-is-heading {
+    float:right;
+    font-size: 30px;
+    text-align: center;
+    /*height: 39px;*/
+    width:100%;
+    color: #3cbbd2;
+    padding-top: 29px;
+    padding-bottom: 28px;
+}
+
+#what-is-image {
+    /*background: url('/img/cliniko-mini-black.png');*/
+    /*position: absolute;*/
+    height: 42px;
+    width: 154px;
+    /*background-repeat: no-repeat;*/
+    /*background-size: contain;*/
+    margin-top: -9px;
+    margin-left: -10px;
+    margin-right: -7px;
+}
+
+#what-is-text {
+    float: right;
+    /*width: 400px;*/
+    /*text-align: -webkit-center;*/
+    padding-bottom: 65px;
+    line-height: 1.75;
+    font-size: 15px;
+}
+
+.what-is-text-resp {
+    float:right;
+    margin-right: 30px;
+}
+
+.grey-span {
+    background-color: #f6f4f2;
+    width: 100%;
+    margin: 0;
+    padding-top:60px;
+}
+
+.combine-perfectly {
+    height: 170px;
+}
+
+#cliniko-quote-lady {
+    /*background-image: url('/img/osteo-quoter.jpg');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*width: 232px;
+    height: 208px;
+    float: left;*/
+}
+#quotes-header {
+    text-align: center;
+    /*float: left;*/
+    padding-bottom: 20px;
+    /*padding-left: 73px;*/
+}
+
+#cliniko-quote {
+    padding-top: 35px;
+    font-style: italic;
+    /*line-height: 1.75;
+    font-weight: 400;
+    font-size: 23px;*/
+    /*font-weight: bold;*/
+    text-align: center;
+}
+
+.cliniko-quoter {
+    font-size: 13px;
+    line-height: 1.1;
+    /*font-weight: 400;*/
+    margin-left: 280px;
+    font-weight: bold;
+}
+
+.connect-cliniko {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+#how-to {
+    width: 255px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px;
+}
+
+#connect-button {
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    padding: 9px 3px 9px 14px;
+    border-radius: 3px;   
+}
+
+#dl-icon {
+    width: 20px;
+    margin-top: -6px;
+}
+
+.blue-quote-icons {
+    line-height: 0;
+    vertical-align: middle;
+    font-family: monospace;
+    font-size: 26px;
+}
+
+/* Association landing page */
+
+#association-header {
+    background-image: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 439px;
+}
+
+#association-logo {
+    /*height: 120px;*/
+    padding-top: 50px;
+}
+
+.align-grey {
+    position: relative;
+    margin-bottom: -9%;
+}
+
+.align-grey-cliniko {
+    position: relative;
+    margin-bottom: -5.5%;
+}
+
+#you-will-receive {
+    font-weight: bold;
+    font-size: 24px;
+    color: #3cbbd2;
+    /*padding-top: 36px;*/
+    padding-bottom: 18px;
+}
+
+#association-landing-list {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.association-landing-list-item {
+    background-repeat: no-repeat;
+    background-position: 0px center;
+    padding-left: 67px;
+    background-size: contain;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    white-space: nowrap;
+    font-weight: bold;
+    line-height: 215%;
+    font-size: 18px;
+}
+
+#association-trial-container {
+    /*float: right;*/
+    width: 320px;
+    /*padding: 20px;*/
+    /* opacity: 0.7; */
+    margin-top: 57px;
+    /*margin-right: 150px; */
+}
+
+#associtaion-quotes-header {
+    /*padding-left: 73px;*/
+    /*padding-left: 26px;*/
+    padding-bottom: 44px;
+    text-align: center;
+}
+
+#quote-lady {
+    /*background-image: url('/img/osteo-quoter.jpg');*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 332px;
+    height: 308px;
+    /*float: left;*/
+}
+
+#association-quote {
+    padding-top: 50px;
+    font-style: italic;
+    line-height: 1.75;
+    font-weight: 400;
+    font-size: 23px;
+    text-align: center;
+}
+
+.association-quoter {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+/* Pricing */
+#pricing-header {
+    height: 391px;
+}
+
+#pricing-title {
+    margin: 70px 0px 34px 0px;
+}
+
+.priceBox {
+    margin-right: 12px;
+    margin-left: 12px;
+    border-color: #f6f4f2;
+    border-style: solid;
+}
+
+.cycle {
+    font-size: 36px;
+}
+
+.priceBox .box-head{
+    background-color: #263a59;
+    color: #3cbbd2;
+    font-weight: bold;
+    font-size: 30px;
+    height:44px;
+    padding-top: 20px;
+}
+
+.priceBox .box-body{
+    color: #263a59;
+    padding-top: 49px;
+    padding-bottom: 98px;
+    background-color: white;
+}
+
+.priceBox .box-body .price{
+    font-size: 67px;
+    font-weight: 400;
+    height: 200px;
+}
+
+.exGSTtext {
+    position: absolute;
+    margin-left: 200px;
+}
+
+.priceBox .box-foot{
+    background-color: #3cbbd2;
+    height:10px;
+}
+
+.price-images {
+    height: 139px;
+}
+
+#have-questions-title {
+
+}
+
+.text-block {
+    margin: 20px 0px 0px 0px;
+}
+
+.text-block .questions-head {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.no-margin {
+    margin:0px;
+}
+
+/*responsive page classes*/
+
+.push-down-nav {
+    padding: 21px 0px;
+}
+
+.navmenu {
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    padding: 9px 3px;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+#logo-holder {
+    /*width: 500px;*/
+    /*padding-left: 10px;*/
+    width: 90%;
+    padding-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+     
+}
+
+@media(min-width: 768px) {
+    #logo-holder {
+        width:130%;
+        padding-left: 18%;
+    }
+}
+
+
+#fold-menu {
+    background-color: #263a59;
+}
+
+#fold-menu .login {
+    margin-left:44px;
+}
+
+.pink {
+    background-color: hotpink;
+}
+
+.center-margin {
+
+}
+.mobile-margin {
+    padding-right:0px;
+    padding-left:0px;
+}
+
+@media(max-width: 971px) {
+    #hide-text {
+        display: none;
+    }
+    #fold-menu  ul{
+        /*background-color: green;*/
+        margin:0px;
+        padding: 0px;
+    }
+    #fold-menu  ul li{
+        /*background-color: green;*/
+        margin:0px;
+        padding: 0px;
+    }
+    #fold-menu  a{
+        /*background-color: green;*/
+        padding-left: 0px;
+    }
+    #fold-menu .login {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-right: 0px;
+        line-height: 2;
+    }
+    .fold-out-button {
+        width: 100% !important;
+        background-color: transparent;
+
+    }
+
+    .fold-out-button .tryItBtn{
+        font-weight: bold;
+        text-transform: lowercase;
+        text-transform: capitalize;
+    }
+    #fold-menu .button-blue:hover {
+        background-color: transparent;
+    }
+    .center-margin {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mobile-margin {
+        padding-right:20px;
+        padding-left:20px;
+    }
+    .caa {
+        padding-left: 38px;
+    }
+}
+
+@media(min-width: 1200px) {
+    #association-trial-container {
+        margin-left:70px;
+    }
+}
+
+#cliniko-trial-container-top {
+    width: 320px;
+    float:right;
+    margin-top:7px;
+}
+
+.vertical-spacing {
+}
+
+@media (max-width: 979px) {
+    #cliniko-trial-container-top {
+        float:none;
+    }
+    #cliniko-header {
+        background-image: none;
+        background-color: rgb(250, 250, 250);
+    }
+    #hero-image {
+        width: 100%;
+        
+    }
+    .vertical-spacing {
+        margin-bottom: 13px;
+        /*margin-top: 40px;*/
+    }
+    #cliniko-trial-container-top {
+        margin-top: 40px;
+    }
+    #clinico-heading {
+        font-size: 30px;
+    }
+}
+
+.wide-center-margin {
+}
+
+@media (max-width: 1199px) {
+    #ipad-icon {
+        display:none;
+    }
+    .what-is-text-resp {
+         width:100%;
+         margin-right: 0px;
+    }
+    .wide-center-margin {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

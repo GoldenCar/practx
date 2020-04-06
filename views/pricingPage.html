@@ -1,0 +1,290 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <title>Welcome to PracTx</title>
+    <meta name="description" content="Create simple, effective exercise programs and achieve better clinical results."/>
+    <meta name="viewport" content="">
+    <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+    <!-- Bootstrap -->
+    <link href="/stylesheets/splash/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/splash/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/stylesheets/splash/main.css?1" rel="stylesheet">
+    <script type="text/javascript">
+        var analytics = analytics || [];
+        analytics.load = function (e) {
+            var t = document.createElement("script");
+            t.type = "text/javascript", t.async = !0, t.src = ("https:" === document.location.protocol ? "https://" : "http://") + "d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/" + e + "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            var r = function (e) {
+                return function () {
+                    analytics.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, i = ["identify", "track", "trackLink", "trackForm", "trackClick", "trackSubmit", "pageview", "ab", "alias", "ready"];
+            for (var s = 0; s < i.length; s++)analytics[i[s]] = r(i[s])
+        };
+        analytics.load("aq5kapao5v");
+    </script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript"src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+<body style="min-width: 1200px;">
+
+<header class="image-logo logo-and-nav">
+    <div class="container">
+        <div class="row">
+            <a href="/"><div class="span2 image-logo"></div></a>
+            <div class="span6 top-nav">
+                <a class="navmenu" href='/'>Home</a>
+                <a class="navmenu" href='/features'>Features</a>
+                <a class="navmenu" href='#'>Pricing Plans</a>
+                <a class="navmenu" id="play-sample-button" onclick="analytics.track('Video');">Tour</a>
+               <!-- <a class="navmenu" href='/about'>About us</a> -->
+            </div>
+            <div class="span4 top-nav rhs" id="right-menu">
+                <!-- <div class="button-blue">
+                    <a class="tryItBtn" href="#cliniko-trial-container"><!--Try it FREESign Up</a>
+                </div> -->
+                <a class="login" href="/login">Login</a>
+                <div class="button-blue" style="background-color: hotpink; margin-left: 125px;">
+                    <a class="tryItBtn" role="link" href="#cliniko-trial-container" >FREE TRIAL</a>
+                </div>
+            </div>
+            <div class="span4 top-nav rhs" id="right-menu-logged-in" style="display:none;text-align: right;">
+                <a class="login" href="/logout">Logout</a>
+                
+            </div>
+                
+
+            
+        </div>
+    </div>
+</header>
+
+<section id="pricing-header">
+    <div class="container">
+        <div class="row">
+            <div class="span12 centre-aligned-text" id="text-container">
+                <div id="pricing-title" class="blue-header">Two Great Plans To Choose From</div>
+                
+            </div>
+
+            <div class="span12 centre-aligned-text" style="position: absolute;margin-top: 159px;">
+                <div class="span6" style="margin:0px;">
+                    <a href="/payment?plan=<%= mainplan %>">
+                        <div class="centre-aligned-text priceBox">
+                            <div class="box-head">Per Month</div>
+                            <div class="box-body"><span class="price">$<%= monthly %></span>
+                            <span class="cycle">/mth<span id="star">*</span></span>
+                                <div id="gst-text" class="exGSTtext" style="margin-top:60px">* price excluding GST</div>
+                            </div>
+
+                            <div class="box-foot"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="span6">
+                    <a href="/payment?plan=<%= bulkplan %>">
+                        <div class="centre-aligned-text priceBox">
+                            <div class="box-head">Per Annum</div>
+                            <div class="box-body" style="padding-bottom: 37px;"><span class="price">$<%= yearly %></span>
+                                <span class="cycle">/ann<span id="star2">*</span></span><br>
+                                <span style="font-size: 18px; font-weight: bold; line-height: 61px;">Receive 2 months <span style="color:#46cae2;">FREE</span></span>
+                                <div id="gst-text2" class="exGSTtext">* price excluding GST</div>
+                            </div>
+                            <div class="box-foot"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    if (<%= gstInc %> == true) {
+        document.getElementById("star").style.display = "none" ;
+        document.getElementById("star2").style.display = "none" ;
+        document.getElementById("gst-text").style.display = "none" ;
+        document.getElementById("gst-text2").style.display = "none" ;
+    } 
+</script>
+
+<div class="grey-span" style="padding-top: 85px;">
+    <div class="container">
+        <div class="row" style="padding-bottom: 45px;">
+            <div class="span4 centre-aligned-text">
+                <div id="image-quick-to-create">
+                   <img class="price-images" src='/img/icons/person-infinity.png' alt="cliniko connect"/>
+                </div>
+                <div class="image-subheading">Unlimited Patients</div>
+                <div class="image-description">You get unlimited patients for free with <br>
+                    PracTx. 
+                </div>
+            </div>
+
+            <div class="span4 centre-aligned-text">
+                <div id="image-easy-for-patients">
+                    <img class="price-images" src='/img/icons/world-infinity.png' alt="cliniko sync"/>
+                </div>
+                <div class="image-subheading">Unlimited Locations</div>
+                <div class="image-description">Keep your PracTx patients list up to date<br/>
+                                                        by syncronizing with your exsisting Cliniko patients.<br/>
+                </div>
+            </div>
+
+            <div class="span4 centre-aligned-text">
+                <div id="image-easy-for-patients">
+                    <img class="price-images" src='/img/cliniko-email.png' alt="email us"/>
+                </div>
+                <div class="image-subheading">100% Free Support</div>
+                <div class="image-description">We're here to help you get the most out of<br> 
+                    PracTx and we would never charge for that. We<br> pride ourselves on being fast, friendly and <br>helpful. 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div style="padding-top:40px;">
+        <!-- <div class="span12"> -->
+            <div class="span7 centre-aligned-text no-margin" style="padding-bottom: 20px;" id="question-head">
+                <span class="blue-header">Still have questions?</span>
+            </div>
+            <div class="span8 no-margin" id="question-body" style="margin-left: 13px; margin-bottom: 58px;">
+                
+                <div class="span8 no-margin row" >
+                    <div class="span4 text-block" >
+                        <span class="questions-head" >When will I be charged?</span><br>
+                        Your first charge will occur after you signup<br> 
+                        to a paid plan. Payments will then occur<br> 
+                        as described on your selected plan. You can<br> 
+                        cancel your account at any time.
+                    </div>
+                    <div class="span4 text-block" >
+                        <span class="questions-head" >How secure is my payment info?</span><br>
+                        All payments are securely processed by<br> 
+                        industry leader Braintree Payment Solutions.<br>
+                         Your card information never even touches our<br> 
+                         servers.
+                    </div>
+
+                </div>
+                <div class="span8 no-margin" >
+                    <div class="span4 text-block" >
+                        <span class="questions-head" >How do I cancel?</span><br>
+                        Contact us with your login email address and we <br>
+                        will cancel your account for you. 
+                    </div>
+                    <div class="span4 text-block" >
+                        <span class="questions-head" >How can I pay?</span><br>
+                        We accept Visa and MasterCard.
+                    </div>
+                    
+
+                </div>
+                <div class="span8 no-margin" >
+                    <div class="span4 text-block" >
+                        <span class="questions-head" >Further information</span><br>
+                        Information about payment disputes and terms<br>
+                         and conditions are available on our Terms of<br>
+                        Use page. Details on how your data is used by<br> 
+                        PracTx is available at our Privacy Policy page.
+                    </div>
+                    <div class="span4 text-block" >
+                        <span class="questions-head">Contact Details:</span><br>
+                        <span style="color: #46cae2;">PracTx Level 5, 50 Carrington Street, Sydney<br> 
+                        NSW 2000, Australia.<br>
+                        ABN: 37 159 231 357 
+                        | E:<br> support@practx.com</span>
+                    </div>
+
+                </div>
+            <!-- </div> -->
+        </div>
+        <div class="span6" id="cliniko-trial-container" style="margin-top: 21px; margin-right: 36px;">
+            <div class="small-light-blue">Signup to receive a</div>
+            <div class="medium-dark-blue">Free 30 Day Trial</div>
+            <div id="form-container">
+            <div id="iframe_div"></div> 
+                <script type="text/javascript">
+                    var iframe_div = document.getElementById('iframe_div');
+                    if (<%= loggedin %> == true) {
+                        //iframe_div.innerHTML = '<span class="image-subheading">Thanks for trying PracTx.</span>'
+                        document.getElementById("cliniko-trial-container").style.display = "none";
+                        document.getElementById("right-menu").style.display = "none";
+                        document.getElementById("right-menu-logged-in").style.display = "";
+                        document.getElementById("question-head").style.margin= "0px 0px 0px 261px";
+                        document.getElementById("question-body").style.margin= "0px 0px 58px 284px";
+                    } else {
+                        var cookie = $.cookie('practxpromocode');
+                        if (typeof cookie !== "undefined") { //if cookie not undefined
+                            iframe_div.innerHTML = '<iframe id="iframe" src="/signup_iframe?referral_code='+cookie+'&amp;trial=yes" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe>';
+                        } else {
+                            iframe_div.innerHTML = '<iframe id="iframe" src="/signup_iframe?referral_code=stdTrial&amp;trial=yes" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe>';
+                        } 
+                    }
+                </script>
+                <!-- <iframe id="iframe" src="/signup_iframe?referral_code=stdTrial&amp;trial=yes" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe> 
+                <!-- <iframe id="iframe" src="/signup_iframe?plan=DSFASEF2342N4" style="width: 100%; height: 185px;" seamless scrolling="no" frameborder="0"></iframe> -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container centre-aligned-text" style="padding-bottom:20px;">
+    <hr style="margin: 46px 0px 20px 0px;">
+    We also have plans available for multiuser clinics. Please make an enquiry direct to <a href="mailto:support@practx.com">support@practx.com</a>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="span12 centre-aligned-text" id="bottom-nav">
+                <a href="index.html">Home</a> &#8226; <a href="/features">Features</a>  &#8226; <a href="#">Plans and Pricing</a><!--&#8226; <a href="/about">About<span id="regular-space"> </span>us</a>-->
+                &#8226; <a href="/legal">Terms & Conditions</a> &#8226; <a href="/privacy">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div id="social-buttons">
+                    <a href="http://instagram.com/practx" target="_blank"><img style="height:38px;"src="/img/splash/instagram-btn.png"/></a>
+                    <a href="https://www.facebook.com/pages/Practx/423199081103844" target="_blank"><img src="/img/splash/facebook-btn.png"/></a>
+                    <a href="mailto:support@practx.com" target="_blank"><img src="/img/splash/email-btn.png"/></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12 centre-aligned-text">
+                <span class="contact-section"><br>
+                    <b>© 2013 PracTx</b> Level 5, 50 Carrington Street, Sydney NSW 2000, Australia.<br>
+                    <b>ABN:</b> 37 159 231 357 | <b>E:</b> support@practx.com<br>&nbsp;
+                </span>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<div id="videoModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="playButton" data-keyboard="false" data-backdrop="static" modal-body="videoModalBody" aria-hidden="false">
+    <div class="row heading">
+        <a id="close-video-modal" class="pull-right" style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a></div>
+    <div class="modal-body" id="videoModalBody" play-video="videoExercise"><video id="theVideo" width="720" height="400" controls=""><source src="https://d2bjomctld7cul.cloudfront.net/videos/practx-demo.m4v">  Your browser does not support the video tag.</video></div>
+</div>
+
+<div id="exerciseVideoModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="playButton" data-keyboard="false" data-backdrop="static" modal-body="videoModalBody" aria-hidden="false">
+    <div class="row heading">
+        <a id="exercise-close-video-modal" class="pull-right" style="color: white; opacity: 0.6; margin-top: 0; text-decoration: none; cursor: pointer" aria-hidden="true">×</a>  <span style="text-transform: uppercase" ng-bind="videoExercise.name" class="ng-binding">Levator Scapulae</span></div>
+ <div class="modal-body" id="exerciseVideoModalBody" play-video="videoExercise"><video id="exerciseVideo" width="720" height="400"  controls=""><source type="video/webm" src="https://d2bjomctld7cul.cloudfront.net/videos/levator-scapulae.webm"><source type="video/mp4" src="https://d2bjomctld7cul.cloudfront.net/videos/levator-scapulae.mp4">  Your browser does not support the video tag.</video></div>
+</div>
+
+
+
+
+<script src="/javascripts/splash/bootstrap.min.js"></script>
+<script src="/javascripts/splash/main.js?1"></script>
+</body>
+</html>

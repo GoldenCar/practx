@@ -1,0 +1,11 @@
+body >header, #main {
+    -webkit-transition: 0.3s -webkit-transform;
+}
+.menuopen {
+    -webkit-transform: translate3d(260px,0,0);
+    z-index: 30000;
+}
+
+.modal{
+    width: 560px;
+}

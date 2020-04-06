@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="Firefox 14.0" package="undefined" timestamp="2013-03-15T04:57:24" id="0" hostname="iit-laptop-28.industrieit.local" tests="1" errors="0" failures="0" time="0.027">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:14.0) Gecko/20100101 Firefox/14.0.1"/>
+    </properties>
+    <testcase name="should fail" time="0.027" classname="Firefox 14.0.ExerciseListCntl"/>
+    <system-out/>
+    <system-err/>
+  </testsuite>
+</testsuites>

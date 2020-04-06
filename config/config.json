@@ -1,0 +1,27 @@
+{
+  "development":
+  {
+        "username":"postgres",
+        "password":"root",
+        "database":"practx_dev",
+        "host":"localhost",
+        "dialect": "postgres"
+  },
+  "test":
+  {
+      "username":"postgres",
+       "password":"root",
+      "database":"practx_test",
+      "host":"localhost",
+      "dialect": "postgres"
+  },
+  "staging":
+  {
+      "username":"sfqezjujefbfxi",
+      "password":"Ubdxt3Yt1qq38zkYBKp89bkB12",
+      "database":"d97nqdfe2g9be7",
+      "host":"ec2-23-21-203-9.compute-1.amazonaws.com",
+      "dialect": "postgres",
+      "port": "5432"
+  }
+}
