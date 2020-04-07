@@ -21,9 +21,9 @@ var AWS = require('aws-sdk')
     , Config = require('./config/config.js')
     , SendGrid = require('sendgrid').SendGrid
     , sendgrid = new SendGrid('support@practx.com','WHAtrBK4gGk8&7jkhl*(&(')
-    , NodeTIme = require('nodetime').profile({
-        accountKey: '7ca881fb6b1123516c0158e185f197240b868298',
-        appName: 'PracTX'})
+    // , NodeTIme = require('nodetime').profile({
+    //     accountKey: '7ca881fb6b1123516c0158e185f197240b868298',
+    //     appName: 'PracTX'})
     , EventLogging = require('./event_logging')
     , https = require('https')
     , request = require('request')
@@ -44,7 +44,7 @@ var AWS_SECRET_KEY = 'lqj58Nfx2zbarAFHtZbRMls2Cd/BJGGguk9RgSev';
 AWS.config.update({accessKeyId: AWS_ACCESS_KEY, secretAccessKey: AWS_SECRET_KEY});
 
 config = new Config();
-var sequelize = new Sequelize(config.database.database, config.database.username, config.database.password, {host: config.database.host, dialect: config.database.dialect, port: config.database.port, logging: true, native: true})
+var sequelize = new Sequelize(config.database.database, config.database.username, config.database.password, {host: config.database.host, dialect: config.database.dialect, port: config.database.port, logging: true, native: false})
 db = new db(sequelize)
 clinic = new Clinic(db)
 ExerciseList = new ExerciseList(db, clinic)

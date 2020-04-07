@@ -4,9 +4,9 @@ module.exports = function(){
             return {
                 database:
                 {
-                    "username":"Hopefulee",
-                    "password":"hinfung",
-                    "database":"practx_dev",
+                    "username":"postgres",
+                    "password":"password",
+                    "database":"postgres",
                     "host":"localhost",
                     "dialect": "postgres"
                 },
